@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 
 import Layout from "../components/layout"
+import "./blog.css"
 
 const HomePage = ({ data }) => {
     console.log("data: ", data);
@@ -13,7 +14,7 @@ const HomePage = ({ data }) => {
                 const title = node.frontmatter.title
                 const path = node.frontmatter.path
                 return (
-                    <div>
+                    <div className="blog-item">
                         <h2>{title}</h2>
                         <Link to={path}>Read</Link>
                     </div>
