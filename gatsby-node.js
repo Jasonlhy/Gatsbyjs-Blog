@@ -22,7 +22,9 @@ exports.createPages = ({ actions, graphql }) => {
         edges {
           node {
             frontmatter {
+              title
               path
+              categories
             }
           }
         }
@@ -34,8 +36,11 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      let path = node.frontmatter.path || ("/blog/" + node.frontmatter.categories + "/" + node.frontmatter.title)
+      console.log("Page path: ", path)
+
       createPage({
-        path: node.frontmatter.path,
+        path: path,
         component: blogPostTemplate,
         context: {}, // additional data can be passed via context
       })

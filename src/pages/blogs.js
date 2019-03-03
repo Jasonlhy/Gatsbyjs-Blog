@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 
 import Layout from "../components/layout"
-import "./blog.css"
+import "./blogs.css"
 
 const HomePage = ({ data }) => {
     console.log("data: ", data);
