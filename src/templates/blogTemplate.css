@@ -21,8 +21,8 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 
 .blog-post-content {
     background-color: #fff;
-    border: 1px solid #d1d5da;
-    border-radius: 3px;
+    /* border: 1px solid #d1d5da; */
+    /* border-radius: 3px; */
     padding-top: var(--blog-post-padding);
     padding-bottom: var(--blog-post-padding);
     padding-left: var(--blog-post-padding);
