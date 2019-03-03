@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import './blogTemplate.css'
 
 // Blog Template
 export default function Template({

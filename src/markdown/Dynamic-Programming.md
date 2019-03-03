@@ -10,9 +10,7 @@ tags:
 
 # Definition of Dynamic Programming
 Copy from wikipedia
-{% quote %}
-dynamic programming is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions - ideally, using a memory-based data structure. The next time the same subproblem occurs, instead of recomputing its solution, one simply looks up the previously computed solution, thereby saving computation time at the expense of a (hopefully) modest expenditure in storage space. (Each of the subproblem solutions is indexed in some way, typically based on the values of its input parameters, so as to facilitate its lookup.) The act of storing solutions to subproblems is called "memoization".
-{% endquote %}
+> dynamic programming is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions - ideally, using a memory-based data structure. The next time the same subproblem occurs, instead of recomputing its solution, one simply looks up the previously computed solution, thereby saving computation time at the expense of a (hopefully) modest expenditure in storage space. (Each of the subproblem solutions is indexed in some way, typically based on the values of its input parameters, so as to facilitate its lookup.) The act of storing solutions to subproblems is called "memoization".
 
 - one of the divide and conquer method and use a table for memorialization of temporary(smaller problem) result.
 - executive, considering every possibility.
@@ -26,17 +24,18 @@ Consider whether a job j is chosen to be included or not
 1. If include consider it last compatible job (p(j) + Vj
 2. If not consider it previous job
 
-<pre class="sample">
-  Sort by the finish time
-  OPT(j) = 0 if j = 0
-  OPT(j) = max(OPT(j - 1), OPT(p(j) + Vj)
+<pre>
+Sort by the finish time
+OPT(j) = 0 if j = 0
+OPT(j) = max(OPT(j - 1), OPT(p(j) + Vj)
 </pre>
 
 Compute p(n)
-<pre class="sample">
-  sort one list with start time (1)
-  sort one list with finish time (2)
-  loop from the end until (1).start > finish
+
+<pre>
+sort one list with start time (1)
+sort one list with finish time (2)
+loop from the end until (1).start > finish
 </pre>
 
 # Longest Common Subsequence
@@ -68,9 +67,9 @@ Consider whether a letter X[i], Y[j] equal or not
 # 0-1 Knapsack Problem
 Consider a set of items. consider include item i or not
 1. no items include yet, of course zero value
-2. cannot include the item due to exceed of weight limit 
+2. cannot include the item due to exceed of weight limit
 3. not include the item, consider OPT from previous items
-   VS 
+   VS
    include the item, consider OPT from the (bag weight - item weight) + item value
 
 <pre class="sample">

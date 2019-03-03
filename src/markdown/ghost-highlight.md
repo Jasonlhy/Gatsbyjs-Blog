@@ -11,11 +11,9 @@ title: "Ghost Highlight"
 1. 首先在 https://cdnjs.com 搜尋 prism
 2. 複制當中的 css 和 js 連結
 3. 在 Code Injection header 貼上 css，在 footber 貼上 js
-```markup
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
-```
 
 ```markup
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 ```
 

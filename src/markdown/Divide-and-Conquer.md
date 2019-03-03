@@ -23,7 +23,7 @@ Number of level = 2 log2 n
 Running time: `O(n log n)`
 
 ## Sample code written in C
-{% codeblock %}
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -106,13 +106,12 @@ int main(void){
 
     return 0;
 }
-
-{% endcodeblock %}
+```
 
 ## Counting inversion
 Counting inversion is one of the application of merge sort.
 In the "merge process", it can be used to "count the inversion".
-<pre sample"sample">
+```c
   if (array contains only one element)
     return 0
     
@@ -122,19 +121,24 @@ In the "merge process", it can be used to "count the inversion".
   c = Merge-and-Count(A, B)
   
   return a + b + c;
-</pre>
+```
 
 # Cloest Pair
 It can be done by dividing the panel into left and right panel and finding the closest pair recursively in each part.
 To find the closes pair perhaps connecting from left panel to right panel
 we need to test 2 * beta distance
-which beta is defined as min(closest_distance(left), closest_distance(right))
+which beta is defined as `min(closest_distance(left), closest_distance(right))`
+
+```
 [Left][Right]
 [Left<-beta->][<-beta->Right]
+```
   
 People find that in order to find the closest pair of an particular point in beta area, they just need to test its 11-th consecutive point in y coordinate
 let yg be the elements in the beta element
+```c
 for (int i = 0; i < yg.length; i++)
   for (int j = 1; j <= 11; j++)
      if (distance(yg[i], yg[i+j] < beta)
         beta = distance(yg[i], yg[i+j])
+```

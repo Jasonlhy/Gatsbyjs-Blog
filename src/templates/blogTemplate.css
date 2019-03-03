@@ -1,0 +1,15 @@
+/**
+ * Work with the prism-coy.css
+ */
+ 
+/* Remove the weird box-shadow */
+pre[class*="language-"]:before, pre[class*="language-"]:after {
+    box-shadow: none;
+}
+
+/* Inline code outside code block */
+:not(pre) > code[class*="language-"] {
+    margin-left: .2em;
+    margin-right: .2em;
+    bottom: 1px;
+}

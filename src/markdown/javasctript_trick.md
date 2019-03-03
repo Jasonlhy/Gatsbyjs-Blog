@@ -8,7 +8,7 @@ title: "JavaScript-Trick"
 
 之前其中一個 [hungry delete commit](https://github.com/Jasonlhy/VSCode-Hungry-Delete/commit/af8312a76acb73b236bf97fd414eb2ed820e54c9)
 
-```js
+```javascript
 if (!columnNumber){
     columnNumber = this.length;
 }
@@ -20,7 +20,7 @@ if (!columnNumber){
 
 使用 typeof 就好了。
 
-```js
+```javascript
 if (typeof columnNumber === 'undefined') {
     columnNumber = this.length;
 }

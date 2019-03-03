@@ -10,9 +10,10 @@ tags:
 - Formal Language
 ---
 
-# JSON 和Context-free Grammar的關係 
+# JSON 和 Context-free Grammar 的關係
 Copy from [JSON.org](http://www.json.org)
-<pre class="sample">
+
+<pre>
 object
   {}
   { members }
@@ -25,7 +26,7 @@ array
   []
   [ elements ]
 elements
-  value 
+  value
   value , elements
 value
   string
@@ -37,15 +38,15 @@ value
   null
 </pre>
 
-JSON 可以由Context-free Grammar 所做成。當中的rule都是non-ambiguous，內裡的leftmost derivation, 都是deterministic (只有一個方法)。而且可以先做rule1 再做rule2。因此他是LL(1) parser, 可以用predictive parsing，用recursive decent method.
+JSON 可以由 Context-free Grammar 所做成。當中的 rule 都是 non-ambiguous，內裡的 leftmost derivation, 都是 deterministic (只有一個方法)。而且可以先做 rule1 再做 rule2。因此他是 LL(1) parser, 可以用 predictive parsing，用 recursive decent method.
 
-每次先看看一個character 然後決定走那條rule
-下面是sample code,當中的members和elements 不用recursion那麼深... 可以用while 取代, syntax error detection 的做法參加了原作者, 一檢測到就throw exception
+每次先看看一個 character 然後決定走那條 rule
+下面是 sample code, 當中的 members 和 elements 不用 recursion 那麼深... 可以用 while 取代, syntax error detection 的做法參加了原作者, 一檢測到就 throw exception
 
 
 
 # Sample Code
-{% codeblock lang:java %}
+```java
 public class JSONValidator {
 	private String jsonString;
 	private int idx = -1; // next scan character index
@@ -63,7 +64,7 @@ public class JSONValidator {
 	public void next(char expectedChar) {
 		if (peek() != expectedChar) {
 			// run time exceptions
-			throw new JSONParseException("Expected " + expectedChar + " at " + idx + " but " + peek() + " is found");
+			throw new JSONParseException("Expected" + expectedChar + "at" + idx + "but" + peek() + "is found");
 		}
 
 		idx++;
@@ -96,12 +97,12 @@ public class JSONValidator {
 		ws();
 		pair();
 		ws();
-		
-		
+
+
 		if (isEnd()){
-			throw new JSONParseException("Unexpected ending of JSON Object, may be missing } ");
+			throw new JSONParseException("Unexpected ending of JSON Object, may be missing }");
 		}
-		
+
 		if (peek() == ',') {
 			next(',');
 			members();
@@ -111,26 +112,26 @@ public class JSONValidator {
 	public void pair() {
 		ws();
 		String key = string();
-		System.out.println("Key in json object: " + key);
+		System.out.println("Key in json object:" + key);
 		ws();
 		next(':');
 		ws();
 		String value = value();
-		System.out.println("Value in json object: " + value);
+		System.out.println("Value in json object:" + value);
 	}
 
 	public String value() {
 		ws();
-		
+
 		if (isEnd()){
-			throw new JSONParseException("Expected a JSON value at " + idx);
+			throw new JSONParseException("Expected a JSON value at" + idx);
 		}
-		
+
 		char ch = peek();
 		String returnStr = "";
-		
+
 		switch (ch){
-		case '{' : 
+		case '{' :
 			object();
 			break;
 		case '[' :
@@ -141,12 +142,12 @@ public class JSONValidator {
 		case '-':
 			return number();
 		default:
-			returnStr = (Character.isDigit(ch)) ? number() : word() + ""; 
+			returnStr = (Character.isDigit(ch)) ? number() : word() + "";
 		}
-		
+
 		return returnStr;
 	}
-	
+
 	public String word() {
 		char ch = peek();
 		switch (ch) {
@@ -170,7 +171,7 @@ public class JSONValidator {
 			next('l');
 			return "null";
 		default:
-			throw new JSONParseException("Unknowned token " + ch + " at " + idx);
+			throw new JSONParseException("Unknowned token" + ch + "at" + idx);
 		}
 
 	}
@@ -179,7 +180,7 @@ public class JSONValidator {
 		ws();
 		next('[');
 		ws();
-		
+
 		if (peek() == ']'){
 			next(']'); // empty array;
 		} else {
@@ -192,7 +193,7 @@ public class JSONValidator {
 	public void elements() {
 		ws();
 		String value = value();
-		System.out.println("value of array elements: " + value);
+		System.out.println("value of array elements:" + value);
 		ws();
 		if (peek() == ','){
 			next(',');
@@ -218,13 +219,13 @@ public class JSONValidator {
 	public String number() {
 		ws();
 		int initIdx = idx;
-		
+
 		String numberString = "";
 		if (peek() == '-'){
 			next('-');
 			numberString += '-';
 		}
-		
+
 		// digit before .
 		while (!isEnd()) {
 			char c = peek();
@@ -235,16 +236,16 @@ public class JSONValidator {
 				break;
 			}
 		}
-		
+
 		if (isEnd()){
 			throw new JSONParseException("Unexpected number at the end");
 		}
-		
+
 		// digit after .
 		if (peek() == '.'){
 			next('.');
 			numberString += '.';
-			
+
 			while (!isEnd()) {
 				char c = peek();
 				if (Character.isDigit(c)) {
@@ -258,17 +259,17 @@ public class JSONValidator {
 
 		// integer or double
 		try {
-			System.out.println("Parse as Int for " + numberString);
+			System.out.println("Parse as Int for" + numberString);
 			return Integer.parseInt(numberString) + "";
 		} catch (NumberFormatException ex){
 			try {
-				System.out.println("Parse as double for " + numberString);
+				System.out.println("Parse as double for" + numberString);
 				return Double.parseDouble(numberString) + "";
 			} catch (NumberFormatException ex2){
-				throw new JSONParseException("Expected number at " + initIdx + " but it is not found");
+				throw new JSONParseException("Expected number at" + initIdx + "but it is not found");
 			}
 		}
-		
+
 	}
 
 	public int nextInt() {
@@ -317,7 +318,6 @@ public class JSONValidator {
 		return str;
 	}
 
-	
+
 }
-{% endcodeblock %}
-  
+```

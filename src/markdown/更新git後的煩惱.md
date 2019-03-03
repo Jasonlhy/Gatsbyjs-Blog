@@ -22,7 +22,7 @@ tags:
 # 想到的解決方法
 模仿hexo-deployer-git 的設計理念，寫了一個shell script 方便deploy。我在Mac OS 測試，有些指令Linux 也許不相容。
 
-{% codeblock %}
+```bash
 #!/bin/bash
 
 # The folder to be deployed and Github repository
@@ -46,13 +46,9 @@ fi
 git add .
 git commit -m "$msg"
 git push -u "$repo" "master:master" --force
-{% endcodeblock %}
+```
 
 -------
-
-
-
-
 
 # 最後解決方法
 
@@ -60,7 +56,7 @@ git push -u "$repo" "master:master" --force
 
 
 只需設定global username 同global email (切記要和public key 內的email 相同)
-{% codeblock %}
+```bash
 git config --global user.name "Yourname"
 git config --global user.email "YourEmail@email.com"
-{% endcodeblock %}
+```
