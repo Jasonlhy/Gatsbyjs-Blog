@@ -26,6 +26,8 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          // Need this to work with TOC ..
+          `gatsby-remark-autolink-headers`,
           {
             // Synax highlight
             resolve: `gatsby-remark-prismjs`,
