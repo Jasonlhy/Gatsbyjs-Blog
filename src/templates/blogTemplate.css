@@ -38,3 +38,8 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
     border-left: .3em solid #979797;
     padding-left: .4em;
 }
+
+.blog-toc {
+    /* position: absolute; */
+    top: 1px;
+}

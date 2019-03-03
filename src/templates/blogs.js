@@ -12,9 +12,11 @@ const HomePage = ({ data }) => {
         <Layout>
             {posts.map(({ node }) => {
                 const title = node.frontmatter.title
-                const path = node.frontmatter.path
+                // const path = node.frontmatter.path
                 const excerpt = node.excerpt
                 const date = node.frontmatter.date
+                // const path = node.frontmatter.path
+                const slug = node.fields.slug
 
                 return (
                     <div className="blog-item">
@@ -23,7 +25,7 @@ const HomePage = ({ data }) => {
                         <div className="except-container">
                           {excerpt}
                         </div>
-                        <Link to={path}>閱讀更多</Link>
+                        <Link to={slug}>閱讀更多</Link>
                     </div>
                 )
             })}
@@ -36,6 +38,9 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, limit: 1000) {
         edges {
           node {
+            fields {
+              slug
+            },
             excerpt
             frontmatter {
               title

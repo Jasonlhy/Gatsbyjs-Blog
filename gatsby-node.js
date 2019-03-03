@@ -22,6 +22,9 @@ exports.createPages = ({ actions, graphql }) => {
       ) {
         edges {
           node {
+            fields {
+              slug
+            }
             frontmatter {
               title
               path
@@ -38,13 +41,15 @@ exports.createPages = ({ actions, graphql }) => {
 
     // Create page of each markdown page
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      let path = node.frontmatter.path || ("/blog/" + node.frontmatter.categories + "/" + node.frontmatter.title)
-      console.log("Page path: ", path)
+      // let path = node.frontmatter.path || ("/blog/" + node.frontmatter.categories + "/" + node.frontmatter.title)
+      // console.log("Page path: ", path)
 
       createPage({
-        path: path,
+        path: node.fields.slug,
         component: blogPostTemplate,
-        context: {}, // additional data can be passed via context
+        context: {
+          slug: node.fields.slug
+        },
       })
     })
 
@@ -65,9 +70,10 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
+// I have no idead why it needs slug to use table of content ..
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  console.log("node.internal.type", node.internal.type)
+  // console.log("node.internal.type", node.internal.type)
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
