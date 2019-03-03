@@ -1,5 +1,5 @@
 ---
-path: '/blog/Problem/Exception: Prelude.read: no parse/
+path: '/blog/Problem/Exception: Prelude.read: no parse/'
 title: 'Exception: Prelude.read: no parse'
 date: 2013-08-29 08:59:42
 description: I got Exception, Prelude.read no parse when I tested this function with floating number and integer number
