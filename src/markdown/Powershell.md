@@ -37,11 +37,10 @@ Import-Csv god.csv | Out-GridView
 ```
 Get-ChildItem *.txt | Get-Member
 
-
 TypeName: System.IO.FileInfo
 ```
 
-```
+```powershell
 Get-ChildItem *.txt | foreach { $_.Name }
 async_note.txt
 db.txt

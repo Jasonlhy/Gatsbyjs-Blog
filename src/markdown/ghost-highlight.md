@@ -12,14 +12,14 @@ title: "Ghost Highlight"
 2. 複制當中的 css 和 js 連結
 3. 在 Code Injection header 貼上 css，在 footber 貼上 js
 
-```markup
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 ```
 
 4. 在 code block 上加上語言 ID 作識別，語言 ID 可以在 [這裡找](http://prismjs.com/#languages-list)。
 
-```markup
+```markdown
 ```javascript
 if (!columnNumber){
     columnNumber = this.length;

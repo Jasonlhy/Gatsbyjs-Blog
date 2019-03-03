@@ -13,3 +13,13 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
     margin-right: .2em;
     bottom: 1px;
 }
+
+.blog-post-content h1:not(:first-child){
+    margin-top: 2em;
+}
+
+.blog-post-content blockquote {
+    padding-left: .4em;
+    border-left: .3em solid #979797;
+    padding-left: .4em;
+}

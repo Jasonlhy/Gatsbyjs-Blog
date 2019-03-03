@@ -17,7 +17,7 @@ At each character of text, compare with pattern letter by letter from its begini
 Running time: `O(n * k)`
 where n is the length of text, k is the length of pattern
 
-{% codeblock lang:cpp %}
+```cpp
 #include <stdio.h>
 #include <string.h>
 
@@ -41,7 +41,7 @@ int contain(char *t, char *p){
 
 	return result;
 }
-{% endcodeblock %}
+```
 
 ----
 
@@ -156,15 +156,13 @@ where n is the length of text
 where k is the length of pattern
 
 From wikipedia
-{% quote %}
-Here is another way to think about the runtime: Let us say we begin to match W and S at position i and p. If W exists as a substring of S at p, then W[0..m] = S[p..p+m]. Upon success, that is, the word and the text matched at the positions (W[i] = S[p+i]), we increase i by 1. Upon failure, that is, the word and the text does not match at the positions (W[i] ≠ S[p+i]), the text pointer is kept still, while the word pointer is rolled back a certain amount (i = T[i], where T is the jump table), and we attempt to match W[T[i]] with S[p+i]. The maximum number of roll-back of i is bounded by i, that is to say, for any failure, we can only roll back as much as we have progressed up to the failure. Then it is clear the runtime is 2n.
-{% endquote %}
+> Here is another way to think about the runtime: Let us say we begin to match W and S at position i and p. If W exists as a substring of S at p, then W[0..m] = S[p..p+m]. Upon success, that is, the word and the text matched at the positions (W[i] = S[p+i]), we increase i by 1. Upon failure, that is, the word and the text does not match at the positions (W[i] ≠ S[p+i]), the text pointer is kept still, while the word pointer is rolled back a certain amount (i = T[i], where T is the jump table), and we attempt to match W[T[i]] with S[p+i]. The maximum number of roll-back of i is bounded by i, that is to say, for any failure, we can only roll back as much as we have progressed up to the failure. Then it is clear the runtime is 2n.
 
 # Code Sample in C
 The failure function starts with 0 index
 -1 means no LPS
 
-{% codeblock lang:cpp %}
+```cpp
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -234,4 +232,4 @@ int contain(char *t, char *p){
 
 	return 0;
 }
-{% endcodeblock %}
+```

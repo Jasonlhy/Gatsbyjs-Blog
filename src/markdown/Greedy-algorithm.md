@@ -16,7 +16,7 @@ And a bag with weight `W`
 Find the maximum sum of values of items can carry with the bag if the items can be divided in fraction.
 
 ## Solution
-<pre class="sample">
+<pre>
 Calculte the value/weight of each item, `V1/W1, V2/W2, ...Vn/Wn`
 Extract the item with highest value/weight
    If item can be hold fully into the bag
@@ -42,7 +42,7 @@ W = 4
 Item n has the highest value/weight, 
 Item a and b have lower value/weight
 
-<pre class="sample">
+<pre>
 Given 
 1. Wa + Wb = Wn
 2. Vn/Wn < Va/Wa 
@@ -62,7 +62,7 @@ so that maximum the amount of job cna be done in a period.
 Running time: O(n log n)
 
 ## Solution
-<pre class="sample">
+<pre>
 Sort them in by finish time so that J1, J2, ...Jn
 A = set of selected job
 for i = 1 to n
@@ -73,7 +73,7 @@ Running time complexity: O(n log n)
 </pre>
 
 ## Proof
-<pre class="sample">
+<pre>
 C = COUNTER EXAMPLE
 
 Not by start time
@@ -110,7 +110,7 @@ Allocate room for classes so that minimum rooms are required
 Running time: O(n log n), store the class finished time in min-heap
 
 ## Solution
-<pre class="sample">
+<pre>
   Sort the classes by start time c1, c2, ... cn
   d = no. of room needed
   for i = 1 to n
@@ -145,6 +145,7 @@ Lateness is defined as max(0, Fi - Dn) where Fi is the finished time of i-th job
 Minimizing the maximum lateness. 
 
 ## Solution
+<pre>
 Sort the jobs with deadline in ascending order
 let t = current time
 for i = 1 to n
@@ -152,6 +153,7 @@ for i = 1 to n
   Fi = t + Ti
   t = Fi
 lateness = max(lateness, max(0, Di - Fi))
+</pre>
 
 ## Proof
 **Exchange argument**
@@ -163,7 +165,7 @@ It is done by transforming other possible solution to our solution without hurti
 2. Other solutions may have inversion of jobs i < j but Dj < Di, other solution have no inversion as we sort by deadline in ascending order
 => Let swap them try try, maximum lateness will not decrease after swap
 
-<pre class="sample">
+<pre>
 Before swap
        Fi    Fj 
 [i      ][j   ]

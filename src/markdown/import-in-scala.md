@@ -9,18 +9,19 @@ tags:
 ---
 
 
-Import(匯入) 在scala有很多方法
+Import(匯入) 在 scala 有很多方法
 # 最常用 
 `import jason.playground._` 
-匯入jason.playground package 底下的所有classes and object, 包括package object(package object 的所有member會以static 方面匯入)
+匯入 jason.playground package 底下的所有 classes and object, 包括 package object(package object 的所有 member 會以 static 方面匯入)
 
-# 匯入特定class的member
+# 匯入特定 class 的 member
 `import jason.playground.JasonPhone._`
-匯入jason.playground.Jason 底下的所有member
+匯入 jason.playground.Jason 底下的所有 member
 
 
 # 例子
-{% codeblock %}
+
+```scala
 package jason.playground
 
 object JasonPhone {
@@ -58,15 +59,15 @@ object Main {
     println("I am using: " + name()); // this is a short cut with static import
   }
 }
+```
 
-{% endcodeblock %}
-
-- `JasonPhone.name()` 由匯入`jason.playground._` 而來
-- `nameFromPackageObject()` 由匯入`jason.playground._` 而來，是package object裡的method
-- `name()` 由static匯入 `jason.playground.JasonPhone._`而來，不用打JasonPhone作為prefix
+- `JasonPhone.name()` 由匯入 `jason.playground._` 而來
+- `nameFromPackageObject()` 由匯入 `jason.playground._` 而來，是 package object 裡的 method
+- `name()` 由 static 匯入 `jason.playground.JasonPhone._` 而來，不用打 JasonPhone 作為 prefix
 
 ## Play Framework 匯入應用
-{% codeblock %}
+
+```scala
 val userForm = Form(
   mapping(
     "name" -> of[String],
@@ -74,6 +75,7 @@ val userForm = Form(
     "email" -> of[String]
   )(User.apply)(User.unapply)
 )
-{% endcodeblock %}
-`of` 由匯入`play.api.data.Forms._` 得來, `Forms`是一個object定義helper methods
+```
+
+`of` 由匯入 `play.api.data.Forms._` 得來, `Forms` 是一個 object 定義 helper methods
 

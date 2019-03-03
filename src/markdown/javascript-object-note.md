@@ -8,100 +8,94 @@ tags:
 ---
 
 # Object
-javascript的object是key-value pair
-因此key有時會被叫作property, member, etc...
-value 可以是integer, true, false, function, etc 
+javascript 的 object 是 key-value pair
+因此 key 有時會被叫作 property, member, etc...
+value 可以是 integer, true, false, function, etc 
 
 ## √ 定義
-{% codeblock lang:javascript %}
+```js
 var object = {} // empty object
-var object = { name : my_nickname } // my_nickanme is the defined variable
-var object = { 'name' : "jason" , 'job' : "sutdent" }   // hv ''
-var object = { name : "jason", job : "student" }     // no ''
-var object = { 名字 : "jason" }     // console.log(object.名字) -> jason
+var object = {name : my_nickname} // my_nickanme is the defined variable
+var object = { 'name' : "jason" , 'job' : "sutdent" }   // hv ''var object = { name :"jason", job :"student"}     // no''
+var object = { 名字 : "jason" }     // console.log(object. 名字) -> jason
 var object = { nick_name : "jason" }     // console.log(object.nick_name) -> jason
-{% endcodeblock %}
+```
 
 ## ✘ 定義
-{% codeblock lang:javascript %}
-var object = { my name : "jason" } // key 如有空格要''
-var object = { nick-name : "jason" } // key 如有-要''
-{% endcodeblock %}
+```js
+var object = { my name : "jason" } // key 如有空格要''var object = { nick-name :"jason"} // key 如有 - 要''
+```
 
-
-## 存取Object成員(Access object's property)
-利用`.`作分隔，注意提取未定義的property 會回傳undefined value
-{% codeblock lang:javascript %}
+## 存取 Object 成員 (Access object's property)
+利用 `.` 作分隔，注意提取未定義的 property 會回傳 undefined value
+```js
 var object = { name : "jason" };
 object.name // jason
 object.age // undefined  
-{% endcodeblock %}
+```
 
-因此可以利用undefined value 檢查某object 成員有沒有被定義
-{% codeblock %}
+因此可以利用 undefined value 檢查某 object 成員有沒有被定義
+```js
 object.name === undefined // false
 object.age === undefined // true
-{% endcodeblock %}
+```
 
-也可以利用`[]` (Object literal), 適用於有-的key
-{% codeblock %}
+也可以利用 `[]` (Object literal), 適用於有 - 的 key
+```js
 var object = { "my-name": "jason", "image-list" : "image.png" };
 object.image-list; // reference error: list
 object.my-name; // NaN
 object["my-name"]; // jason
-{% endcodeblock %}
+```
 
 Object 可以隋意新加成員
-{% codeblock lang:javascript %}
+```js
 var object = { name : "jason" };
 object.nickname = "tresa";
 object.nickname; // "tresa"
-{% endcodeblock %}
+```
 
-# 檢查type
-Javascript 使用String定義type
-{% codeblock %}
+# 檢查 type
+Javascript 使用 String 定義 type
+```js
 var object = { name : "jason" };
 typeof object; // "object"
-{% endcodeblock %}
+```
 
-## 檢查Array
-不過Array的type也是'object', 但可以利用Array.isArray()檢查 (ECMAScript >= 5)
-{% codeblock %}
+## 檢查 Array
+不過 Array 的 type 也是'object', 但可以利用 Array.isArray() 檢查 (ECMAScript >= 5)
+```js
 var array = ["jason", "object"]
 typeof array; // "object" 
 Array.isArray(array) // true
-{% endcodeblock %}
+```
 
+## 檢查一個 variable 有沒有 value
+可以利用 typeof 去避免 ReferenceError: Can't find variable: list
+注意: 所有 variable 即使定義了，沒有 acess 前 value 都是 undefined
 
-## 檢查一個variable 有沒有value
-可以利用typeof 去避免ReferenceError: Can't find variable: list
-注意: 所有variable 即使定義了，沒有acess前value都是undefined
-
-{% codeblock %}
+```js
 var x;
 typeof x; // "undefined"
 typeof list // "undefined" (list is not "defined yet")
-{% endcodeblock %}
+```
 
-## 另外方法檢查undefined
+## 另外方法檢查 undefined
 
 From [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
-{% quote %}
-The global undefined property represents the primitive value undefined. It is one of JavaScript's primitive types.
-{% endquote %}
+> The global undefined property represents the primitive value undefined. It is one of JavaScript's primitive types.
 
-由於undefined的type是'undefined'，因於檢查某成員有沒有被定義也可以用typeof
-{% codeblock %}
+由於 undefined 的 type 是'undefined'，因於檢查某成員有沒有被定義也可以用 typeof
+```js
 var object = { name : "jason" };
 typeof object.age === 'undefined' // true
-{% endcodeblock %}
+```
 
 
 
-# 檢查Empty object
-利用`for ... in ...` 檢定有沒有property name, 有則return true
-{% codeblock lang:javascript %}
+# 檢查 Empty object
+利用 `for ... in ...` 檢定有沒有 property name, 有則 return true
+```js
 var emptyObject = {};
 var student = { name : "jason", job : "student" };
 
@@ -116,34 +110,35 @@ function isEmptyObject(testObject){
 
 isEmptyObject(emptyObject); // false
 isEmptyObject(student); // true
-{% endcodeblock %}
+```
 
 # Array
 
-## 存取每個element
-傳統方法, 利用`length`
-{% codeblock %}
+## 存取每個 element
+傳統方法, 利用 `length`
+```js
 for (var i = 0 ; i < array.length; i++ ){
   console.log(array[i]);
 }
-{% endcodeblock %}
+```
 
 利用 `forEach` (ECMAScript >= 5)
 接受 callback(element, index, processingArray)
-{% codeblock lang:javascript %}
+
+```js
 array.forEach(function(element, index, processingArray){
   console.log(element);
 });
-{% endcodeblock %}
+```
 
-利用`for ...of...` (ECMAScript >= 6)
-{% codeblock lang:javascript %}
+利用 `for ...of...` (ECMAScript >= 6)
+
+```js
 for (var e of array){
   console.log(e);
 }
-{% endcodeblock %}
+```
 
 # Reference
 - [ECMAScript Compatibility table](http://kangax.github.io/compat-table/es5/)
 - [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/)
-
