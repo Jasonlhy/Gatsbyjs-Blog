@@ -13,10 +13,17 @@ const HomePage = ({ data }) => {
             {posts.map(({ node }) => {
                 const title = node.frontmatter.title
                 const path = node.frontmatter.path
+                const excerpt = node.excerpt
+                const date = node.frontmatter.date
+
                 return (
                     <div className="blog-item">
                         <h2>{title}</h2>
-                        <Link to={path}>Read</Link>
+                        <time>{date}</time>
+                        <div className="except-container">
+                          {excerpt}
+                        </div>
+                        <Link to={path}>閱讀更多</Link>
                     </div>
                 )
             })}
@@ -29,8 +36,10 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, limit: 1000) {
         edges {
           node {
+            excerpt
             frontmatter {
               title
+              date(formatString: "YYYY-MM-DD")
               path
             }
           }

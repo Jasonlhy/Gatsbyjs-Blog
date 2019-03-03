@@ -2,4 +2,23 @@
     border: 1px solid black;
     margin-top: 1rem;
     padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+}
+
+.blog-item > time {
+    color: #817c7c;
+    display: block;
+    /* margin: 0.5em 0; */
+    margin-bottom: 1.15rem;
+    font-size: 0.75em;
+}
+
+.blog-item > h2 {
+    margin-bottom: .3rem;
+}
+
+.except-container {
+    margin-bottom: 1.45rem;
 }
