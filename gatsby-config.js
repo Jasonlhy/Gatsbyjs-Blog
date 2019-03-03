@@ -13,7 +13,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    // Markdown
+    // Use Markdown as source
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -21,11 +21,13 @@ module.exports = {
         name: "markdown-pages",
       },
     },
+    // Transform markdown to GraphQL
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
+            // Synax highlight
             resolve: `gatsby-remark-prismjs`,
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
