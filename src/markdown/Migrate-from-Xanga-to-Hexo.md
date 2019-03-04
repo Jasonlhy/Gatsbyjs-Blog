@@ -10,9 +10,9 @@ tags:
 ---
 
 # Download Migration Plugin
-{% codeblock %}
+```bash
 npm install hexo-migrator-wordpress --save
-{% endcodeblock %}
+```
 
 # Download Archive from Xanga
 I got a folder named `29018156_1`, and `29018156_2.xml` inside it stores my xanga content.
@@ -24,6 +24,6 @@ Since the format of the archive is not compatible with the plugin, modify the so
 {% asset_img 'change2.png' %}
 
 # Do migration
-{% codeblock %}
+```bash
 hexo migrate wordpress /Users/Jason/Downloads/29018156_1/29018156_2.xml
-{% endcodeblock %}
+```

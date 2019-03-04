@@ -15,10 +15,13 @@ export default function Template({
     <Layout>
       <div className="blog-post-container">
         <div className="blog-post">
-          <h1>{frontmatter.title}</h1>
-          <h2>{frontmatter.date}</h2>
+          <div className="blog-heading">
+            <h1>{frontmatter.title}</h1>
+            <h2>{frontmatter.date}</h2>
+          </div>
           {/* TODO: Hidden first */}
-          <div style={{ display: 'none' }}
+          {/* <div style={{ display: 'none' }} */}
+          <div
             className="blog-toc"
             dangerouslySetInnerHTML={{ __html: tableOfContents }} />
           <div className="blog-post-content"

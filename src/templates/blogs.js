@@ -26,14 +26,15 @@ const HomePage = ({ data, pageContext }) => {
                   const slug = node.fields.slug
 
                   return (
-                      <div className="blog-item" key={slug}>
-                          <h2>{title}</h2>
-                          <time>{date}</time>
-                          <div className="except-container">
-                            {excerpt}
-                          </div>
-                          <Link to={slug}>閱讀更多</Link>
-                      </div>
+                    <section className="blog-item" key={slug}>
+                      <Link to={slug}>
+                        <h2 itemProp="name">{title}</h2>
+                        <time itemProp="datePublished">{date}</time>
+                        <p className="except-container" itemProp="description">
+                          {excerpt}
+                        </p>
+                      </Link>
+                    </section>
                   )
               })}
             </div>

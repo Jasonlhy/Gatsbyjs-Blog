@@ -19,10 +19,12 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
     --blog-post-padding: 1.45em;
 }
 
+.blog-heading h1 {
+    color: peru;
+}
+
 .blog-post-content {
     background-color: #fff;
-    /* border: 1px solid #d1d5da; */
-    /* border-radius: 3px; */
     padding-top: var(--blog-post-padding);
     padding-bottom: var(--blog-post-padding);
     padding-left: var(--blog-post-padding);
@@ -40,6 +42,34 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 }
 
 .blog-toc {
-    /* position: absolute; */
-    top: 1px;
+    background-color: #f6f8fa;
+    padding: 1em;
+    float: right;
+    margin-top: 2em;
+    margin-right: 2em;
+    font-size: 0.8em;
+    line-height: 1.2;
+}
+
+.blog-toc > ul {
+    margin-left: 0.8rem;
+}
+
+.blog-toc li {
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+.blog-toc li p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.blog-toc li a {
+    text-decoration: none;
+}
+
+.blog-toc ul {
+    margin-top: 0;
+    margin-bottom: 1px;
 }
