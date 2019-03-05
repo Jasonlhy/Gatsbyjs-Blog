@@ -15,16 +15,14 @@ export default function Template({
     <Layout>
       <div className="blog-post-container">
         <div className="blog-post">
-          <div className="blog-heading">
-            <h1>{frontmatter.title}</h1>
-            <h2>{frontmatter.date}</h2>
-          </div>
-          {/* TODO: Hidden first */}
-          {/* <div style={{ display: 'none' }} */}
+          <section className="blog-heading">
+            <h1 className="small-margin-bottom">{frontmatter.title}</h1>
+            <time style={{ display: 'block' }}>{frontmatter.date}</time>
+          </section>
           <div
             className="blog-toc"
             dangerouslySetInnerHTML={{ __html: tableOfContents }} />
-          <div className="blog-post-content"
+          <article className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </div>

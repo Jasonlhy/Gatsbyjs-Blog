@@ -25,14 +25,14 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 
 .blog-post-content {
     background-color: #fff;
-    padding-top: var(--blog-post-padding);
+    /* padding-top: var(--blog-post-padding);
     padding-bottom: var(--blog-post-padding);
     padding-left: var(--blog-post-padding);
-    padding-right: var(--blog-post-padding);
+    padding-right: var(--blog-post-padding); */
 }
 
 .blog-post-content h1:not(:first-child){
-    margin-top: 1.45em;
+    /* margin-top: 1.45em; */
 }
 
 .blog-post-content blockquote {
@@ -45,7 +45,7 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
     background-color: #f6f8fa;
     padding: 1em;
     float: right;
-    margin-top: 2em;
+    /* margin-top: 2em; */
     margin-right: 2em;
     font-size: 0.8em;
     line-height: 1.2;

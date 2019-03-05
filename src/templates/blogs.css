@@ -1,9 +1,9 @@
 .blog-list{
-    margin-bottom: 1.45rem;
+    /* margin-bottom: 1.45rem; */
 }
 
 .blog-item {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     background-color: #fff;
     transition: box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -16,28 +16,28 @@
     color: #817c7c;
     display: block;
     /* margin: 0.5em 0; */
-    margin-bottom: 1.15rem;
+    /* margin-bottom: 1.15rem; */
     font-size: 0.75em;
 }
 
 .blog-item h2 {
-    margin-bottom: .3rem;
+    /* margin-bottom: .3rem; */
     color: peru;
 }
 
 .blog-item a {
-    padding: 1rem;
+    /* padding: 1rem; */
     text-decoration: none;
     color: black;
     display: block;
 }
 
 .blog-item .except-container {
-    margin-bottom: 1.45rem;
+    /* margin-bottom: 1.45rem; */
 }
 
 .pagination {
-    margin-bottom: 1.45rem;
+    /* margin-bottom: 1.45rem; */
 }
 
 .pagination::after {

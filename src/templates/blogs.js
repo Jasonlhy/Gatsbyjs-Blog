@@ -16,6 +16,7 @@ const HomePage = ({ data, pageContext }) => {
 
     return (
         <Layout>
+            <h1>文章列表 - 頁 {currentPage}</h1>
             <div className="blog-list">
               {posts.map(({ node }) => {
                   const title = node.frontmatter.title
