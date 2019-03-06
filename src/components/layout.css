@@ -1,3 +1,8 @@
+/*
+Comment first for issue:
+https://github.com/gatsbyjs/gatsby/issues/8560
+This is from the tempate, except I changed: background-color: #f6f8fa;
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -622,3 +627,4 @@ pre tt:after {
     font-size: 100%;
   }
 }
+*/

@@ -2,6 +2,9 @@ import Typography from "typography"
 import GrandView from "typography-theme-grand-view"
 
 GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
+  "body" : {
+    backgroundColor: "#f6f8fa"
+  },
   "h1:first-child,h2:first-child,h3:first-child": {
     marginTop: 0
   },
