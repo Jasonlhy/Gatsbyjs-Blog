@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import './blogTemplate.css'
+import "./blogTemplate.css"
 
 // Blog Template
 export default function Template({
@@ -17,7 +17,7 @@ export default function Template({
         <div className="blog-post">
           <section className="blog-heading">
             <h1 className="small-margin-bottom">{frontmatter.title}</h1>
-            <time style={{ display: 'block' }}>{frontmatter.date}</time>
+            <time style={{ display: "block" }}>{frontmatter.date}</time>
           </section>
           <div
             className="blog-toc"
