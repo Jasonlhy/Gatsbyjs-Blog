@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
+import SEO from "../pages"
 import "./blogs.css"
 
 const HomePage = ({ data, pageContext }) => {
@@ -10,13 +11,15 @@ const HomePage = ({ data, pageContext }) => {
   const currentPage = pageContext.currentPage
   const numPages = pageContext.numPages
   const previousPage = (currentPage === 1) ? undefined : (currentPage - 1)
+
   // blogs/1 is not generated
   const nextPage = (currentPage === numPages) ? undefined : (currentPage + 1)
-
   let posts = data.allMarkdownRemark.edges
 
   return (
     <Layout>
+      {/*Don't know why have problem*/}
+      {/*<SEO title="Page 4" />*/}
       <h1>文章列表 - 頁 {currentPage}</h1>
       <div className="blog-list">
         {posts.map(({ node }) => {
@@ -44,11 +47,11 @@ const HomePage = ({ data, pageContext }) => {
       <div className="pagination">
         {previousPage && previousPage !== 1
           ? (
-            <Link to={`/blogs/${ previousPage }`}>上一頁</Link>
+            <Link to={`/blogs/${previousPage}`}>上一頁</Link>
           )
           : previousPage && <Link to="/blogs/">上一頁</Link>
         }
-        {nextPage && <Link to={`/blogs/${ nextPage }`} style={{ float: "right" }}>下一頁</Link>}
+        {nextPage && <Link to={`/blogs/${nextPage}`} style={{ float: "right" }}>下一頁</Link>}
       </div>
     </Layout>
   )

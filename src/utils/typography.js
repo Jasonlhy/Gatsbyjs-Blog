@@ -1,9 +1,20 @@
 import Typography from "typography"
 import GrandView from "typography-theme-grand-view"
 
+const fontFamily = ["Open Sans", "Segoe UI", "BlinkMacSystemFont", "-apple-system",
+  "system-ui", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+  "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"]
+
+GrandView.headerFontFamily = fontFamily
+GrandView.bodyFontFamily = fontFamily
+GrandView.baseFontSize = "14px"
+GrandView.baseLineHeight = 1.7
+GrandView.googleFonts = []
+GrandView.scaleRatio = 2.5
 GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
-  "body" : {
-    backgroundColor: "#f6f8fa"
+  "body": {
+    backgroundColor: "#f6f8fa",
+    // fontFamily: "'Arvo', 'sans-serif'"
   },
   "h1:first-child,h2:first-child,h3:first-child": {
     marginTop: 0
