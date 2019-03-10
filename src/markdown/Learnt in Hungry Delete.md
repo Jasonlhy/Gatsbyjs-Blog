@@ -1,5 +1,5 @@
 ---
-path: "/blog/Hungry Delete 中學到的"
+path: "/blog/Learnt in Hungry Delete"
 date: "2017-03-05"
 title: "Hungry Delete 中學到的"
 ---
