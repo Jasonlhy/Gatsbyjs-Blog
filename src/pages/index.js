@@ -13,7 +13,6 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/blogs">文章列表</Link>
-    <Link to="/page-2">Page 2</Link>
   </Layout>
 )
 

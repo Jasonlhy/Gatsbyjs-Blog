@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../pages"
+import SEO from "../components/seo"
 import "./blogs.css"
 
 const HomePage = ({ data, pageContext }) => {
@@ -18,8 +18,7 @@ const HomePage = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      {/*Don't know why have problem*/}
-      {/*<SEO title="Page 4" />*/}
+      <SEO title="文章列表" keywords={[`programming`, `blog`, `life`]} />
       <h1>文章列表 - 頁 {currentPage}</h1>
       <div className="blog-list">
         {posts.map(({ node }) => {

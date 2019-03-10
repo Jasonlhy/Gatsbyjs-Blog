@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import "./blogTemplate.css"
 
 // Blog Template
@@ -10,9 +11,10 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html, tableOfContents } = markdownRemark
-  // const { frontmatter, html } = markdownRemark
+
   return (
     <Layout>
+      <SEO title={frontmatter.title} keywords={[`programming`, `blog`, `life`]} />
       <div className="blog-post-container">
         <div className="blog-post">
           <section className="blog-heading">

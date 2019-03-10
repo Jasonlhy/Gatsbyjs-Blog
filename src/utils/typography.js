@@ -1,7 +1,7 @@
 import Typography from "typography"
 import GrandView from "typography-theme-grand-view"
 
-const fontFamily = ["Open Sans", "Segoe UI", "BlinkMacSystemFont", "-apple-system",
+const fontFamily = ["Open Sans", "Microsoft JhengHei", "BlinkMacSystemFont", "-apple-system",
   "system-ui", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
   "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"]
 
