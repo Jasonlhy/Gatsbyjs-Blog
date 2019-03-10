@@ -28,8 +28,8 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   },
   ".blog-item": {
     marginTop: rhythm(1),
-    marginLeft: rhythm(-1),
-    marginRight: rhythm(-1),
+    marginLeft: "-1.0875rem",
+    marginRight: "-1.0875rem",
   },
   "time": { // when displayed as block
     marginBottom: rhythm(1)
@@ -41,8 +41,8 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     marginBottom: rhythm(1)
   },
   ".pagination": {
-    marginLeft: rhythm(-1),
-    marginRight: rhythm(-1),
+    marginLeft: "-1.0875rem",
+    marginRight: "-1.0875rem",
     marginBottom: rhythm(1)
   },
   // '.blog-heading ' : {
@@ -56,8 +56,11 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   },
   ".blog-post-content": {
     padding: rhythm(1),
-    marginLeft: rhythm(-1),
-    marginRight: rhythm(-0.8)
+    // marginLeft: rhythm(-1),
+    // marginRight: rhythm(-0.8)
+    marginLeft: "-1.0875rem",
+    marginRight: "-1.0875rem",
+    paddingLeft: "1.0875rem"
   }
 })
 
