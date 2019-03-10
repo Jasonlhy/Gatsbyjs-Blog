@@ -27,7 +27,9 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     marginBottom: rhythm(1)
   },
   ".blog-item": {
-    marginTop: rhythm(1)
+    marginTop: rhythm(1),
+    marginLeft: rhythm(-1),
+    marginRight: rhythm(-1),
   },
   "time": { // when displayed as block
     marginBottom: rhythm(1)
@@ -39,19 +41,23 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     marginBottom: rhythm(1)
   },
   ".pagination": {
+    marginLeft: rhythm(-1),
+    marginRight: rhythm(-1),
     marginBottom: rhythm(1)
   },
   // '.blog-heading ' : {
   //     padding: rhythm(1)
   // },
   ".blog-item a": {
-    padding: rhythm(1)
+    padding: rhythm(1),
   },
   ".blog-post-container": {
     marginBottom: rhythm(1)
   },
   ".blog-post-content": {
-    padding: rhythm(1)
+    padding: rhythm(1),
+    marginLeft: rhythm(-1),
+    marginRight: rhythm(-0.8)
   }
 })
 

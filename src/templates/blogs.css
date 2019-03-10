@@ -40,6 +40,17 @@
     /* margin-bottom: 1.45rem; */
 }
 
+.pagination a {
+    /* border: 1px solid black; */
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+}
+
+.pagination a:hover {
+    background-color: peru;
+    color: white;
+}
+
 .pagination::after {
     content: '';
     display: block;
