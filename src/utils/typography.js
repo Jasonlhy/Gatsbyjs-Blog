@@ -11,10 +11,22 @@ GrandView.baseFontSize = "14px"
 GrandView.baseLineHeight = 1.7
 GrandView.googleFonts = []
 GrandView.scaleRatio = 2.5
+// GrandView.headerColor = "rgb(49,56,97)"
+GrandView.bodyColor = "rgb(49,56,97)"
 GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   "body": {
-    backgroundColor: "#f6f8fa",
+    // backgroundColor: "#f6f8fa",
+    backgroundColor: "rgb(245,245,250)",
     // fontFamily: "'Arvo', 'sans-serif'"
+  },
+  "a": {
+    color: "rgb(86,109,251)",
+    textDecoration: "none"
+  },
+  "a:hover,a:active": {
+    color: options.bodyColor,
+    // outline: ".125rem dashed var(--text)",
+    // outlineOffset: ".125rem",
   },
   "h1:first-child,h2:first-child,h3:first-child": {
     marginTop: 0
