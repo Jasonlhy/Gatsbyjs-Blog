@@ -19,7 +19,7 @@ const HomePage = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title="文章列表" keywords={[`programming`, `blog`, `life`]} />
-      <h1>文章列表 - 頁 {currentPage}</h1>
+      <h1 class="page-title">文章列表 - 頁 {currentPage}</h1>
       <div className="blog-list">
         {posts.map(({ node }) => {
           const title = node.frontmatter.title

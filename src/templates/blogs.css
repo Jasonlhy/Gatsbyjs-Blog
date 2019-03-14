@@ -22,12 +22,12 @@
 
 .blog-item h2 {
     /* margin-bottom: .3rem; */
-    color: peru;
+    color: #C41026;
 }
 
 .blog-item a {
     /* padding: 1rem; */
-    text-decoration: none;
+    text-decoration: none !important;
     /* color: black; */
     color: rgb(49,56,97);
     display: block;

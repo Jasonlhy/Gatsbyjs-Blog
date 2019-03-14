@@ -20,7 +20,7 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 }
 
 .blog-heading h1 {
-    color: peru;
+    color: #C41026;
 }
 
 .blog-post-content {
@@ -29,6 +29,10 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
     padding-bottom: var(--blog-post-padding);
     padding-left: var(--blog-post-padding);
     padding-right: var(--blog-post-padding); */
+}
+
+.blog-post-content a {
+    color: #BE9440;
 }
 
 .blog-post-content h1:not(:first-child){

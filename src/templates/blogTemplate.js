@@ -18,7 +18,7 @@ export default function Template({
       <div className="blog-post-container">
         <div className="blog-post">
           <section className="blog-heading">
-            <h1 className="small-margin-bottom">{frontmatter.title}</h1>
+            <h1 className="small-margin-bottom page-title">{frontmatter.title}</h1>
             <time style={{ display: "block" }}>{frontmatter.date}</time>
           </section>
           <div

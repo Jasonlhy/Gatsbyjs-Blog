@@ -1,30 +1,32 @@
 import Typography from "typography"
 import GrandView from "typography-theme-grand-view"
 
-const fontFamily = ["Open Sans", "Microsoft JhengHei", "BlinkMacSystemFont", "-apple-system",
+const fontFamily = ["Open Sans", "Microsoft YaHei", "BlinkMacSystemFont", "-apple-system",
   "system-ui", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
   "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"]
 
 GrandView.headerFontFamily = fontFamily
 GrandView.bodyFontFamily = fontFamily
-GrandView.baseFontSize = "14px"
+GrandView.baseFontSize = "16px"
 GrandView.baseLineHeight = 1.7
 GrandView.googleFonts = []
-GrandView.scaleRatio = 2.5
-// GrandView.headerColor = "rgb(49,56,97)"
-GrandView.bodyColor = "rgb(49,56,97)"
+GrandView.scaleRatio = 1.6
+GrandView.headerColor = "#070908"
+GrandView.bodyColor = "#555555"
 GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   "body": {
-    // backgroundColor: "#f6f8fa",
-    backgroundColor: "rgb(245,245,250)",
-    // fontFamily: "'Arvo', 'sans-serif'"
+    backgroundColor: "#f6f8fa",
   },
   "a": {
     color: "rgb(86,109,251)",
     textDecoration: "none"
   },
+  ".page-title": {
+    fontWeight: 900
+  },
   "a:hover,a:active": {
     color: options.bodyColor,
+    textDecoration: "underline"
     // outline: ".125rem dashed var(--text)",
     // outlineOffset: ".125rem",
   },
