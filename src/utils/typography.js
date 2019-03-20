@@ -1,7 +1,7 @@
 import Typography from "typography"
 import GrandView from "typography-theme-grand-view"
 
-const fontFamily = ["Open Sans", "Microsoft YaHei", "BlinkMacSystemFont", "-apple-system",
+const fontFamily = ["Open Sans", "source-han-sans-traditional", "BlinkMacSystemFont", "-apple-system",
   "system-ui", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
   "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"]
 
@@ -63,7 +63,9 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   //     padding: rhythm(1)
   // },
   ".blog-item a": {
-    padding: rhythm(1),
+    // padding: rhythm(1),
+    // TODO: harcode first
+    padding: "1.0875rem"
   },
   ".blog-post-container": {
     marginBottom: rhythm(1)

@@ -32,7 +32,7 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 }
 
 .blog-post-content a {
-    color: #BE9440;
+    /*color: #BE9440;*/
 }
 
 .blog-post-content h1:not(:first-child){

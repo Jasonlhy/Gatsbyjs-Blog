@@ -21,11 +21,12 @@ const Header = ({ siteTitle }) => (
     >
       <h1 style={{
         margin: 0,
-        display: "inline-block",
         padding: "0.4rem",
         marginLeft: "-0.4rem",
         color: "#FCFCF2",
-        backgroundColor: "#070809"
+        fontFamily: "liberation-sans",
+        fontWeight: 700,
+        fontStyle: "normal"
       }}>
         <Link
           to="/"

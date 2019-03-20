@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `IT JJ 的日常`,
-    description: `你的資訊真的很有用`,
+    title: `Life For J`,
+    description: `記錄碎片資訊`,
     author: `jasonlhy`,
   },
   plugins: [
