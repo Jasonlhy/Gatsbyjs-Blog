@@ -2,6 +2,20 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+const headerStyle = {
+  // TODO: Hard code first
+  marginLeft: "1.0875rem",
+  maxWidth: 960,
+  // padding: `0.4rem 1.0875rem`,
+  paddingLeft: `1.0875rem`,
+  paddingTop: `0.6rem`, // don't know why safari have bug
+  paddingBottom: `0.6rem` // don't know why safari have bug
+}
+
+const centerHeaderStyle = Object.assign(Object.assign({}, headerStyle), {
+  margin: "0 auto"
+})
+
 const Header = ({ siteTitle, isTwoLayout }) => (
   <header
     style={{
@@ -10,24 +24,8 @@ const Header = ({ siteTitle, isTwoLayout }) => (
     }}
   >
     <div
-      className="headerSmallScreenPadding"
-      style={isTwoLayout ? {
-        // TODO: Hard code first
-        marginLeft: "1.0875rem",
-        maxWidth: 960,
-        // padding: `0.4rem 1.0875rem`,
-        paddingLeft: `1.0875rem`,
-        paddingTop: `0.6rem`, // don't know why safari have bug
-        paddingBottom: `0.6rem` // don't know why safari have bug
-      } : {
-        margin: `0 auto`,
-        // margin: (isTwoLayout) ? `0.4 auto`,
-        maxWidth: 960,
-        // padding: `0.4rem 1.0875rem`,
-        paddingLeft: `1.0875rem`,
-        paddingTop: `0.6rem`, // don't know why safari have bug
-        paddingBottom: `0.6rem` // don't know why safari have bug
-      }}
+      className={ isTwoLayout ? "headerSmallScreenPadding" : ""}
+      style={isTwoLayout ? headerStyle : centerHeaderStyle}
     >
       <h1 style={{
         margin: 0,
