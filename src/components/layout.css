@@ -1,3 +1,18 @@
+/* Small Padding for better on small screen */
+.layoutSmallScreenPadding {
+  padding: 0px 2.175rem 1.45rem;
+}
+
+@media (max-width: 651px) {
+  .layoutSmallScreenPadding {
+    padding: 0px 1.0875rem 1.45rem;
+  }
+
+  .headerSmallScreenPadding {
+    padding-left: 0px !important;
+  }
+}
+
 /*
 Comment first for issue:
 https://github.com/gatsbyjs/gatsby/issues/8560

@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, isTwoLayout }) => (
   <header
     style={{
       background: `#483D8B`,
@@ -10,8 +10,18 @@ const Header = ({ siteTitle }) => (
     }}
   >
     <div
-      style={{
+      className="headerSmallScreenPadding"
+      style={isTwoLayout ? {
+        // TODO: Hard code first
+        marginLeft: "1.0875rem",
+        maxWidth: 960,
+        // padding: `0.4rem 1.0875rem`,
+        paddingLeft: `1.0875rem`,
+        paddingTop: `0.6rem`, // don't know why safari have bug
+        paddingBottom: `0.6rem` // don't know why safari have bug
+      } : {
         margin: `0 auto`,
+        // margin: (isTwoLayout) ? `0.4 auto`,
         maxWidth: 960,
         // padding: `0.4rem 1.0875rem`,
         paddingLeft: `1.0875rem`,
@@ -44,6 +54,7 @@ const Header = ({ siteTitle }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  isTwoLayout: PropTypes.bool
 }
 
 Header.defaultProps = {

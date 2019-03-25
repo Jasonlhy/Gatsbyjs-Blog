@@ -15,7 +15,7 @@ GrandView.headerColor = "#070908"
 GrandView.bodyColor = "#555555"
 GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   "body": {
-    backgroundColor: "#f6f8fa",
+    backgroundColor: "rgb(234, 234, 234)",
   },
   "a": {
     color: "rgb(86,109,251)",
@@ -34,8 +34,9 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     marginTop: 0
   },
   ".blog-toc": {
-    marginTop: rhythm(0.9),
-    marginRight: rhythm(0.5)
+    width: "100%"
+    // marginTop: rhythm(0.9),
+    // marginRight: rhythm(0.5)
   },
   ".blog-list": {
     marginBottom: rhythm(1)
@@ -77,6 +78,13 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     marginLeft: "-1.0875rem",
     marginRight: "-1.0875rem",
     paddingLeft: "1.0875rem"
+  },
+  // https://helpx.adobe.com/fonts/using/font-events.html#Stylingfallbackfontsusingfontevents
+  ".wf-loading h1, .wf-loading p": {
+    visibility: "hidden"
+  },
+  ".wf-active h1, .wf-active p, .wf-inactive h1, .wf-inactive p": {
+    visibility: "visible"
   }
 })
 

@@ -12,8 +12,10 @@ export default function Template({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html, tableOfContents } = markdownRemark
 
-  return (
-    <Layout>
+  const toc = <div className="blog-toc"
+    dangerouslySetInnerHTML={{ __html: tableOfContents }} />
+  const article = (
+    <>
       <SEO title={frontmatter.title} keywords={[`programming`, `blog`, `life`]} />
       <div className="blog-post-container">
         <div className="blog-post">
@@ -21,15 +23,19 @@ export default function Template({
             <h1 className="small-margin-bottom page-title">{frontmatter.title}</h1>
             <time style={{ display: "block" }}>{frontmatter.date}</time>
           </section>
-          <div
-            className="blog-toc"
-            dangerouslySetInnerHTML={{ __html: tableOfContents }} />
+
           <article className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </div>
       </div>
-    </Layout>
+    </>
+  )
+
+  return (
+    <Layout
+      children={article}
+      children2={toc} />
   )
 }
 
