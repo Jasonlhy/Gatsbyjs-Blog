@@ -9,8 +9,7 @@
 }
 
 .blog-item:hover {
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
-
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3) !important;
 }
 
 .blog-item time {
@@ -26,11 +25,9 @@
     color: #C41026;
 }
 
-.blog-item a {
-    /* padding: 1rem; */
-    text-decoration: none !important;
-    /* color: black; */
+.blog-item-link {
     color: rgb(49,56,97);
+    text-decoration: none !important;
     display: block;
 }
 

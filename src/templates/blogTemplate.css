@@ -47,10 +47,7 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 
 .blog-toc {
     background-color: #f6f8fa;
-    padding: 1em;
-    float: right;
-    /* margin-top: 2em; */
-    /* margin-right: 2em; */
+    /* float: right; */
     font-size: 1rem;
     line-height: 1.2;
 }

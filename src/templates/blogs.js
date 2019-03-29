@@ -3,6 +3,9 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Container from "../components/containers/container"
+import RoundedContainer from "../components/containers/rounedContainer"
+import OuterContainer from "../components/containers/outerContainer"
 import "./blogs.css"
 
 const HomePage = ({ data, pageContext }) => {
@@ -20,7 +23,7 @@ const HomePage = ({ data, pageContext }) => {
     <Layout>
       <SEO title="文章列表" keywords={[`programming`, `blog`, `life`]} />
       <h1 class="page-title">文章列表 - 頁 {currentPage}</h1>
-      <div className="blog-list">
+      <OuterContainer className="blog-list">
         {posts.map(({ node }) => {
           const title = node.frontmatter.title
           // const path = node.frontmatter.path
@@ -30,18 +33,20 @@ const HomePage = ({ data, pageContext }) => {
           const slug = node.fields.slug
 
           return (
-            <section className="blog-item" key={slug}>
-              <Link to={slug}>
-                <h2 itemProp="name">{title}</h2>
-                <time itemProp="datePublished">{date}</time>
-                <p className="except-container" itemProp="description">
-                  {excerpt}
-                </p>
-              </Link>
-            </section>
+            <Link className="blog-item-link" to={slug}>
+              <RoundedContainer className="blog-item">
+                <article key={slug}>
+                  <h2 itemProp="name">{title}</h2>
+                  <time itemProp="datePublished">{date}</time>
+                  <p className="except-container" itemProp="description">
+                    {excerpt}
+                  </p>
+                </article>
+              </RoundedContainer>
+            </Link>
           )
         })}
-      </div>
+      </OuterContainer>
 
       <div className="pagination">
         {previousPage && previousPage !== 1

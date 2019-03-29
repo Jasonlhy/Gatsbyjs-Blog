@@ -14,9 +14,6 @@ GrandView.scaleRatio = 1.6
 GrandView.headerColor = "#070908"
 GrandView.bodyColor = "#555555"
 GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
-  "body": {
-    backgroundColor: "rgb(234, 234, 234)",
-  },
   "a": {
     color: "rgb(86,109,251)",
     textDecoration: "none"
@@ -43,8 +40,8 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   },
   ".blog-item": {
     marginTop: rhythm(1),
-    marginLeft: "-1.0875rem",
-    marginRight: "-1.0875rem",
+    // marginLeft: "-1.0875rem",
+    // marginRight: "-1.0875rem",
   },
   "time": { // when displayed as block
     marginBottom: rhythm(1)
@@ -60,24 +57,16 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     marginRight: "-1.0875rem",
     marginBottom: rhythm(1)
   },
-  // '.blog-heading ' : {
-  //     padding: rhythm(1)
-  // },
-  ".blog-item a": {
-    // padding: rhythm(1),
-    // TODO: harcode first
-    padding: "1.0875rem"
-  },
   ".blog-post-container": {
     marginBottom: rhythm(1)
   },
   ".blog-post-content": {
-    padding: rhythm(1),
+    // padding: rhythm(1),
     // marginLeft: rhythm(-1),
     // marginRight: rhythm(-0.8)
-    marginLeft: "-1.0875rem",
-    marginRight: "-1.0875rem",
-    paddingLeft: "1.0875rem"
+    // marginLeft: "-1.0875rem",
+    // marginRight: "-1.0875rem",
+    // paddingLeft: "1.0875rem"
   },
   // https://helpx.adobe.com/fonts/using/font-events.html#Stylingfallbackfontsusingfontevents
   ".wf-loading h1, .wf-loading p": {

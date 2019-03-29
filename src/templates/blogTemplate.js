@@ -4,6 +4,9 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "./blogTemplate.css"
+import RoundedContainer from "../components/containers/rounedContainer"
+import Container from "../components/containers/container"
+import OuterContainer from "../components/containers/outerContainer"
 
 // Blog Template
 export default function Template ({
@@ -12,8 +15,10 @@ export default function Template ({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html, tableOfContents } = markdownRemark
 
-  const toc = <div className="blog-toc"
-    dangerouslySetInnerHTML={{ __html: tableOfContents }} />
+  const toc = (
+    <Container className="blog-toc" dangerouslySetInnerHTML={{ __html: tableOfContents }} />
+  )
+
   const article = (
     <>
       <SEO title={frontmatter.title} keywords={[`programming`, `blog`, `life`]} />
@@ -23,10 +28,13 @@ export default function Template ({
             <h1 className="small-margin-bottom page-title">{frontmatter.title}</h1>
             <time style={{ display: "block" }}>{frontmatter.date}</time>
           </section>
-
-          <article className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <OuterContainer>
+            <RoundedContainer>
+              <article className="blog-post-content"
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
+            </RoundedContainer>
+          </OuterContainer>
         </div>
       </div>
     </>

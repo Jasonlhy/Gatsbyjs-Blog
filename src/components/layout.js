@@ -45,7 +45,7 @@ const Layout = ({ children, children2 }) => (
             ? <>
                 <div style={ { display: "flex", flexWrap: "wrap" }}>
                   <main style={ { minWidth: "300px", flex: "1 1 300px" } }>{children}</main>
-                  <div style={ { flex: "0 0 250px", marginLeft: "2rem" } }>{children2}</div>
+                  <div style={ { flex: "0 0 250px", marginLeft: "1.8rem" } }>{children2}</div>
                 </div>
               </>
             : <main>{children}</main>}
