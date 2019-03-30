@@ -4,9 +4,10 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "./blogTemplate.css"
+
 import RoundedContainer from "../components/containers/rounedContainer"
-import Container from "../components/containers/container"
 import OuterContainer from "../components/containers/outerContainer"
+import TableOfContent from "./tableOfContent"
 
 // Blog Template
 export default function Template ({
@@ -15,9 +16,10 @@ export default function Template ({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html, tableOfContents } = markdownRemark
 
-  const toc = (
-    <Container className="blog-toc" dangerouslySetInnerHTML={{ __html: tableOfContents }} />
-  )
+  // const toc = (
+  //   <Container className="blog-toc" dangerouslySetInnerHTML={{ __html: tableOfContents }} />
+  // )
+  const toc = <TableOfContent toc={tableOfContents} />
 
   const article = (
     <>

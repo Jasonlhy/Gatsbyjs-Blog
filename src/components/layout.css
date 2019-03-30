@@ -3,6 +3,21 @@
   padding: 0px 2.175rem 1.45rem;
 }
 
+.blog-toc-close-button {
+  display: none;
+}
+
+.menu-button-container {
+  display: none;
+}
+
+/* Override the dynamic rule set by JS */
+@media (min-width: 652px) {
+  .blog-toc-phone, .menu-button-container {
+    display: none !important;
+  }
+}
+
 @media (max-width: 651px) {
   .layoutSmallScreenPadding {
     padding: 0px 1.0875rem 1.45rem;
@@ -10,6 +25,44 @@
 
   .headerSmallScreenPadding {
     padding-left: 0px !important;
+  }
+
+   /* height: 100%; */
+  .blog-toc {
+    display: none;
+  }
+
+  .blog-toc-close-button {
+    display: inline-block;
+    background-color:#483D8B;
+    color: white;
+    border: none;
+  }
+
+  .blog-toc-phone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .menu-button {
+    background-color: #483D8B;
+    color: white;
+  }
+
+  .menu-button-container {
+    /* background-color: rgb(32, 35, 42); */
+    bottom: 44px;
+    color: rgb(97, 218, 251);
+    display: inline-block;
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    z-index: 3;
+    border-radius: 50%;
+    /* border: 1px solid rgba(255, 255, 255, 0.1); */
+    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px; */
   }
 }
 
