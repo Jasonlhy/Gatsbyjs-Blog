@@ -3,19 +3,13 @@
   padding: 0px 2.175rem 1.45rem;
 }
 
-.blog-toc-close-button {
+/* Not visible in desktop screen */
+.floating-menu {
   display: none;
 }
 
-.menu-button-container {
+.blog-toc.blog-toc-phone {
   display: none;
-}
-
-/* Override the dynamic rule set by JS */
-@media (min-width: 652px) {
-  .blog-toc-phone, .menu-button-container {
-    display: none !important;
-  }
 }
 
 @media (max-width: 651px) {
@@ -32,37 +26,56 @@
     display: none;
   }
 
-  .blog-toc-close-button {
-    display: inline-block;
-    background-color:#483D8B;
-    color: white;
-    border: none;
-  }
-
-  .blog-toc-phone {
+  .blog-toc.blog-toc-phone {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    padding: 1.0875rem;
+    line-height: 1.5;
   }
 
-  .menu-button {
-    background-color: #483D8B;
-    color: white;
+  .blog-toc.blog-toc-phone[data-menu='open'] {
+    display: block;
   }
 
-  .menu-button-container {
-    /* background-color: rgb(32, 35, 42); */
-    bottom: 44px;
-    color: rgb(97, 218, 251);
-    display: inline-block;
-    cursor: pointer;
-    position: fixed;
-    right: 20px;
-    z-index: 3;
+  .blog-toc.blog-toc-phone[data-menu='close'] {
+    display: none;
+  }
+
+  .floating-menu {
+    display: block;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    /* border: 1px solid rgba(255, 255, 255, 0.1); */
-    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px; */
+    background: #483D8B;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0px 2px 5px #666;
+    transition: box-shadow 2s cubic-bezier(0.19, 1, 0.22, 1), transform .5s ease-out;
+  }
+
+  .floating-menu .sign {
+    color: white;
+    padding: 0;
+    margin: 0;
+    line-height: 47px;
+    font-size: 38px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    display: block;
+    height: 100%;
+  }
+  
+  .floating-menu:hover {
+    box-shadow: 0px 4px 10px #666;
+  }
+
+  .floating-menu[data-menu='open'] {
+    transform: scale(1.1, 1.1) translate3d(0, 0, 0) rotate(45deg);
   }
 }
 
