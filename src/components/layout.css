@@ -26,13 +26,16 @@
     display: none;
   }
 
+  /* Full Screen */
   .blog-toc.blog-toc-phone {
     position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
     padding: 1.0875rem;
-    line-height: 1.5;
+    line-height: 2.0;
+    font-size: 200%;
   }
 
   .blog-toc.blog-toc-phone[data-menu='open'] {
@@ -41,6 +44,13 @@
 
   .blog-toc.blog-toc-phone[data-menu='close'] {
     display: none;
+  }
+
+  .blog-toc .blog-toc-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 
   .floating-menu {
@@ -75,7 +85,6 @@
   }
 
   .floating-menu[data-menu='open'] {
-    /* transform: scale(1.1, 1.1) translate3d(0, 0, 0) rotate(45deg); */
     transform: scale(1.1, 1.1) translate3d(0, 0, 0) rotate(45deg);
   }
 }

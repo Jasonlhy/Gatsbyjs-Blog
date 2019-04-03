@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import BlogLayout from "../components/blogLayout"
 import SEO from "../components/seo"
 import "./blogTemplate.css"
 
@@ -16,36 +16,35 @@ export default function Template ({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html, tableOfContents } = markdownRemark
 
-  // const toc = (
-  //   <Container className="blog-toc" dangerouslySetInnerHTML={{ __html: tableOfContents }} />
-  // )
+  // Layout Contnent
   const toc = <TableOfContent toc={tableOfContents} />
 
-  const article = (
+  const header = (
     <>
       <SEO title={frontmatter.title} keywords={[`programming`, `blog`, `life`]} />
-      <div className="blog-post-container">
-        <div className="blog-post">
-          <section className="blog-heading">
-            <h1 className="small-margin-bottom page-title">{frontmatter.title}</h1>
-            <time style={{ display: "block" }}>{frontmatter.date}</time>
-          </section>
-          <OuterContainer>
-            <RoundedContainer>
-              <article className="blog-post-content"
-                dangerouslySetInnerHTML={{ __html: html }}
-              />
-            </RoundedContainer>
-          </OuterContainer>
-        </div>
-      </div>
+      <section className="blog-heading">
+        <h1 className="small-margin-bottom page-title">{frontmatter.title}</h1>
+        <time style={{ display: "block" }}>{frontmatter.date}</time>
+      </section>
     </>
+  )
+  const article = (
+    <div className="blog-post-content-container">
+      <OuterContainer>
+        <RoundedContainer>
+          <article className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </RoundedContainer>
+      </OuterContainer>
+    </div>
   )
 
   return (
-    <Layout
-      children={article}
-      children2={toc} />
+    <BlogLayout
+      header={header}
+      left={article}
+      right={toc} />
   )
 }
 

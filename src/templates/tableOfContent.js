@@ -51,7 +51,9 @@ class TableOfContent extends React.Component {
         </Container>
 
         <Container className="blog-toc blog-toc-phone" data-menu={menuState} onClick={this.handleClick}>
-          {tocContent}
+          <div className="blog-toc-center">
+            {tocContent}
+          </div>
         </Container>
 
         <div className="floating-menu" data-menu={menuState}>

@@ -14,29 +14,12 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
     bottom: 1px;
 }
 
-:root {
-    /* It is used extensive in layout.css, I copy first */
-    --blog-post-padding: 1.45em;
-}
-
 .blog-heading h1 {
     color: #C41026;
 }
 
 .blog-post-content {
     background-color: #fff;
-    /* padding-top: var(--blog-post-padding);
-    padding-bottom: var(--blog-post-padding);
-    padding-left: var(--blog-post-padding);
-    padding-right: var(--blog-post-padding); */
-}
-
-.blog-post-content a {
-    /*color: #BE9440;*/
-}
-
-.blog-post-content h1:not(:first-child){
-    /* margin-top: 1.45em; */
 }
 
 .blog-post-content blockquote {
@@ -47,7 +30,6 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 
 .blog-toc {
     background-color: #f6f8fa;
-    /* float: right; */
     font-size: 1rem;
     line-height: 1.2;
 }
