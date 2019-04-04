@@ -31,26 +31,36 @@
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     bottom: 0;
     width: 100%;
     padding: 1.0875rem;
-    line-height: 2.0;
-    font-size: 200%;
+    line-height: 1.75;
+    font-size: 150%;
+    z-index: 2;
+    pointer-events: auto;
+    height: 100vh;
+    transition: all 0.5s ease;
   }
 
   .blog-toc.blog-toc-phone[data-menu='open'] {
     display: block;
+    opacity: 1;
+    transform: translate(0, 0)
   }
 
   .blog-toc.blog-toc-phone[data-menu='close'] {
-    display: none;
+    display: block;
+    opacity: 0;
+    transform: translate(0, 40px)
   }
 
-  .blog-toc .blog-toc-center {
+  .blog-toc.blog-toc-phone .blog-toc-center {
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100%;
+    align-items: center;
+    overflow-y: auto;
   }
 
   .floating-menu {
@@ -66,6 +76,7 @@
     text-align: center;
     box-shadow: 0px 2px 5px #666;
     transition: box-shadow 2s cubic-bezier(0.19, 1, 0.22, 1), transform .5s ease-out;
+    z-index: 3;
   }
 
   .floating-menu .sign {
