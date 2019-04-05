@@ -3,57 +3,60 @@
  */
 
 /* Remove the weird box-shadow */
-pre[class*="language-"]:before, pre[class*="language-"]:after {
-    box-shadow: none;
+pre[class*="language-"]:before,
+pre[class*="language-"]:after {
+  box-shadow: none;
 }
 
 /* Inline code outside code block */
 :not(pre) > code[class*="language-"] {
-    margin-left: .2em;
-    margin-right: .2em;
-    bottom: 1px;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  bottom: 1px;
 }
 
 .blog-heading h1 {
-    color: #C41026;
+  color: #c41026;
 }
 
 .blog-post-content {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .blog-post-content blockquote {
-    padding-left: .4em;
-    border-left: .3em solid #979797;
-    padding-left: .4em;
+  padding-left: 0.4em;
+  border-left: 0.3em solid #979797;
+  padding-left: 0.4em;
 }
 
 .blog-toc {
-    background-color: #f6f8fa;
-    font-size: 1rem;
-    line-height: 1.2;
+  background-color: #f6f8fa;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .blog-toc > ul {
-    margin-left: 0.8rem;
+  margin-left: 0.8rem;
 }
 
 .blog-toc li {
-    margin-top: 0;
-    margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0px;
 }
 
 .blog-toc li p {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .blog-toc li a {
-    text-decoration: none;
-    color: rgb(86,109,251);
+  text-decoration: none;
+  color: rgb(86, 109, 251);
 }
 
 .blog-toc ul {
-    margin-top: 0;
-    margin-bottom: 1px;
+  margin-top: 0;
+  margin-bottom: 1px;
+  list-style-type: none;
+  margin-left: 1rem;
 }

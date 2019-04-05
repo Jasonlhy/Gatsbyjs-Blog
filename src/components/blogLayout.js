@@ -26,15 +26,21 @@ const Layout = ({ header, left, right }) => (
     render={data => (
       <>
         {/* TODO with Two Layout */}
-        <Header siteTitle={data.site.siteMetadata.title} isTwoLayout={true}/>
-        <div className="layoutSmallScreenPadding" >
-          <div className="layout-header">
-            {header}
-          </div>
+        <Header siteTitle={data.site.siteMetadata.title} isTwoLayout={true} />
+        <div className="layoutSmallScreenPadding">
+          <div className="layout-header">{header}</div>
 
-          <div style={ { display: "flex", flexWrap: "wrap" }}>
-            <main style={ { minWidth: "300px", flex: "1 1 300px" } }>{left}</main>
-            <div style={ { flex: "0 0 250px", marginLeft: "1.8rem" } }>{right}</div>
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <main style={{ minWidth: "300px", flex: "1 1 300px" }}>{left}</main>
+            <div
+              style={{
+                flex: "0 0 250px",
+                marginLeft: "1.0875rem",
+                backgroundColor: "#f6f8fa",
+              }}
+            >
+              {right}
+            </div>
           </div>
 
           <footer>
@@ -51,7 +57,7 @@ const Layout = ({ header, left, right }) => (
 Layout.propTypes = {
   header: PropTypes.node.isRequired,
   left: PropTypes.node,
-  right: PropTypes.node
+  right: PropTypes.node,
 }
 
 export default Layout
