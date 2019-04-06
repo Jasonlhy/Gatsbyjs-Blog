@@ -28,6 +28,7 @@
 
   /* Full Screen */
   .blog-toc.blog-toc-phone {
+    background-color: #f6f8fa;
     display: block;
     position: fixed;
     top: 0;

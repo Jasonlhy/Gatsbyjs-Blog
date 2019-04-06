@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 import Container from "../components/containers/container"
 
@@ -40,7 +40,14 @@ class TableOfContent extends React.Component {
   render () {
     const { isOpen } = this.state
     const menuState = (isOpen) ? "open" : "close"
-    const tocContent = <div dangerouslySetInnerHTML={{ __html: this.props.toc }}/>
+    const tocContent = (
+      <nav>
+        <h3 style={{
+          marginBottom: "1.0875rem"
+        }}>在此文章</h3>
+        <div dangerouslySetInnerHTML={{ __html: this.props.toc }} />
+      </nav>
+    )
 
     // TODO: No idea how to build TOC from raw HTML to JSX element
     // Workaround: Use a button to close

@@ -26,21 +26,23 @@ const HomePage = ({ data, pageContext }) => {
       <OuterContainer className="blog-list">
         {posts.map(({ node }) => {
           const title = node.frontmatter.title
-          // const path = node.frontmatter.path
           const excerpt = node.excerpt
           const date = node.frontmatter.date
-          // const path = node.frontmatter.path
           const slug = node.fields.slug
 
           return (
             <Link className="blog-item-link" to={slug}>
               <RoundedContainer className="blog-item">
                 <article key={slug}>
-                  <h2 itemProp="name">{title}</h2>
-                  <time itemProp="datePublished">{date}</time>
-                  <p className="except-container" itemProp="description">
-                    {excerpt}
-                  </p>
+                  <div style={{
+                    marginBottom: "1.0875rem"
+                  }}>
+                    <h2 itemProp="name">{title}</h2>
+                    <time itemProp="datePublished">{date}</time>
+                  </div>
+
+                  <p className="except-container" itemProp="description" dangerouslySetInnerHTML={{ __html: excerpt }}
+                  />
                 </article>
               </RoundedContainer>
             </Link>
@@ -73,7 +75,7 @@ export const pageQuery = graphql`
             fields {
               slug
             },
-            excerpt
+            excerpt(format: HTML, pruneLength:200)
             frontmatter {
               title
               date(formatString: "YYYY-MM-DD")

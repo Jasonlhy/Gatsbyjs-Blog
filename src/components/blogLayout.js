@@ -25,18 +25,22 @@ const Layout = ({ header, left, right }) => (
     `}
     render={data => (
       <>
-        {/* TODO with Two Layout */}
-        <Header siteTitle={data.site.siteMetadata.title} isTwoLayout={true} />
+        <Header siteTitle={data.site.siteMetadata.title} isFullPageLayout={true} />
         <div className="layoutSmallScreenPadding">
           <div className="layout-header">{header}</div>
 
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", marginBottom: "1rem" }}>
             <main style={{ minWidth: "300px", flex: "1 1 300px" }}>{left}</main>
+            {/* TODO: hardcode the value first */}
             <div
               style={{
                 flex: "0 0 250px",
                 marginLeft: "1.0875rem",
-                backgroundColor: "#f6f8fa",
+                boxShadow: "rgba(0, 0, 0, 0.15) 1px 0px 5px",
+                borderTopRightRadius: "5px",
+                borderBottomRightRadius: "5px",
+                marginRight: "-1.0875rem",
+                backgroundColor: "#f6f8fa"
               }}
             >
               {right}

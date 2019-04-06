@@ -6,7 +6,6 @@ const headerStyle = {
   // TODO: Hard code first
   marginLeft: "1.0875rem",
   maxWidth: 960,
-  // padding: `0.4rem 1.0875rem`,
   paddingLeft: `1.0875rem`,
   paddingTop: `0.6rem`, // don't know why safari have bug
   paddingBottom: `0.6rem` // don't know why safari have bug
@@ -16,16 +15,16 @@ const centerHeaderStyle = Object.assign(Object.assign({}, headerStyle), {
   margin: "0 auto"
 })
 
-const Header = ({ siteTitle, isTwoLayout }) => (
+const Header = ({ siteTitle, isFullPageLayout }) => (
   <header
     style={{
       background: `#483D8B`,
-      marginBottom: `1.45rem`
+      marginBottom: `1.08875rem`
     }}
   >
     <div
-      className={ isTwoLayout ? "headerSmallScreenPadding" : ""}
-      style={isTwoLayout ? headerStyle : centerHeaderStyle}
+      className={ isFullPageLayout ? "headerSmallScreenPadding" : ""}
+      style={isFullPageLayout ? headerStyle : centerHeaderStyle}
     >
       <h1 style={{
         margin: 0,
@@ -52,7 +51,7 @@ const Header = ({ siteTitle, isTwoLayout }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  isTwoLayout: PropTypes.bool
+  isFullPageLayout: PropTypes.bool
 }
 
 Header.defaultProps = {

@@ -9,7 +9,7 @@ const containerStyle = {
 
 /**
  * Rounded Default Container with 1.0875rem padding
- * 
+ *
  * Pass the props directly to div container
  */
 const RoundedContainer = props => {
