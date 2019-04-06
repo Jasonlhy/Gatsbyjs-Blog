@@ -18,7 +18,7 @@
     font-size: 0.75em;
 }
 
-.blog-item h2 {
+.blog-item-info > h2 {
     /* margin-bottom: .3rem; */
     color: #C41026;
 }

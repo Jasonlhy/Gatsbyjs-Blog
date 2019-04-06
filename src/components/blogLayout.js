@@ -37,8 +37,6 @@ const Layout = ({ header, left, right }) => (
                 flex: "0 0 250px",
                 marginLeft: "1.0875rem",
                 boxShadow: "rgba(0, 0, 0, 0.15) 1px 0px 5px",
-                borderTopRightRadius: "5px",
-                borderBottomRightRadius: "5px",
                 marginRight: "-1.0875rem",
                 backgroundColor: "#f6f8fa"
               }}

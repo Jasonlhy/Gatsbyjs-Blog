@@ -5,7 +5,7 @@ import BlogLayout from "../components/blogLayout"
 import SEO from "../components/seo"
 import "./blogTemplate.css"
 
-import RoundedContainer from "../components/containers/rounedContainer"
+import ShadowContainer from "../components/containers/rounedContainer"
 import OuterContainer from "../components/containers/outerContainer"
 import Container from "../components/containers/container"
 import TableOfContent from "./tableOfContent"
@@ -37,11 +37,11 @@ export default function Template ({
     <div className="blog-post-content-container">
       {/* TODO: hardcode first */}
       <OuterContainer>
-        <RoundedContainer>
+        <ShadowContainer>
           <article className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
           />
-        </RoundedContainer>
+        </ShadowContainer>
       </OuterContainer>
     </div>
   )

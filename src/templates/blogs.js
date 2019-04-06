@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Container from "../components/containers/container"
-import RoundedContainer from "../components/containers/rounedContainer"
+import ShadowContainer from "../components/containers/rounedContainer"
 import OuterContainer from "../components/containers/outerContainer"
 import "./blogs.css"
 
@@ -32,11 +32,13 @@ const HomePage = ({ data, pageContext }) => {
 
           return (
             <Link className="blog-item-link" to={slug}>
-              <RoundedContainer className="blog-item">
+              <ShadowContainer className="blog-item">
                 <article key={slug}>
-                  <div style={{
-                    marginBottom: "1.0875rem"
-                  }}>
+                  <div className="blog-item-info"
+                       style={{
+                         marginBottom: "1.0875rem"
+                       }}
+                   >
                     <h2 itemProp="name">{title}</h2>
                     <time itemProp="datePublished">{date}</time>
                   </div>
@@ -44,7 +46,7 @@ const HomePage = ({ data, pageContext }) => {
                   <p className="except-container" itemProp="description" dangerouslySetInnerHTML={{ __html: excerpt }}
                   />
                 </article>
-              </RoundedContainer>
+              </ShadowContainer>
             </Link>
           )
         })}

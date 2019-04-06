@@ -17,8 +17,6 @@ pre[class*="language-"]:after {
 
 .blog-heading-container {
   padding-top: 0 !important;
-  border-bottom: 3px solid rgb(45, 45, 45);
-  margin-bottom: 1.0875rem;
 }
 
 .blog-heading h1 {
