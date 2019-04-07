@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Container from "../components/containers/container"
+import { Container } from "../components/containers"
 
 // Reference reactjs.org
 // TODO: No ieda why this doesn't work, otherwise put the display logic into the JS

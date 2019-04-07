@@ -3,8 +3,7 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ShadowContainer from "../components/containers/rounedContainer"
-import OuterContainer from "../components/containers/outerContainer"
+import { OuterContainer, ShadowContainer } from "../components/containers"
 import "./blogs.css"
 
 const HomePage = ({ data, pageContext }) => {

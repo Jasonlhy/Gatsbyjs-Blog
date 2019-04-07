@@ -5,9 +5,11 @@ import BlogLayout from "../components/blogLayout"
 import SEO from "../components/seo"
 import "./blogTemplate.css"
 
-import ShadowContainer from "../components/containers/rounedContainer"
-import OuterContainer from "../components/containers/outerContainer"
-import Container from "../components/containers/container"
+import {
+  Container,
+  OuterContainer,
+  ShadowContainer 
+} from "../components/containers"
 import TableOfContent from "./tableOfContent"
 
 // Blog Template
