@@ -10,6 +10,8 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import OuterContainer from "./containers/outerContainer.js"
+import Footer from "./footer.js"
 import "./layout.css"
 
 const Layout = ({ header, left, right }) => (
@@ -30,11 +32,11 @@ const Layout = ({ header, left, right }) => (
           <div className="layout-header">{header}</div>
 
           <div style={{ display: "flex", flexWrap: "wrap", marginBottom: "1rem" }}>
-            <main style={{ minWidth: "450px", flex: "1 1 450px" }}>{left}</main>
+            <main style={{ minWidth: "250px", flex: "1 1 250px" }}>{left}</main>
             {/* TODO: hardcode the value first */}
             <div
               style={{
-                flex: "0 0 300px",
+                flex: "0 0 250px",
                 marginLeft: "1.0875rem",
                 boxShadow: "rgba(0, 0, 0, 0.15) 1px 0px 5px",
                 marginRight: "-1.0875rem",
@@ -45,11 +47,9 @@ const Layout = ({ header, left, right }) => (
             </div>
           </div>
 
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          <OuterContainer>
+            <Footer />
+          </OuterContainer>
         </div>
       </>
     )}

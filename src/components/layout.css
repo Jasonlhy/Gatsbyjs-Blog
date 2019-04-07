@@ -12,8 +12,8 @@
   display: none;
 }
 
-/* 34.8*2 + 300 + 450 */
-@media (max-width: 800px) {
+/* 34.8*2 + 250 + 300 */
+@media (max-width: 534px) {
   .layoutSmallScreenPadding {
     padding: 0px 1.0875rem 1.45rem;
   }
