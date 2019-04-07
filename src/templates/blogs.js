@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Container from "../components/containers/container"
 import ShadowContainer from "../components/containers/rounedContainer"
 import OuterContainer from "../components/containers/outerContainer"
 import "./blogs.css"
@@ -35,10 +34,10 @@ const HomePage = ({ data, pageContext }) => {
               <ShadowContainer className="blog-item">
                 <article key={slug}>
                   <div className="blog-item-info"
-                       style={{
-                         marginBottom: "1.0875rem"
-                       }}
-                   >
+                    style={{
+                      marginBottom: "1.0875rem"
+                    }}
+                  >
                     <h2 itemProp="name">{title}</h2>
                     <time itemProp="datePublished">{date}</time>
                   </div>
@@ -77,7 +76,7 @@ export const pageQuery = graphql`
             fields {
               slug
             },
-            excerpt(format: HTML, pruneLength:200)
+            excerpt(format: HTML, pruneLength:150)
             frontmatter {
               title
               date(formatString: "YYYY-MM-DD")

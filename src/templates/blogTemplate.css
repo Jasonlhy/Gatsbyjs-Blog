@@ -28,15 +28,16 @@ pre[class*="language-"]:after {
 }
 
 .blog-post-content blockquote {
+  margin-left: 1.0875rem !important;
   padding-left: 0.4em;
   border-left: 0.3em solid #979797;
   padding-left: 0.4em;
 }
 
 .blog-toc {
-  font-size: 125%;
-  line-height: 1.75;
   font-weight: lighter;
+  line-height: 2;
+  font-weight: normal;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -56,9 +57,12 @@ pre[class*="language-"]:after {
   color: rgb(86, 109, 251);
 }
 
+.blog-toc nav > div > ul {
+  margin-left: 0;
+}
+
 .blog-toc ul {
   margin-top: 0;
   margin-bottom: 1px;
   list-style-type: none;
-  margin-left: 0;
 }

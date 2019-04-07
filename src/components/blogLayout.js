@@ -30,11 +30,11 @@ const Layout = ({ header, left, right }) => (
           <div className="layout-header">{header}</div>
 
           <div style={{ display: "flex", flexWrap: "wrap", marginBottom: "1rem" }}>
-            <main style={{ minWidth: "300px", flex: "1 1 300px" }}>{left}</main>
+            <main style={{ minWidth: "450px", flex: "1 1 450px" }}>{left}</main>
             {/* TODO: hardcode the value first */}
             <div
               style={{
-                flex: "0 0 250px",
+                flex: "0 0 300px",
                 marginLeft: "1.0875rem",
                 boxShadow: "rgba(0, 0, 0, 0.15) 1px 0px 5px",
                 marginRight: "-1.0875rem",

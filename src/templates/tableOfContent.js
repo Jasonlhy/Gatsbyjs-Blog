@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import Container from "../components/containers/container"
 
@@ -54,7 +54,11 @@ class TableOfContent extends React.Component {
     return (
       <>
         <Container className="blog-toc">
-          {tocContent}
+          <div style={{
+            position: "fixed"
+          }}>
+            {tocContent}
+          </div>
         </Container>
 
         <Container className="blog-toc blog-toc-phone" data-menu={menuState} onClick={this.handleClick}>
