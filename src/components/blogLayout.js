@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import PageTransition from "gatsby-plugin-page-transitions"
 
 import Header from "./header"
 import "./layout.css"
@@ -28,22 +29,27 @@ const Layout = ({ header, left, right }) => (
         <Header siteTitle={data.site.siteMetadata.title} isFullPageLayout={true} />
         <div className="layoutSmallScreenPadding">
           <div className="layout-header">{header}</div>
-
-          <div style={{ display: "flex", flexWrap: "wrap", marginBottom: "1rem" }}>
-            <main style={{ minWidth: "450px", flex: "1 1 450px" }}>{left}</main>
-            {/* TODO: hardcode the value first */}
-            <div
-              style={{
-                flex: "0 0 300px",
-                marginLeft: "1.0875rem",
-                boxShadow: "rgba(0, 0, 0, 0.15) 1px 0px 5px",
-                marginRight: "-1.0875rem",
-                backgroundColor: "#f6f8fa"
-              }}
-            >
-              {right}
+          {/* Seems dones't work with chinese URL */}
+          <PageTransition defaultStyle={{
+            transition: "opacity 500ms ease",
+            opacity: 0,
+          }}>
+            <div style={{ display: "flex", flexWrap: "wrap", marginBottom: "1rem" }}>
+              <main style={{ minWidth: "450px", flex: "1 1 450px" }}>{left}</main>
+              {/* TODO: hardcode the value first */}
+              <div
+                style={{
+                  flex: "0 0 300px",
+                  marginLeft: "1.0875rem",
+                  boxShadow: "rgba(0, 0, 0, 0.15) 1px 0px 5px",
+                  marginRight: "-1.0875rem",
+                  backgroundColor: "#f6f8fa"
+                }}
+              >
+                {right}
+              </div>
             </div>
-          </div>
+          </PageTransition>
 
           <footer>
             © {new Date().getFullYear()}, Built with
