@@ -1,5 +1,6 @@
 import Typography from "typography"
 import GrandView from "typography-theme-grand-view"
+import { inherits } from "util";
 
 const fontFamily = ["Open Sans", "source-han-sans-traditional", "BlinkMacSystemFont", "-apple-system",
   "system-ui", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
@@ -15,16 +16,21 @@ GrandView.headerColor = "#070908"
 GrandView.bodyColor = "#555555"
 GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   "a": {
-    color: "rgb(86,109,251)",
-    textDecoration: "none"
+    color: "#4A62FC",
+    textDecoration: "none",
+    // padding: "2px"
   },
   ".page-title": {
     fontWeight: 900
   },
-  "a:hover,a:active": {
-    color: options.bodyColor,
-    textDecoration: "underline"
+  /* So difficult to customize link color */
+  "a:not(.blog-item-link):hover,a:not(.blog-item-link):active": {
+    backgroundColor: "#4A62FC",
+    color: "white"
   },
+  // "a[aria-label*='']:hover,a[aria-label*='']:active": {
+  //   backgroundColor: inherits
+  // },
   "h1:first-child,h2:first-child,h3:first-child": {
     marginTop: 0
   },

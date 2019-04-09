@@ -30,7 +30,7 @@ const Header = ({ siteTitle, isFullPageLayout }) => (
         margin: 0,
         padding: "0.4rem",
         marginLeft: "-0.4rem",
-        color: "#FCFCF2",
+        color: "#DBDBDB",
         fontFamily: "liberation-sans",
         fontWeight: 700,
         fontStyle: "normal"
@@ -40,6 +40,7 @@ const Header = ({ siteTitle, isFullPageLayout }) => (
           style={{
             color: `white`,
             textDecoration: `none`,
+            backgroundColor: "inherit"
           }}
         >
           {siteTitle}
