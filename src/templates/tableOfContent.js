@@ -23,36 +23,36 @@ class TableOfContent extends React.Component {
 
   // componentDidMount && componentWillUnmount is methods in ES6 class
   // But method is syntatic sugar to this.function in function prototype
-  // Use arrow function here to reference this.onWindowScroll to avoid declare another variable for reference of the caller function
+  // Use arrow function to reference this.onWindowScroll to avoid declare another variable for reference of the caller function
   componentDidMount = () => {
-    let desktopToc = document.querySelector("#desktopToc")
-    let desktopFixed = desktopToc && desktopToc.querySelector("#desktopTopFixed")
-    let offsetTop = desktopToc && desktopToc.offsetTop
+    // let desktopToc = document.querySelector("#desktopToc")
+    // let desktopFixed = desktopToc && desktopToc.querySelector("#desktopTopFixed")
+    // let offsetTop = desktopToc && desktopToc.offsetTop
 
-    if (desktopToc && desktopFixed) {
-      this.onWindowScroll = function () {
-        console.log("window.scrollY", window.scrollY)
-        console.log("offsetTop", offsetTop)
+    // if (desktopToc && desktopFixed) {
+    //   this.onWindowScroll = function () {
+    //     console.log("window.scrollY", window.scrollY)
+    //     console.log("offsetTop", offsetTop)
         
-        // TODO: Will have some delay
-        // https://stackoverflow.com/questions/5209814/can-i-position-an-element-fixed-relative-to-parent
-        if (window.scrollY > offsetTop) {
-          desktopFixed.style.transform = `translate(0, -${offsetTop}px)`
-        } else {
-          desktopFixed.style.transform = ""
-        }
-      }
+    //     // TODO: Will have some delay
+    //     // https://stackoverflow.com/questions/5209814/can-i-position-an-element-fixed-relative-to-parent
+    //     if (window.scrollY > offsetTop) {
+    //       desktopFixed.style.transform = `translate(0, -${offsetTop}px)`
+    //     } else {
+    //       desktopFixed.style.transform = ""
+    //     }
+    //   }
 
-      window.addEventListener("scroll", this.onWindowScroll)
-    } else {
-      console.log("error")
-    }
+    //   window.addEventListener("scroll", this.onWindowScroll)
+    // } else {
+    //   console.log("error")
+    // }
   }
 
   componentWillUnmount = () => {
-    if (this.onWindowScroll) {
-      window.removeEventListener("scroll", this.onWindowScroll)
-    }
+    // if (this.onWindowScroll) {
+    //   window.removeEventListener("scroll", this.onWindowScroll)
+    // }
   }
 
   _closeMenu = () => {
@@ -88,12 +88,8 @@ class TableOfContent extends React.Component {
     // Workaround: Use a button to close
     return (
       <>
-        <Container id="desktopToc" className="blog-toc">
-          <div id="desktopTopFixed" style={{
-            position: "fixed"
-          }}>
-            {tocContent}
-          </div>
+        <Container id="desktopToc" className="blog-toc blog-toc-desktop">
+          {tocContent}
         </Container>
 
         <Container className="blog-toc blog-toc-phone" data-menu={menuState} onClick={this.handleClick}>
