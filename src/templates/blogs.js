@@ -4,18 +4,19 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { OuterContainer, ShadowContainer } from "../components/containers"
+import BlogListLink from "../components/blogListLink"
+
 import "./blogs.css"
 
 const HomePage = ({ data, pageContext }) => {
-  // For pagination
-  console.log("pageContext ", pageContext)
   const currentPage = pageContext.currentPage
   const numPages = pageContext.numPages
-  const previousPage = (currentPage === 1) ? undefined : (currentPage - 1)
+  const posts = data.allMarkdownRemark.edges
 
+  // Pagination
   // blogs/1 is not generated
+  const previousPage = (currentPage === 1) ? undefined : (currentPage - 1)
   const nextPage = (currentPage === numPages) ? undefined : (currentPage + 1)
-  let posts = data.allMarkdownRemark.edges
 
   return (
     <Layout>
@@ -23,13 +24,18 @@ const HomePage = ({ data, pageContext }) => {
       <h1 class="page-title">文章列表 - 頁 {currentPage}</h1>
       <OuterContainer className="blog-list">
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title
+          const { title, date } = node.frontmatter
           const excerpt = node.excerpt
-          const date = node.frontmatter.date
           const slug = node.fields.slug
 
           return (
-            <Link className="blog-item-link" to={slug}>
+            <Link className="blog-item-link"
+              to={slug}
+              state={{
+                fromBlogs: true,
+                pageNumber: currentPage
+              }}>
+
               <ShadowContainer className="blog-item">
                 <article key={slug}>
                   <div className="blog-item-info"
@@ -41,8 +47,9 @@ const HomePage = ({ data, pageContext }) => {
                     <time itemProp="datePublished">{date}</time>
                   </div>
 
-                  <p className="except-container" itemProp="description" dangerouslySetInnerHTML={{ __html: excerpt }}
-                  />
+                  <p className="except-container"
+                    itemProp="description"
+                    dangerouslySetInnerHTML={{ __html: excerpt }} />
                 </article>
               </ShadowContainer>
             </Link>
@@ -51,13 +58,8 @@ const HomePage = ({ data, pageContext }) => {
       </OuterContainer>
 
       <div className="pagination">
-        {previousPage && previousPage !== 1
-          ? (
-            <Link to={`/blogs/${previousPage}`}>上一頁</Link>
-          )
-          : previousPage && <Link to="/blogs/">上一頁</Link>
-        }
-        {nextPage && <Link to={`/blogs/${nextPage}`} style={{ float: "right" }}>下一頁</Link>}
+        { previousPage && <BlogListLink pageNumber={previousPage}>上一頁</BlogListLink> }
+        { nextPage && <BlogListLink pageNumber={nextPage} style={{ float: "right" }}>下一頁</BlogListLink> }
       </div>
     </Layout>
   )

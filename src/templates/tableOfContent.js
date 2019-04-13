@@ -99,7 +99,7 @@ class TableOfContent extends React.Component {
         </Container>
 
         <div className="floating-menu" data-menu={menuState}>
-          <span className="sign" onClick={this._toggleMenu}>+</span>
+          <span className="sign" onClick={this._toggleMenu}></span>
         </div>
       </>
     )
