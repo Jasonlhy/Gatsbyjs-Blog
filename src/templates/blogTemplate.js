@@ -1,5 +1,5 @@
-import React, { Fragment } from "react"
-import { Link, graphql } from "gatsby"
+import React from "react"
+import { graphql } from "gatsby"
 
 import BlogLayout from "../components/blogLayout"
 import SEO from "../components/seo"
@@ -21,14 +21,12 @@ export default function Template ({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html, tableOfContents } = markdownRemark
 
-  // Back page information from router
+  // Back page information from blog list
   let fromBlogs, pageNumber
   if (location && location.state) {
     fromBlogs = location.state.fromBlogs
     pageNumber = location.state.pageNumber
   }
-
-  console.log("location", location)
 
   // Layout Contnent
   const toc = <TableOfContent toc={tableOfContents} />
@@ -41,7 +39,16 @@ export default function Template ({
           <section className="blog-heading">
             <h1 className="small-margin-bottom page-title">{frontmatter.title}</h1>
             <time style={{ display: "block" }}>{frontmatter.date}</time>
-            {fromBlogs && (<BlogListLink pageNumber={pageNumber}>返回文章列表</BlogListLink>) }
+            {/* TODO: This will disappear after mouse click, have no idea */}
+            {fromBlogs && (
+              <BlogListLink
+                pageNumber={pageNumber}
+                state={{
+                  pageX: location.state.pageX,
+                  pageY: location.state.pageY,
+                }}>返回文章列表
+              </BlogListLink>
+            )}
           </section>
         </Container>
       </OuterContainer>

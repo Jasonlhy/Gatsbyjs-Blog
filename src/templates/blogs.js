@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, Link, navigate } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,61 +8,137 @@ import BlogListLink from "../components/blogListLink"
 
 import "./blogs.css"
 
-const HomePage = ({ data, pageContext }) => {
-  const currentPage = pageContext.currentPage
-  const numPages = pageContext.numPages
-  const posts = data.allMarkdownRemark.edges
+class BlogListPage extends React.Component {
+  /**
+   * const { pageY, pageX } = location.state
+   * const { currentPage, numPages } = pageContext
+   *
+   * @param {*} props
+   *
+   */
+  constructor (props) {
+    super(props)
+    this.state = {}
+  }
 
-  // Pagination
-  // blogs/1 is not generated
-  const previousPage = (currentPage === 1) ? undefined : (currentPage - 1)
-  const nextPage = (currentPage === numPages) ? undefined : (currentPage + 1)
+  /**
+   * Get the window scroll offset
+   */
+  getWindowScrolOffset () {
+    let supportPageOffset = window.pageXOffset !== undefined
+    let isCSS1Compat = ((document.compatMode || "") === "CSS1Compat")
 
-  return (
-    <Layout>
-      <SEO title="文章列表" keywords={[`programming`, `blog`, `life`]} />
-      <h1 class="page-title">文章列表 - 頁 {currentPage}</h1>
-      <OuterContainer className="blog-list">
-        {posts.map(({ node }) => {
-          const { title, date } = node.frontmatter
-          const excerpt = node.excerpt
-          const slug = node.fields.slug
+    let x = supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft
+    let y = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
 
-          return (
-            <Link className="blog-item-link"
-              to={slug}
-              state={{
-                fromBlogs: true,
-                pageNumber: currentPage
-              }}>
+    return { x, y }
+  }
 
-              <ShadowContainer className="blog-item">
-                <article key={slug}>
-                  <div className="blog-item-info"
-                    style={{
-                      marginBottom: "1.0875rem"
-                    }}
-                  >
-                    <h2 itemProp="name">{title}</h2>
-                    <time itemProp="datePublished">{date}</time>
-                  </div>
+  /**
+   * Navigate to the artciel and pass the window location to article
+   */
+  navigateToArticle = event => {
+    event.preventDefault()
 
-                  <p className="except-container"
-                    itemProp="description"
-                    dangerouslySetInnerHTML={{ __html: excerpt }} />
-                </article>
-              </ShadowContainer>
-            </Link>
-          )
-        })}
-      </OuterContainer>
+    const anchorElement = event.currentTarget
+    const slug = anchorElement.dataset.slug // href will be resolved in full URL
 
-      <div className="pagination">
-        { previousPage && <BlogListLink pageNumber={previousPage}>上一頁</BlogListLink> }
-        { nextPage && <BlogListLink pageNumber={nextPage} style={{ float: "right" }}>下一頁</BlogListLink> }
-      </div>
-    </Layout>
-  )
+    const { x, y } = this.getWindowScrolOffset()
+    const { pageContext } = this.props
+    const { currentPage } = pageContext
+
+    navigate(
+      slug,
+      {
+        state: {
+          fromBlogs: true,
+          pageNumber: currentPage,
+          pageY: y,
+          pageX: x
+        }
+      }
+    )
+  }
+
+  /**
+   * Scroll to the previous position if the position is passed back from the artcile
+   *
+   * @memberof BlogListPage
+   */
+  componentDidMount = () => {
+    const { location } = this.props
+
+    if (location.state) {
+      const { pageX, pageY } = location.state
+
+      if (pageX >= 0 || pageY >= 0) {
+        // It doesn't work to scroll immediately
+        // I don't know why
+        window.setTimeout(() => {
+          window.scrollTo({
+            top: pageY,
+            left: pageX
+          })
+        }, 100)
+      }
+    }
+  }
+
+  render () {
+    const { data, pageContext } = this.props
+    const { currentPage, numPages } = pageContext
+    const posts = data.allMarkdownRemark.edges
+
+    // Pagination
+    // blogs/1 is not generated
+    const previousPage = (currentPage === 1) ? undefined : (currentPage - 1)
+    const nextPage = (currentPage === numPages) ? undefined : (currentPage + 1)
+
+    return (
+      <Layout>
+        <SEO title="文章列表" keywords={[`programming`, `blog`, `life`]} />
+        <h1 class="page-title">文章列表 - 頁 {currentPage}</h1>
+
+        <OuterContainer className="blog-list">
+          {posts.map(({ node }) => {
+            const { title, date } = node.frontmatter
+            const excerpt = node.excerpt
+            const slug = node.fields.slug
+
+            return (
+              <Link className="blog-item-link"
+                to={slug}
+                data-slug={slug}
+                onClick={this.navigateToArticle}>
+
+                <ShadowContainer className="blog-item">
+                  <article key={slug}>
+                    <div className="blog-item-info"
+                      style={{
+                        marginBottom: "1.0875rem"
+                      }}
+                    >
+                      <h2 itemProp="name">{title}</h2>
+                      <time itemProp="datePublished">{date}</time>
+                    </div>
+
+                    <p className="except-container"
+                      itemProp="description"
+                      dangerouslySetInnerHTML={{ __html: excerpt }} />
+                  </article>
+                </ShadowContainer>
+              </Link>
+            )
+          })}
+        </OuterContainer>
+
+        <div className="pagination">
+          { previousPage && <BlogListLink pageNumber={previousPage}>上一頁</BlogListLink> }
+          { nextPage && <BlogListLink pageNumber={nextPage} style={{ float: "right" }}>下一頁</BlogListLink> }
+        </div>
+      </Layout>
+    )
+  }
 }
 
 export const pageQuery = graphql`
@@ -89,4 +165,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default HomePage
+export default BlogListPage
