@@ -9,13 +9,15 @@ const TagList = props => {
         }}>
           {
             props.tags.map(tag => {
-              return <span style={{
-                paddingLeft: "5px",
-                paddingRight: "5px",
-                backgroundColor: "#757de8",
-                marginRight: "5px",
-                color: "white"
-              }}>{tag}</span>
+              return <span
+                key={tag}
+                style={{
+                  paddingLeft: "5px",
+                  paddingRight: "5px",
+                  backgroundColor: "#757de8",
+                  marginRight: "5px",
+                  color: "white"
+                }}>{tag}</span>
             })
           }
         </div>}

@@ -24,10 +24,10 @@ export default function Template ({
   const { slug } = fields
 
   // Back page information from blog list
-  let fromBlogs, pageNumber
+  let fromBlogs, pagenumber
   if (location && location.state) {
     fromBlogs = location.state.fromBlogs
-    pageNumber = location.state.pageNumber
+    pagenumber = location.state.pagenumber
   }
 
   // Layout Contnent
@@ -46,7 +46,7 @@ export default function Template ({
             {/* TODO: This will disappear after mouse click, have no idea */}
             {fromBlogs && (
               <BlogListLink
-                pageNumber={pageNumber}
+                pagenumber={pagenumber}
                 state={{
                   pageX: location.state.pageX,
                   pageY: location.state.pageY,

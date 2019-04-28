@@ -12,7 +12,7 @@ const IndexPage = () => (
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <BlogListLink pageNumber={1}>文章列表</BlogListLink>
+    <BlogListLink pagenumber={1}>文章列表</BlogListLink>
   </Layout>
 )
 

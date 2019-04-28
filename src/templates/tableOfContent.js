@@ -73,16 +73,20 @@ class TableOfContent extends React.Component {
   _scrollToHeading (event) {
     // need to use /g flag to replaceAll...
     const target = event.target
-    const headingText = target.innerText
-    const headingId = headingText.replace(/\s/g, "-").toLowerCase()
-    const heading = document.querySelector("#" + headingId)
+    const headingAnchor = target.href
+    const headingIdx = headingAnchor.indexOf("#")
 
-    if (heading) {
-      const { top, left } = heading.getBoundingClientRect()
-      window.scrollTo(left, top)
-      event.preventDefault()
-    } else {
-      console.error("Can't find heading with Id: ", headingId)
+    if (headingIdx >= 0) {
+      const headingIdSelector = decodeURI(headingAnchor.substring(headingIdx))
+      const heading = document.querySelector(headingIdSelector)
+
+      if (heading) {
+        const { top, left } = heading.getBoundingClientRect()
+        window.scrollTo(left, top)
+        event.preventDefault()
+      } else {
+        console.error("Can't find heading with Id selector: ", headingIdSelector)
+      }
     }
   }
 

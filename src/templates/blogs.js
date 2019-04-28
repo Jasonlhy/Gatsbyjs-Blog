@@ -53,7 +53,7 @@ class BlogListPage extends React.Component {
       {
         state: {
           fromBlogs: true,
-          pageNumber: currentPage,
+          pagenumber: currentPage,
           pageY: y,
           pageX: x
         }
@@ -139,8 +139,8 @@ class BlogListPage extends React.Component {
         </OuterContainer>
 
         <div className="pagination">
-          { previousPage && <BlogListLink pageNumber={previousPage}>上一頁</BlogListLink> }
-          { nextPage && <BlogListLink pageNumber={nextPage} style={{ float: "right" }}>下一頁</BlogListLink> }
+          { previousPage && <BlogListLink pagenumber={previousPage}>上一頁</BlogListLink> }
+          { nextPage && <BlogListLink pagenumber={nextPage} style={{ float: "right" }}>下一頁</BlogListLink> }
         </div>
       </Layout>
     )

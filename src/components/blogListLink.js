@@ -3,16 +3,16 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
 const BlogListLink = props => {
-  const { pageNumber } = props
+  const { pagenumber } = props
 
-  return (pageNumber && pageNumber > 1)
-    ? (<Link to={`/blogs/${pageNumber}`} {...props} />)
+  return (pagenumber && pagenumber > 1)
+    ? (<Link to={`/blogs/${pagenumber}`} {...props} />)
     : (<Link to={`/blogs`} {...props} />)
 }
 
 BlogListLink.propTypes = {
   children: PropTypes.node,
-  pageNumber: PropTypes.number.isRequired
+  pagenumber: PropTypes.number.isRequired
 }
 
 export default BlogListLink
