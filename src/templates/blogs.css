@@ -9,7 +9,11 @@
 }
 
 .blog-item:hover {
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 0 5px 0 #757ce8 !important;
+}
+
+.blog-item.focus {
+    box-shadow: 0 0 5px 0 #002884 !important;
 }
 
 .blog-item time {
@@ -20,7 +24,8 @@
 
 .blog-item-info > h2 {
     /* margin-bottom: .3rem; */
-    color: #C41026;
+    /* color: #C41026; */
+    color: #d81b60;
 }
 
 .blog-item-link {

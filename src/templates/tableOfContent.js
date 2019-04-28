@@ -77,9 +77,17 @@ class TableOfContent extends React.Component {
     const menuState = (isOpen) ? "open" : "close"
     const tocContent = (
       <nav>
-        <h3 style={{
-          marginBottom: "1.0875rem"
-        }}>在此文章</h3>
+        <div style={{
+          "background": "#d81b60",
+          "margin": "-1.0875rem",
+          "padding": "1.0875rem",
+          "marginBottom": "1.0875rem"
+        }}>
+          <h3 style={{
+            "color": "white",
+            "marginBottom": 0
+          }}>在此文章</h3>
+        </div>
         <div dangerouslySetInnerHTML={{ __html: this.props.toc }} />
       </nav>
     )

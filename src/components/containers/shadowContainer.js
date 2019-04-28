@@ -2,7 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const containerStyle = {
-  boxShadow: "0 5px 30px rgba(0,0,0,0.15)",
+  // boxShadow: "0 5px 30px rgba(0,0,0,0.15)",
+  background: "#FFFFFF",
+  // border: "1px solid black",
   padding: "1.0875rem" // Hard code first, align with the header
 }
 

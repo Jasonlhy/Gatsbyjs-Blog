@@ -14,9 +14,15 @@ GrandView.googleFonts = []
 GrandView.scaleRatio = 1.6
 GrandView.headerColor = "#070908"
 GrandView.bodyColor = "#555555"
+// GrandView.backgroundColor = "#f5f5f6"
+// GrandView.bodyColor = "#f5f5f6"
 GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
+  "body": {
+    "background": "#f5f5f6"
+  },
   "a": {
-    color: "#4A62FC",
+    // color: "#4A62FC",
+    color: "#757de8",
     textDecoration: "none",
     // padding: "2px"
   },
@@ -25,7 +31,8 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   },
   /* So difficult to customize link color */
   "a:not(.blog-item-link):hover,a:not(.blog-item-link):active": {
-    backgroundColor: "#4A62FC",
+    // backgroundColor: "#4A62FC",
+    backgroundColor: "#757de8",
     color: "white"
   },
   // "a[aria-label*='']:hover,a[aria-label*='']:active": {

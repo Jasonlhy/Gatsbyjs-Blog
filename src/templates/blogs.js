@@ -69,7 +69,8 @@ class BlogListPage extends React.Component {
     const { location } = this.props
 
     if (location.state) {
-      const { pageX, pageY } = location.state
+      const { pageX, pageY, slug } = location.state
+      // console.log("Element from point: ", { pageX, pageY, slug })
 
       if (pageX >= 0 || pageY >= 0) {
         // It doesn't work to scroll immediately
@@ -85,9 +86,10 @@ class BlogListPage extends React.Component {
   }
 
   render () {
-    const { data, pageContext } = this.props
+    const { data, pageContext, location } = this.props
     const { currentPage, numPages } = pageContext
     const posts = data.allMarkdownRemark.edges
+    const focusSlug = location && location.state.slug // focus blog item from backpage
 
     // Pagination
     // blogs/1 is not generated
@@ -104,6 +106,7 @@ class BlogListPage extends React.Component {
             const { title, date } = node.frontmatter
             const excerpt = node.excerpt
             const slug = node.fields.slug
+            const blogItemClass = (focusSlug === slug) ? "blog-item focus" : "blog-item"
 
             return (
               <Link className="blog-item-link"
@@ -111,7 +114,7 @@ class BlogListPage extends React.Component {
                 data-slug={slug}
                 onClick={this.navigateToArticle}>
 
-                <ShadowContainer className="blog-item">
+                <ShadowContainer className={blogItemClass}>
                   <article key={slug}>
                     <div className="blog-item-info"
                       style={{

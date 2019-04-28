@@ -19,7 +19,8 @@ export default function Template ({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html, tableOfContents } = markdownRemark
+  const { frontmatter, html, tableOfContents, fields } = markdownRemark
+  const { slug } = fields
 
   // Back page information from blog list
   let fromBlogs, pageNumber
@@ -46,6 +47,7 @@ export default function Template ({
                 state={{
                   pageX: location.state.pageX,
                   pageY: location.state.pageY,
+                  slug: slug,
                 }}>返回文章列表
               </BlogListLink>
             )}

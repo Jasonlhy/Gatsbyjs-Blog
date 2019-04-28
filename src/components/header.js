@@ -18,7 +18,7 @@ const centerHeaderStyle = Object.assign(Object.assign({}, headerStyle), {
 const Header = ({ siteTitle, isFullPageLayout }) => (
   <header
     style={{
-      background: `#483D8B`,
+      background: `#3f51b5`,
       marginBottom: `1.08875rem`
     }}
   >
