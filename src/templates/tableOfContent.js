@@ -81,8 +81,9 @@ class TableOfContent extends React.Component {
       const heading = document.querySelector(headingIdSelector)
 
       if (heading) {
-        const { top, left } = heading.getBoundingClientRect()
-        window.scrollTo(left, top)
+        heading.scrollIntoView({ behavior: "smooth" })
+        // const { top, left } = heading.getBoundingClientRect()
+        // window.scrollTo(left, top)
         event.preventDefault()
       } else {
         console.error("Can't find heading with Id selector: ", headingIdSelector)

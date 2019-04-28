@@ -9,7 +9,7 @@
 }
 
 .blog-item:hover {
-    box-shadow: 0 0 5px 0 #757ce8 !important;
+    /* box-shadow: 0 0 5px 0 #757ce8 !important; */
 }
 
 .blog-item.focus {
@@ -49,7 +49,7 @@
 }
 
 .pagination a:hover {
-    background-color: #4A62FC;
+    background-color: #3f51b5;
     color: white;
 }
 
