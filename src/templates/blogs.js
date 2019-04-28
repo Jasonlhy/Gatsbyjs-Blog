@@ -89,7 +89,7 @@ class BlogListPage extends React.Component {
     const { data, pageContext, location } = this.props
     const { currentPage, numPages } = pageContext
     const posts = data.allMarkdownRemark.edges
-    const focusSlug = location && location.state.slug // focus blog item from backpage
+    const focusSlug = location && location.state && location.state.slug // focus blog item from backpage
 
     // Pagination
     // blogs/1 is not generated
