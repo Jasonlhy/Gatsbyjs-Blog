@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import BlogLayout from "../components/blogLayout"
 import SEO from "../components/seo"
+import TagList from "../components/tagList"
 import "./blogTemplate.css"
 import BlogListLink from "../components/blogListLink"
 
@@ -40,6 +41,8 @@ export default function Template ({
           <section className="blog-heading">
             <h1 className="small-margin-bottom page-title">{frontmatter.title}</h1>
             <time style={{ display: "block" }}>{frontmatter.date}</time>
+            <TagList tags={frontmatter.tags} />
+
             {/* TODO: This will disappear after mouse click, have no idea */}
             {fromBlogs && (
               <BlogListLink
@@ -89,6 +92,7 @@ export const pageQuery = graphql`
         date(formatString: "YYYY-MM-DD")
         path
         title
+        tags
       }
     }
   }

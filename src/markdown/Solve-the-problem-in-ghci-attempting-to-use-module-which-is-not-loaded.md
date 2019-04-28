@@ -4,7 +4,8 @@ title: 'Solve the problem in ghci : attempting to use module ... which is not lo
 date: 2013-06-14 11:41:10
 description:
 categories: Problem
-tags: Haskell
+tags:
+- Haskell
 ---
 
 # Problem

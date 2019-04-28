@@ -3,6 +3,7 @@ import { graphql, Link, navigate } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TagList from "../components/tagList"
 import { OuterContainer, ShadowContainer } from "../components/containers"
 import BlogListLink from "../components/blogListLink"
 
@@ -103,7 +104,7 @@ class BlogListPage extends React.Component {
 
         <OuterContainer className="blog-list">
           {posts.map(({ node }) => {
-            const { title, date } = node.frontmatter
+            const { title, date, tags } = node.frontmatter
             const excerpt = node.excerpt
             const slug = node.fields.slug
             const blogItemClass = (focusSlug === slug) ? "blog-item focus" : "blog-item"
@@ -123,6 +124,7 @@ class BlogListPage extends React.Component {
                     >
                       <h2 itemProp="name">{title}</h2>
                       <time itemProp="datePublished">{date}</time>
+                      <TagList tags={tags} />
                     </div>
 
                     <p className="except-container"
@@ -161,6 +163,7 @@ export const pageQuery = graphql`
               title
               date(formatString: "YYYY-MM-DD")
               path
+              tags
             }
           }
         }

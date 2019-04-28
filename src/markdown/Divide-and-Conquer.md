@@ -1,4 +1,4 @@
---- 
+---
 path: '/blog/Algorithm/Divide and Conquer'
 title: Divide and Conquer
 date: 2015-12-13 21:09:34
@@ -72,9 +72,9 @@ void divide(int *array, int start, int end, int *temp){
         divide(array, start, mid, temp);
         divide(array, mid + 1, end, temp);
         merge(array, start, mid, end, temp);
-    } 
+    }
 
-    /* To you can also write the codes as  
+    /* To you can also write the codes as
     int mid = (start + end) / 2;
     if (end > start){
         divide(array, start, mid, temp);
@@ -114,12 +114,12 @@ In the "merge process", it can be used to "count the inversion".
 ```c
   if (array contains only one element)
     return 0
-    
+
   Divide array into A & B
   a = Sort-and-Count(A)
   b = Sort-and-Count(B)
   c = Merge-and-Count(A, B)
-  
+
   return a + b + c;
 ```
 
@@ -133,7 +133,7 @@ which beta is defined as `min(closest_distance(left), closest_distance(right))`
 [Left][Right]
 [Left<-beta->][<-beta->Right]
 ```
-  
+
 People find that in order to find the closest pair of an particular point in beta area, they just need to test its 11-th consecutive point in y coordinate
 let yg be the elements in the beta element
 ```c
