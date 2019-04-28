@@ -33,7 +33,7 @@ class TableOfContent extends React.Component {
     //   this.onWindowScroll = function () {
     //     console.log("window.scrollY", window.scrollY)
     //     console.log("offsetTop", offsetTop)
-        
+
     //     // TODO: Will have some delay
     //     // https://stackoverflow.com/questions/5209814/can-i-position-an-element-fixed-relative-to-parent
     //     if (window.scrollY > offsetTop) {
@@ -64,10 +64,41 @@ class TableOfContent extends React.Component {
     this.setState({ isOpen: !isOpen })
   }
 
+  /**
+   * Scroll to the heading with JavaScript instead of using browser anchor because it will lose the router information
+   *
+   * @param {*} event - OnClick event which targets <a> element
+   * @memberof TableOfContent
+   */
+  _scrollToHeading (event) {
+    // need to use /g flag to replaceAll...
+    const target = event.target
+    const headingText = target.innerText
+    const headingId = headingText.replace(/\s/g, "-").toLowerCase()
+    const heading = document.querySelector("#" + headingId)
+
+    if (heading) {
+      const { top, left } = heading.getBoundingClientRect()
+      window.scrollTo(left, top)
+      event.preventDefault()
+    } else {
+      console.error("Can't find heading with Id: ", headingId)
+    }
+  }
+
   // Little hack for <a> event bubbling
-  handleClick = event => {
+  handleTocClickDesktop = event => {
     const target = event.target
     if (target.tagName === "A") {
+      this._scrollToHeading(event)
+    }
+  }
+
+  // Little hack for <a> event bubbling
+  handleTocClickMobile = event => {
+    const target = event.target
+    if (target.tagName === "A") {
+      this._scrollToHeading(event)
       this._closeMenu()
     }
   }
@@ -96,11 +127,15 @@ class TableOfContent extends React.Component {
     // Workaround: Use a button to close
     return (
       <>
-        <Container id="desktopToc" className="blog-toc blog-toc-desktop">
+        <Container id="desktopToc"
+          className="blog-toc blog-toc-desktop"
+          onClick={this.handleTocClickDesktop}>
           {tocContent}
         </Container>
 
-        <Container className="blog-toc blog-toc-phone" data-menu={menuState} onClick={this.handleClick}>
+        <Container className="blog-toc blog-toc-phone"
+          data-menu={menuState}
+          onClick={this.handleTocClickMobile}>
           <div className="blog-toc-center">
             {tocContent}
           </div>

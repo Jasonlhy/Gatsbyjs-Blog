@@ -100,7 +100,7 @@ class BlogListPage extends React.Component {
     return (
       <Layout>
         <SEO title="文章列表" keywords={[`programming`, `blog`, `life`]} />
-        <h1 class="page-title">文章列表 - 頁 {currentPage}</h1>
+        <h1 className="page-title">文章列表 - 頁 {currentPage}</h1>
 
         <OuterContainer className="blog-list">
           {posts.map(({ node }) => {
@@ -111,6 +111,7 @@ class BlogListPage extends React.Component {
 
             return (
               <Link className="blog-item-link"
+                key={slug}
                 to={slug}
                 data-slug={slug}
                 onClick={this.navigateToArticle}>
