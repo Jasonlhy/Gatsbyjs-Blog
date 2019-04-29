@@ -2,17 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Container } from "../components/containers"
 
+import smoothscroll from 'smoothscroll-polyfill';
+
+// kick off the polyfill!
+smoothscroll.polyfill();
+
 // Reference reactjs.org
 // TODO: No ieda why this doesn't work, otherwise put the display logic into the JS
-const media = {
-  desktop: function () {
-    return `@media (min-width: 652pxpx)`
-  },
-  phone: function () {
-    return `@media (max-width: 651pxpx)`
-  },
-}
-
 class TableOfContent extends React.Component {
   constructor (props) {
     super(props)
