@@ -88,9 +88,11 @@
     cursor: pointer;
     text-align: center;
     box-shadow: 0px 2px 5px #666;
-    transition: box-shadow 2s cubic-bezier(0.19, 1, 0.22, 1),
-      transform 0.5s ease-out;
+    transition: box-shadow 2s cubic-bezier(0.19, 1, 0.22, 1), transform 0.5s ease-out;
     z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .floating-menu .sign {
@@ -102,11 +104,7 @@
     font-size: 38px;
     font-weight: 300;
     display: inline-block;
-    height: 100%;
-  }
-
-  .floating-menu .sign::before {
-    content: "+";
+    height: 70%;
   }
 
   .floating-menu:hover {
