@@ -4,11 +4,6 @@ import { Container } from "../components/containers"
 
 import smoothscroll from "smoothscroll-polyfill"
 
-// kick off the polyfill!
-smoothscroll.polyfill()
-
-// Reference reactjs.org
-// TODO: No ieda why this doesn't work, otherwise put the display logic into the JS
 class TableOfContent extends React.Component {
   constructor (props) {
     super(props)
@@ -21,6 +16,10 @@ class TableOfContent extends React.Component {
   // But method is syntatic sugar to this.function in function prototype
   // Use arrow function to reference this.onWindowScroll to avoid declare another variable for reference of the caller function
   componentDidMount = () => {
+    // Delay the polyfill step
+    // https://github.com/gatsbyjs/gatsby/issues/309
+    smoothscroll.polyfill()
+
     // let desktopToc = document.querySelector("#desktopToc")
     // let desktopFixed = desktopToc && desktopToc.querySelector("#desktopTopFixed")
     // let offsetTop = desktopToc && desktopToc.offsetTop
