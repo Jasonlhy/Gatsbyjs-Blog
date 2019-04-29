@@ -2,10 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Container } from "../components/containers"
 
-import smoothscroll from 'smoothscroll-polyfill';
+import smoothscroll from "smoothscroll-polyfill"
 
 // kick off the polyfill!
-smoothscroll.polyfill();
+smoothscroll.polyfill()
 
 // Reference reactjs.org
 // TODO: No ieda why this doesn't work, otherwise put the display logic into the JS

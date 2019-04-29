@@ -1,6 +1,5 @@
 import Typography from "typography"
 import GrandView from "typography-theme-grand-view"
-import { inherits } from "util";
 
 const fontFamily = ["Open Sans", "source-han-sans-traditional", "BlinkMacSystemFont", "-apple-system",
   "system-ui", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
@@ -35,9 +34,6 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     backgroundColor: "#757de8",
     color: "white"
   },
-  // "a[aria-label*='']:hover,a[aria-label*='']:active": {
-  //   backgroundColor: inherits
-  // },
   "h1:first-child,h2:first-child,h3:first-child": {
     marginTop: 0
   },

@@ -70,8 +70,7 @@ class BlogListPage extends React.Component {
     const { location } = this.props
 
     if (location.state) {
-      const { pageX, pageY, slug } = location.state
-      // console.log("Element from point: ", { pageX, pageY, slug })
+      const { pageX, pageY } = location.state
 
       if (pageX >= 0 || pageY >= 0) {
         // It doesn't work to scroll immediately
