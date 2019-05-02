@@ -2,13 +2,15 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import logo from "../icons/logo_transparent.png"
+
 const headerStyle = {
   // TODO: Hard code first
+  display: "flex",
+  alignItems: "center",
   marginLeft: "1.0875rem",
   maxWidth: 960,
   paddingLeft: `1.0875rem`,
-  paddingTop: `0.6rem`, // don't know why safari have bug
-  paddingBottom: `0.6rem` // don't know why safari have bug
 }
 
 const centerHeaderStyle = Object.assign(Object.assign({}, headerStyle), {
@@ -26,10 +28,16 @@ const Header = ({ siteTitle, isFullPageLayout }) => (
       className={ isFullPageLayout ? "headerSmallScreenPadding" : ""}
       style={isFullPageLayout ? headerStyle : centerHeaderStyle}
     >
+      <img src={logo} style={{
+        marginLeft: "-0.4rem",
+        height: "80px",
+        width: "auto",
+        marginBottom: 0,
+      }}/>
       <h1 style={{
+        display: "inline",
         margin: 0,
         padding: "0.4rem",
-        marginLeft: "-0.4rem",
         color: "#DBDBDB",
         fontFamily: "liberation-sans",
         fontWeight: 700,
