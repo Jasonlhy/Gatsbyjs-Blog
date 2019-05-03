@@ -10,7 +10,6 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import { OuterContainer } from "./containers"
 import Footer from "./footer.js"
 import "./layout.css"
 
@@ -33,7 +32,6 @@ const Layout = ({ header, left, right }) => (
 
           <div style={{ display: "flex", flexWrap: "wrap", marginBottom: "1rem" }}>
             <main style={{ minWidth: "250px", flex: "1 0 250px" }}>{left}</main>
-            {/* TODO: hardcode the value first */}
             <div
               style={{
                 flex: "0 0 250px",
@@ -47,9 +45,7 @@ const Layout = ({ header, left, right }) => (
             </div>
           </div>
 
-          <OuterContainer>
-            <Footer />
-          </OuterContainer>
+          <Footer />
         </div>
       </>
     )}

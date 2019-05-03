@@ -33,7 +33,7 @@ const Header = ({ siteTitle, isFullPageLayout }) => (
       <img src={logo} style={{
         marginLeft: "-0.4rem",
         height: "50px",
-        width: "auto",
+        width: "52px",
         marginBottom: 0,
       }}/>
       <h1 style={{

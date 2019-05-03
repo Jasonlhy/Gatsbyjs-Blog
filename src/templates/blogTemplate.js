@@ -43,7 +43,6 @@ export default function Template ({
             <time style={{ display: "block" }}>{frontmatter.date}</time>
             <TagList tags={frontmatter.tags} />
 
-            {/* TODO: This will disappear after mouse click, have no idea */}
             {fromBlogs && (
               <BlogListLink
                 pagenumber={pagenumber}
@@ -61,7 +60,6 @@ export default function Template ({
   )
   const article = (
     <div className="blog-post-content-container">
-      {/* TODO: hardcode first */}
       <OuterContainer>
         <ShadowContainer>
           <article className="blog-post-content"

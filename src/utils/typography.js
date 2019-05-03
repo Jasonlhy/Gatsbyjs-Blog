@@ -61,12 +61,12 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     marginBottom: rhythm(1)
   },
   // https://helpx.adobe.com/fonts/using/font-events.html#Stylingfallbackfontsusingfontevents
-  ".wf-loading h1, .wf-loading p": {
-    visibility: "hidden"
-  },
-  ".wf-active h1, .wf-active p, .wf-inactive h1, .wf-inactive p": {
-    visibility: "visible"
-  }
+  // ".wf-loading h1, .wf-loading p": {
+  // visibility: "hidden"
+  // },
+  // ".wf-active h1, .wf-active p, .wf-inactive h1, .wf-inactive p": {
+  // visibility: "visible"
+  // }
 })
 
 const typography = new Typography(GrandView)

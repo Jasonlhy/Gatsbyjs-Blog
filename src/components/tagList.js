@@ -1,27 +1,35 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Link } from "gatsby"
+const _ = require("lodash")
 
 const TagList = props => {
+  if (!props.tags) {
+    return (<></>)
+  }
+
+  const tagStyle = {
+    paddingLeft: "5px",
+    paddingRight: "5px",
+    backgroundColor: "#757de8",
+    marginRight: "5px",
+    color: "white"
+  }
+
   return (
-    <>
-        {props.tags && <div style={{
-          fontSize: "80%"
-        }}>
-          {
-            props.tags.map(tag => {
-              return <span
-                key={tag}
-                style={{
-                  paddingLeft: "5px",
-                  paddingRight: "5px",
-                  backgroundColor: "#757de8",
-                  marginRight: "5px",
-                  color: "white"
-                }}>{tag}</span>
-            })
-          }
-        </div>}
-    </>
+    <div style={{
+      fontSize: "80%"
+    }}>
+      {props.tags.map(tag => {
+        return (
+          <span key={tag}>
+            <Link to={`/tags/${_.kebabCase(tag)}/`} style={tagStyle}>
+              {tag}
+            </Link>
+          </span>
+        )
+      })}
+    </div>
   )
 }
 

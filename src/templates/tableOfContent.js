@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Container } from "../components/containers"
 
 import smoothscroll from "smoothscroll-polyfill"
-import addIcon from '../icons/add.svg';
+import addIcon from "../icons/add.svg"
 
 class TableOfContent extends React.Component {
   constructor (props) {
@@ -143,7 +143,7 @@ class TableOfContent extends React.Component {
         </Container>
 
         <div className="floating-menu" data-menu={menuState} onClick={this._toggleMenu}>
-            <img className="sign" src={addIcon} />
+          <img className="sign" src={addIcon} />
         </div>
       </>
     )
