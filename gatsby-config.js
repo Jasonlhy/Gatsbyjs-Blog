@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `J 先生日常`,
+    title: `Life 4 J`,
     description: `記錄碎片資訊`,
     author: `jasonlhy`,
   },

@@ -11,6 +11,8 @@ const headerStyle = {
   marginLeft: "1.0875rem",
   maxWidth: 960,
   paddingLeft: `1.0875rem`,
+  paddingTop: `0.6rem`,
+  paddingBottom: `0.6rem`
 }
 
 const centerHeaderStyle = Object.assign(Object.assign({}, headerStyle), {
@@ -30,7 +32,7 @@ const Header = ({ siteTitle, isFullPageLayout }) => (
     >
       <img src={logo} style={{
         marginLeft: "-0.4rem",
-        height: "80px",
+        height: "50px",
         width: "auto",
         marginBottom: 0,
       }}/>
