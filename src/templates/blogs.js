@@ -3,7 +3,7 @@ import { graphql, Link, navigate } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import TagList from "../components/tagList"
+import BlogItem from "../components/blogItem"
 import { OuterContainer, ShadowContainer } from "../components/containers"
 import BlogListLink from "../components/blogListLink"
 
@@ -106,33 +106,18 @@ class BlogListPage extends React.Component {
             const { title, date, tags } = node.frontmatter
             const excerpt = node.excerpt
             const slug = node.fields.slug
-            const blogItemClass = (focusSlug === slug) ? "blog-item focus" : "blog-item"
+            const isFocus = (focusSlug === slug)
 
             return (
-              <Link className="blog-item-link"
-                key={slug}
-                to={slug}
-                data-slug={slug}
-                onClick={this.navigateToArticle}>
-
-                <ShadowContainer className={blogItemClass}>
-                  <article key={slug}>
-                    <div className="blog-item-info"
-                      style={{
-                        marginBottom: "1.0875rem"
-                      }}
-                    >
-                      <h2 itemProp="name">{title}</h2>
-                      <time itemProp="datePublished">{date}</time>
-                      <TagList tags={tags} />
-                    </div>
-
-                    <p className="except-container"
-                      itemProp="description"
-                      dangerouslySetInnerHTML={{ __html: excerpt }} />
-                  </article>
-                </ShadowContainer>
-              </Link>
+              <BlogItem 
+                slug={slug}
+                excerpt={excerpt}
+                date={date}
+                tags={tags}
+                title={title} 
+                navigateHandler={this.navigateToArticle}
+                isFocus={isFocus}
+              />
             )
           })}
         </OuterContainer>

@@ -1,0 +1,28 @@
+.blog-item {
+  background-color: #fff;
+  transition: box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.blog-item.focus {
+  box-shadow: 0 0 5px 0 #797979 !important;
+}
+
+.blog-item time {
+  color: #817c7c;
+  display: block;
+  font-size: 0.75em;
+}
+
+.blog-item-info > h2 {
+  color: #d81b60;
+}
+
+.blog-item-link {
+  color: rgb(49,56,97);
+  text-decoration: none !important;
+  display: block;
+}
+
+.blog-item .except-container {
+  /* margin-bottom: 1.45rem; */
+}
