@@ -4,8 +4,8 @@ import { graphql, Link, navigate } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogItem from "../components/blogItem"
+import Pagination from "../components/pagination"
 import { OuterContainer, ShadowContainer } from "../components/containers"
-import BlogListLink from "../components/blogListLink"
 
 import "./blogs.css"
 
@@ -122,10 +122,9 @@ class BlogListPage extends React.Component {
           })}
         </OuterContainer>
 
-        <div className="pagination">
-          { previousPage && <BlogListLink pagenumber={previousPage}>上一頁</BlogListLink> }
-          { nextPage && <BlogListLink pagenumber={nextPage} style={{ float: "right" }}>下一頁</BlogListLink> }
-        </div>
+        <Pagination 
+          previousPage={previousPage}
+          nextPage={nextPage} />
       </Layout>
     )
   }

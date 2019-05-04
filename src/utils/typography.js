@@ -20,17 +20,14 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     "background": "#f5f5f6"
   },
   "a": {
-    // color: "#4A62FC",
     color: "#757de8",
     textDecoration: "none",
-    // padding: "2px"
   },
   ".page-title": {
     fontWeight: 900
   },
   /* So difficult to customize link color */
   "a:not(.blog-item-link):hover,a:not(.blog-item-link):active": {
-    // backgroundColor: "#4A62FC",
     backgroundColor: "#757de8",
     color: "white"
   },
@@ -39,26 +36,6 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   },
   ".blog-toc": {
     width: "100%"
-  },
-  ".blog-list": {
-    marginBottom: rhythm(1)
-  },
-  ".blog-item": {
-    marginTop: rhythm(1),
-  },
-  ".blog-item h2,.small-margin-bottom": {
-    marginBottom: rhythm(0.3)
-  },
-  ".blog-item .except-container": {
-    marginBottom: rhythm(1)
-  },
-  ".pagination": {
-    marginLeft: "-1.0875rem",
-    marginRight: "-1.0875rem",
-    marginBottom: rhythm(1)
-  },
-  ".blog-post-container": {
-    marginBottom: rhythm(1)
   },
   // https://helpx.adobe.com/fonts/using/font-events.html#Stylingfallbackfontsusingfontevents
   // ".wf-loading h1, .wf-loading p": {

@@ -39,7 +39,9 @@ export default function Template ({
       <OuterContainer>
         <Container className="blog-heading-container">
           <section className="blog-heading">
-            <h1 className="small-margin-bottom page-title">{frontmatter.title}</h1>
+            <h1 className="page-title" style={{
+              marginBottom: "0.3rem"
+            }}>{frontmatter.title}</h1>
             <time style={{ display: "block" }}>{frontmatter.date}</time>
             <TagList tags={frontmatter.tags} />
 

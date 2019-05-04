@@ -1,10 +1,15 @@
 .blog-item {
+  margin-top: 1.7rem;
   background-color: #fff;
   transition: box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.blog-item.focus {
+.blog-item-focus {
   box-shadow: 0 0 5px 0 #797979 !important;
+}
+
+.blog-item .except-container {
+  margin-bottom: 1.7rem;
 }
 
 .blog-item time {
@@ -13,16 +18,16 @@
   font-size: 0.75em;
 }
 
+.blog-item h2 {
+  margin-bottom: 0.3rem;
+}
+
 .blog-item-info > h2 {
   color: #d81b60;
 }
 
 .blog-item-link {
-  color: rgb(49,56,97);
+  color: rgb(49,56,97) !important;
   text-decoration: none !important;
   display: block;
-}
-
-.blog-item .except-container {
-  /* margin-bottom: 1.45rem; */
 }
