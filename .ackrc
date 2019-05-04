@@ -1,8 +1,10 @@
+--smart-case
 --ignore-dir=node_modules
 --ignore-dir=public
 --ignore-dir=.cache
---ignore-dir=.vscode
---ignore-dir=.gitignore
---ignore-dir=.prettierrc
---ignore-dir=.eslintrc.js
 --ignore-dir=.idea
+--ignore-dir=.vscode
+--ignore-file=match:/^\..+$/
+--ignore-file=is:yarn.lock
+--ignore-file=is:package.json
+--ignore-file=is:package-lock.json
