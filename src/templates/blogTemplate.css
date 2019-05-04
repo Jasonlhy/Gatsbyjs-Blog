@@ -56,7 +56,7 @@ pre[class*="language-"]:after {
 
 .blog-toc li a {
   text-decoration: none;
-  color: rgb(86, 109, 251);
+  /*color: rgb(86, 109, 251);*/
 }
 
 .blog-toc nav > div > ul {

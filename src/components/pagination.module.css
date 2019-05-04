@@ -1,21 +1,28 @@
 .pagination {
+  display: flex;
+  justify-content: space-between;
   margin-left: -1.0875rem;
   margin-right: -1.0875rem;
   margin-bottom: 1.7rem;
 }
 
-.pagination a {
+.pagination-link {
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
+  color: #3f51b5;
 }
 
-.pagination a:hover {
+.pagination-link:hover {
   background-color: #3f51b5;
   color: white;
 }
 
-.pagination::after {
-  content: '';
-  display: block;
-  clear: both;
+.pagination-link a {
+  background-color: inherit;
+  color: inherit;
+}
+
+.pagination-link a:hover {
+  background-color: inherit;
+  color: inherit;
 }

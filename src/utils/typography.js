@@ -27,7 +27,7 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     fontWeight: 900
   },
   /* So difficult to customize link color */
-  "a:not(.blog-item-link):hover,a:not(.blog-item-link):active": {
+  "a:hover": {
     backgroundColor: "#757de8",
     color: "white"
   },

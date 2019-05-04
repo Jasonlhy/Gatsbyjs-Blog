@@ -1,3 +1,8 @@
+/* Consistent margin with other */
+.gatsby-highlight {
+  margin-bottom: 1.7rem;
+}
+
 /* Small Padding for better on small screen */
 .layoutSmallScreenPadding {
   padding: 0px 2.175rem 1.45rem;

@@ -9,8 +9,16 @@ const Pagination = function (props) {
 
   return (
     <div className={styles.pagination}>
-      { previousPage && <BlogListLink pagenumber={previousPage}>上一頁</BlogListLink> }
-      { nextPage && <BlogListLink pagenumber={nextPage} style={{ float: "right" }}>下一頁</BlogListLink> }
+      { previousPage && 
+        <div className={styles.paginationLink}>
+          <BlogListLink pagenumber={previousPage}>上一頁</BlogListLink>
+        </div> 
+      }
+      { nextPage && 
+          <div className={styles.paginationLink}>
+              <BlogListLink pagenumber={nextPage}>下一頁</BlogListLink>
+          </div>
+      }
     </div>
   )
 }
