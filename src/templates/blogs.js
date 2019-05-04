@@ -75,12 +75,12 @@ class BlogListPage extends React.Component {
       if (pageX >= 0 || pageY >= 0) {
         // It doesn't work to scroll immediately
         // I don't know why
-        window.setTimeout(() => {
-          window.scrollTo({
-            top: pageY,
-            left: pageX
-          })
-        }, 100)
+        //window.setTimeout(() => {
+          //window.scrollTo({
+            //top: pageY,
+            //left: pageX
+          //})
+        //}, 100)
       }
     }
   }

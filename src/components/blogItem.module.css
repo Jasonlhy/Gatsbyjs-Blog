@@ -30,4 +30,5 @@
   color: rgb(49,56,97) !important;
   text-decoration: none !important;
   display: block;
+  cursor: pointer;
 }

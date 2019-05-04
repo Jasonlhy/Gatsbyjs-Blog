@@ -30,7 +30,7 @@ const Header = ({ siteTitle, isFullPageLayout }) => (
       className={ isFullPageLayout ? "headerSmallScreenPadding" : ""}
       style={isFullPageLayout ? headerStyle : centerHeaderStyle}
     >
-      <img src={logo} style={{
+      <img key={"website-logo"} src={logo} style={{
         marginLeft: "-0.4rem",
         height: "50px",
         width: "52px",

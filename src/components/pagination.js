@@ -24,8 +24,8 @@ const Pagination = function (props) {
 }
 
 Pagination.propTypes = {
-  previousPage: PropTypes.number.isRequired,
-  nextPage: PropTypes.number.isRequired,
+  previousPage: PropTypes.number,
+  nextPage: PropTypes.number,
 }
 
 export default Pagination
