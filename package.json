@@ -51,7 +51,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "lint": "npx eslint src/**/*.js"
+    "lint": "npx eslint src/**/*.js",
+    "lint-fix": "npx eslint src/**/*.js --fix"
   },
   "repository": {
     "type": "git",

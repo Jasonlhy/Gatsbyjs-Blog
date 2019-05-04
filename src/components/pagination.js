@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 import styles from "./pagination.module.css"
 
-const Pagination = function(props) {
+const Pagination = function (props) {
   const { previousPage, nextPage } = props
 
   return (

@@ -1,11 +1,10 @@
 import React from "react"
-import { graphql, Link, navigate } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogItem from "../components/blogItem"
-import TagList from "../components/tagList"
-import { OuterContainer, ShadowContainer } from "../components/containers"
+import { OuterContainer } from "../components/containers"
 
 // Stateless JSX component with props of data injected by graphQL
 export default function TagPage ({ pageContext, data, location }) {
@@ -27,15 +26,15 @@ export default function TagPage ({ pageContext, data, location }) {
           const isFocus = (focusSlug === slug)
 
           return (
-            <BlogItem 
+            <BlogItem
               slug={slug}
               excerpt={excerpt}
               date={date}
               tags={tags}
-              title={title} 
+              title={title}
               navigateHandler={null}
               isFocus={isFocus}
-            /> 
+            />
           )
         })}
       </OuterContainer>

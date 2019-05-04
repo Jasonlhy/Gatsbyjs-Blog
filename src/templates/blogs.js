@@ -1,11 +1,11 @@
 import React from "react"
-import { graphql, Link, navigate } from "gatsby"
+import { graphql, navigate } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogItem from "../components/blogItem"
 import Pagination from "../components/pagination"
-import { OuterContainer, ShadowContainer } from "../components/containers"
+import { OuterContainer } from "../components/containers"
 
 import "./blogs.css"
 
@@ -109,12 +109,12 @@ class BlogListPage extends React.Component {
             const isFocus = (focusSlug === slug)
 
             return (
-              <BlogItem 
+              <BlogItem
                 slug={slug}
                 excerpt={excerpt}
                 date={date}
                 tags={tags}
-                title={title} 
+                title={title}
                 navigateHandler={this.navigateToArticle}
                 isFocus={isFocus}
               />
@@ -122,7 +122,7 @@ class BlogListPage extends React.Component {
           })}
         </OuterContainer>
 
-        <Pagination 
+        <Pagination
           previousPage={previousPage}
           nextPage={nextPage} />
       </Layout>

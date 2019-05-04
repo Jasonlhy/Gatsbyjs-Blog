@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react"
+import { Link } from "gatsby"
 import classNames from "classnames"
 
 import { OuterContainer, ShadowContainer } from "../components/containers"
@@ -8,9 +8,9 @@ import PropTypes from "prop-types"
 
 import styles from "./blogItem.module.css"
 
-const BlogItem = function(props) {
+const BlogItem = function (props) {
   console.log("styles: ", styles)
-  const {slug, excerpt, tags, date, title, navigateHandler, isFocus} = props
+  const { slug, excerpt, tags, date, title, navigateHandler, isFocus } = props
   const blogItemClasses = (isFocus) ? classNames(styles.blogItem, styles.blogItemFocus) : styles.blogItem
 
   return (
