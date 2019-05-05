@@ -11,28 +11,27 @@ tags:
 
 ## 版本
 
-個人覺得Play 的文件比較亂。在這裡先記下簡約play testing 的用法
+個人覺得 Play 的文件比較亂。在這裡先記下簡約 play testing 的用法
 
-十分重要, 因為各個版本的api 可以差別很大...
+十分重要, 因為各個版本的 api 可以差別很大...
 - Play version: 2.4.6
 - Scala version: 2.1.0
 
 ## Override configuration
 
-因為我只預設用一個database。。。
+因為我只預設用一個 database。。。
 ```scala
 trait DAOTrait {
-implicit val fakeApp = new FakeApplication(
-  additionalConfiguration = Map("db.default.username" -> "YOURUSERNAME",
-    "db.default.url" -> "jdbc:mysql://URDATABASE",
-    "db.default.password" -> "YOURPASSWORD")
-)
+    implicit val fakeApp = new FakeApplication(additionalConfiguration = Map("db.default.username" -> "YOURUSERNAME",
+        "db.default.url" -> "jdbc:mysql://URDATABASE",
+        "db.default.password" -> "YOURPASSWORD")
+    )
 }
 ```
 
 ## Unit testing
 
-因為anorm database 要有execution context 所以要先用step 啟動application
+因為 anorm database 要有 execution context 所以要先用 step 啟動 application
 
 ```scala
 import play.api.test.PlaySpecification
@@ -75,12 +74,12 @@ class UserDAOSpec extends PlaySpecification with DAOTrait {
 
 ## Controller testing
 
-測試json post request
-另外寫法`val request = FakeRequest(POST, "/").withJsonBody(Json.parse("""{ "field": "value" }"""))`
-body 請放JsValue, 不要放String
-`contentType` 和 `contentAsJson` 在play.api.test.Helpers
-如果你只需測試routing，你不需要用step 啟動applicaton, 整個controller的method不會執行
-return 的可以是Future[Result]
+測試 json post request
+另外寫法 `val request = FakeRequest(POST, "/").withJsonBody(Json.parse("""{"field":"value"}"""))`
+body 請放 JsValue, 不要放 String
+`contentType` 和 `contentAsJson` 在 play.api.test.Helpers
+如果你只需測試 routing, 你不需要用 step 啟動 applicaton, 整個 controller 的 method 不會執行
+return 的可以是 Future[Result]
 
 ```scala
 import controllers.RecipeController
@@ -119,20 +118,20 @@ class RecipeControllerSpec extends PlaySpecification with DAOTrait{
 
 ## JSON Read & Write
 
-play framework 設計JSON要read 進一個model & 或由一個model write 成JSON
-如果json的數目跟model attribute不同比較麻煩
+play framework 設計 JSON 要 read 進一個 model & 或由一個 model write 成 JSON
+如果 json 的數目跟 model attribute 不同比較麻煩
 
-把一個value 變做object, 利用scala 的map pattern 提取value
+把一個 value 變做 object, 利用 scala 的 map pattern 提取 value
 {% codeblock %}
 implicit val ingRead: Reads[IngIdWrap] = (JsPath \ "ingId").read[Int].map(IngIdWrap.apply);
 {% endcodeblock %}
 
 
-**Read的model attribute 比JSON value 多**
+**Read 的 model attribute 比 JSON value 多**
 
-UserRecipeRating 是(Int, Int, Int)
-read的read combinator 會產生`(Int, Int)`
-寫一個function 接收`(Int, Int)` 變成UserRecipeRating
+UserRecipeRating 是 (Int, Int, Int)
+read 的 read combinator 會產生 `(Int, Int)`
+寫一個 function 接收 `(Int, Int)` 變成 UserRecipeRating
 
 ```scala
 val applyJson = (recipeId: Int, rating: Int) => UserRecipeRating(0, recipeId, rating);
@@ -143,10 +142,10 @@ implicit val read : Reads[UserRecipeRating] = (
 ```
 
 
-**Write的model attribute 比JSON value 多**
+**Write 的 model attribute 比 JSON value 多**
 
-反過來，把一個UserRecipeRating 寫兩個Int, write combinator 需要`(Int, Int)`
-可以寫一個function 接收一個UserRecipeRating 變作`(Int, Int)`
+反過來, 把一個 UserRecipeRating 寫兩個 Int, write combinator 需要 `(Int, Int)`
+可以寫一個 function 接收一個 UserRecipeRating 變作 `(Int, Int)`
 
 ```scala
 val writeJson = (obj: UserRecipeRating) => (obj.recipeId , obj.rating)

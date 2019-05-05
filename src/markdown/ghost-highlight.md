@@ -2,6 +2,8 @@
 path: "/blog/Ghost-Highlight"
 date: "2017-07-01"
 title: "Ghost Highlight"
+tags:
+- Ghost
 ---
 
 # 簡介

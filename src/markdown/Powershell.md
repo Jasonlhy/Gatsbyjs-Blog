@@ -4,6 +4,7 @@ date: "2017-07-07"
 title: "初試 Powershell"
 tags:
 - Powershell
+- Tool
 ---
 
 # 初試感想
