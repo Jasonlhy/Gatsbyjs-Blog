@@ -36,38 +36,39 @@ export default function Template ({
   const header = (
     <>
       <SEO title={frontmatter.title} keywords={[`programming`, `blog`, `life`]} />
-      <OuterContainer>
-        <Container className="blog-heading-container">
-          <section className="blog-heading">
-            <h1 className="page-title" style={{
-              marginBottom: "0"
-            }}>{frontmatter.title}</h1>
-            <time style={{ display: "block" }}>{frontmatter.date}</time>
-            <TagList tags={frontmatter.tags} />
-
-            {fromBlogs && (
-              <BlogListLink
-                pagenumber={pagenumber}
-                state={{
-                  pageX: location.state.pageX,
-                  pageY: location.state.pageY,
-                  slug: slug,
-                }}>返回文章列表
-              </BlogListLink>
-            )}
-          </section>
-        </Container>
-      </OuterContainer>
+      
     </>
   )
   const article = (
     <div className="blog-post-content-container">
       <OuterContainer>
         <ShadowContainer>
-          <article className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </ShadowContainer>
+          <OuterContainer>
+            <Container className="blog-heading-container">
+              <section className="blog-heading">
+                <h1 className="page-title" style={{
+                  marginBottom: "0"
+                }}>{frontmatter.title}</h1>
+              <time style={{ display: "block" }}>{frontmatter.date}</time>
+              <TagList tags={frontmatter.tags} />
+
+              {fromBlogs && (
+                <BlogListLink
+                  pagenumber={pagenumber}
+                  state={{
+                    pageX: location.state.pageX,
+                    pageY: location.state.pageY,
+                    slug: slug,
+                  }}>返回文章列表
+                </BlogListLink>
+              )}
+            </section>
+          </Container>
+        </OuterContainer>
+        <article className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </ShadowContainer>
       </OuterContainer>
     </div>
   )

@@ -34,12 +34,15 @@ export default function TagPage ({ pageContext, data, location }) {
     )
   }
 
+    //<h1 className="page-title" style={{
+      //marginBottom: "5px"
+    //}}><TagLabel tag={tag} /></h1>
   return (
     <Layout>
       <SEO title="Tags" keywords={[tag]}></SEO>
       <h1 className="page-title" style={{
         marginBottom: "5px"
-      }}><TagLabel tag={tag} /></h1>
+      }}>{tag}</h1>
       <p><strong>標籤總數</strong>: {tagField.totalCount}</p>
 
       <OuterContainer className="blog-list">

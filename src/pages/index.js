@@ -11,11 +11,8 @@ import { Container } from "../components/containers"
 const IndexPage = () => (
   <Layout>
     <SEO title="Left For J" keywords={[`gatsby`, `application`, `react`]} />
-    <Container>
-      <strong>資料還在整理中...</strong><br/>
-      <BlogListLink pagenumber={1}>文章列表</BlogListLink>
-      <TagCloud />
-    </Container>
+    <strong>資料還在整理中...</strong><br/>
+    <BlogListLink pagenumber={1}>文章列表</BlogListLink>
 
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />

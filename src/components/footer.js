@@ -1,10 +1,12 @@
 import React from "react"
+import TagCloud from "./tagCloud"
 
 function Footer () {
   return (
     <footer style={{
       textAlign: "center"
     }}>
+      <TagCloud />
       <div>
         © {new Date().getFullYear()}, Built with
         {` `}

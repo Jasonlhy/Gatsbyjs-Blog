@@ -2,12 +2,15 @@
   background-color: rgb(246, 248, 250);
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 2px;
-  background-color: rgb(246, 248, 250);
+  /*background-color: rgb(246, 248, 250);*/
+  background-color: white;
 }
 
 .heading {
-  background-color: #3f51b5;
+  /*background-color: #3f51b5;*/
+  background-color: rgb(246, 248, 250);
   color: white;
+  color: #3f51b5;
   margin-top: -1rem;
   margin-right: -1rem;
   margin-left: -1rem;
