@@ -1,19 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import TagLabel from "./tagLabel"
+
 const _ = require("lodash")
 
 const TagList = props => {
   if (!props.tags) {
     return (<></>)
-  }
-
-  const tagStyle = {
-    paddingLeft: "5px",
-    paddingRight: "5px",
-    backgroundColor: "#757de8",
-    marginRight: "5px",
-    color: "white"
   }
 
   return (
@@ -22,11 +16,12 @@ const TagList = props => {
     }}>
       {props.tags.map(tag => {
         return (
-          <span key={tag}>
-            <Link to={`/tags/${_.kebabCase(tag)}/`} style={tagStyle}>
-              {tag}
-            </Link>
-          </span>
+          <div style={{
+            display: "inline-block",
+            marginRight: "5px",
+          }}>
+            <TagLabel tag={tag} isClickable={true} />
+          </div>
         )
       })}
     </div>

@@ -5,11 +5,15 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogItem from "../components/blogItem"
 import { OuterContainer } from "../components/containers"
+import TagLabel from "../components/tagLabel"
 
 // Stateless JSX component with props of data injected by graphQL
 export default function TagPage ({ pageContext, data, location }) {
+  console.log("data: ", data)
   const { tag } = pageContext
-  const { group } = data
+  const { group } = data.allMarkdownRemark
+  console.log("group: ", group)
+  const tagField = group.filter(g => g.fieldValue === tag )[0]
   const posts = data.allMarkdownRemark.edges
   const focusSlug = location && location.state && location.state.slug
 
@@ -32,14 +36,11 @@ export default function TagPage ({ pageContext, data, location }) {
 
   return (
     <Layout>
-      <SEO title="Tags" keywords={[]}></SEO>
-      <h1 className="page-title">{<span style={{
-        paddingLeft: "5px",
-        paddingRight: "5px",
-        backgroundColor: "#757de8",
-        marginRight: "5px",
-        color: "white"
-      }}>{tag}</span>} 的文章</h1>
+      <SEO title="Tags" keywords={[tag]}></SEO>
+      <h1 className="page-title" style={{
+        marginBottom: "0.5rem"
+      }}><TagLabel tag={tag} /> 文章</h1>
+      <p>總數: {tagField.totalCount}</p>
 
       <OuterContainer className="blog-list">
         {posts.map(({ node }) => {
