@@ -2,6 +2,8 @@
 path: "/blog/初試 Powershell"
 date: "2017-07-07"
 title: "初試 Powershell"
+tags:
+- Powershell
 ---
 
 # 初試感想

@@ -31,7 +31,7 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
     backgroundColor: "#757de8",
     color: "white"
   },
-  "h1:first-child,h2:first-child,h3:first-child": {
+  "h1, h2, h3, h4, h5, h6": {
     marginTop: 0
   },
   ".blog-toc": {

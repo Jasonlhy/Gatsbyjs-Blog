@@ -3,8 +3,7 @@ path: '/blog/Note/parameter passing'
 title: parameter passing
 categories: Note
 tags:
-  - Javascript
-  - Programming Principle
+- Programming Principle
 date: 2016-02-23 22:39:00
 description:
 ---

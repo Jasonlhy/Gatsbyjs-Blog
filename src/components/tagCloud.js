@@ -25,7 +25,7 @@ const TagCloud = () => (
       const { group } = data.allMarkdownRemark
       return (
         <div className={styles.container}>
-          <h1>標籤雲</h1>
+          <h1 className={styles.heading}>標籤雲</h1>
           {group.map(g => {
             return (
               <div className={styles.labelContainer}>

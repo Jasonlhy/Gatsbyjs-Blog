@@ -2,12 +2,12 @@
 path: "/blog/JavaScript-Boolean 特性"
 date: "2018-03-05"
 update: 2019-05-05
-title: JavaScript-Boolean 特性
+title: JavaScript Boolean 特性
 tags:
 - JavaScript
 ---
 
-# 事發
+## 事發
 
 之前其中一個 [hungry delete commit](https://github.com/Jasonlhy/VSCode-Hungry-Delete/commit/af8312a76acb73b236bf97fd414eb2ed820e54c9)
 
@@ -53,7 +53,7 @@ JavaScript 判斷 boolean expression 時會自動轉換類型, [Truthy](https://
 - ''-""
 ```
 
-## 轉變為 boolean
+## 轉換為 boolean
 
 一些 framework 會指明 boolean 的 value, 例如 `vue.js`, 可以利由 `!!` 把 boolean expresson 轉換為 boolean value. 
 
