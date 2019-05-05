@@ -61,30 +61,6 @@ class BlogListPage extends React.Component {
     )
   }
 
-  /**
-   * Scroll to the previous position if the position is passed back from the artcile
-   *
-   * @memberof BlogListPage
-   */
-  componentDidMount = () => {
-    const { location } = this.props
-
-    if (location.state) {
-      const { pageX, pageY } = location.state
-
-      if (pageX >= 0 || pageY >= 0) {
-        // It doesn't work to scroll immediately
-        // I don't know why
-        //window.setTimeout(() => {
-          //window.scrollTo({
-            //top: pageY,
-            //left: pageX
-          //})
-        //}, 100)
-      }
-    }
-  }
-
   render () {
     const { data, pageContext, location } = this.props
     const { currentPage, numPages } = pageContext

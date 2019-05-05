@@ -1,9 +1,8 @@
 import React from "react"
-import ReactDOM from 'react-dom'
-import { Link } from "gatsby"
+import ReactDOM from "react-dom"
 import classNames from "classnames"
 
-import { OuterContainer, ShadowContainer } from "../components/containers"
+import { ShadowContainer } from "../components/containers"
 import TagList from "../components/tagList"
 import PropTypes from "prop-types"
 
@@ -19,35 +18,35 @@ class BlogItem extends React.Component {
    */
   constructor (props) {
     super(props)
-		this.state = {}
+    this.state = {}
   }
 
-	scrollToFocus = () => {
-		const { isFocus } = this.props
+  scrollToFocus = () => {
+    const { isFocus } = this.props
 
-		if (isFocus){
-			const focusBlogItem = ReactDOM.findDOMNode(this)
+    if (isFocus) {
+      const focusBlogItem = ReactDOM.findDOMNode(this)
 
-			// Request browser to scroll as soon as possible
-      var requestAnimationFrame = window.requestAnimationFrame 
-        || window.mozRequestAnimationFrame 
-        || window.webkitRequestAnimationFrame 
-        || window.msRequestAnimationFrame;
-			setTimeout(function(){
-        requestAnimationFrame(function(){
-          focusBlogItem.scrollIntoView();
+      // Request browser to scroll as soon as possible
+      let requestAnimationFrame = window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.msRequestAnimationFrame
+      setTimeout(function () {
+        requestAnimationFrame(function () {
+          focusBlogItem.scrollIntoView()
         })
-			}, 0);
-		}
-	}
+      }, 0)
+    }
+  }
 
-	componentDidMount = () => {
-		this.scrollToFocus()
-	}
+  componentDidMount = () => {
+    this.scrollToFocus()
+  }
 
-	componentDidUpdate = () => {
-		this.scrollIntoView()
-	}
+  componentDidUpdate = () => {
+    this.scrollIntoView()
+  }
 
   render = () => {
     const { slug, excerpt, tags, date, title, navigateHandler, isFocus } = this.props

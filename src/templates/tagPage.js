@@ -13,7 +13,7 @@ export default function TagPage ({ pageContext, data, location }) {
   const { tag } = pageContext
   const { group } = data.allMarkdownRemark
   console.log("group: ", group)
-  const tagField = group.filter(g => g.fieldValue === tag )[0]
+  const tagField = group.filter(g => g.fieldValue === tag)[0]
   const posts = data.allMarkdownRemark.edges
   const focusSlug = location && location.state && location.state.slug
 

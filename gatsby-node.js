@@ -10,7 +10,7 @@ const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 const _ = require("lodash")
 
-function createBlogPages(graphql, createPage){
+function createBlogPages (graphql, createPage) {
   return graphql(`
     {
       allMarkdownRemark(
@@ -40,7 +40,7 @@ function createBlogPages(graphql, createPage){
     const posts = result.data.allMarkdownRemark.edges
     const postsPerPage = 6
     const numPages = Math.ceil(posts.length / postsPerPage)
-    const blogListTemplate = path.resolve("./src/templates/blogs.js") 
+    const blogListTemplate = path.resolve("./src/templates/blogs.js")
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
@@ -56,7 +56,7 @@ function createBlogPages(graphql, createPage){
   })
 }
 
-function createTagPages(graphql, createPage) {
+function createTagPages (graphql, createPage) {
   return graphql(`
     {
       allMarkdownRemark(

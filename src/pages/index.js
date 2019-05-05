@@ -4,15 +4,22 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import BlogListLink from "../components/blogListLink"
+import TagCloud from "../components/tagCloud"
+
+import { Container } from "../components/containers"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Left For J" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>資料還在整理中 ... </h1>
+    <TagCloud />
+    <Container>
+      <strong>資料還在整理中</strong><br/>
+      <BlogListLink pagenumber={1}>文章列表</BlogListLink>
+    </Container>
+
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <BlogListLink pagenumber={1}>文章列表</BlogListLink>
   </Layout>
 )
 

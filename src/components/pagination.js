@@ -8,20 +8,20 @@ import classNames from "classnames"
 
 const Pagination = function (props) {
   const { previousPage, nextPage } = props
-  const paginationClassName = (previousPage) 
-    ? classNames(styles.pagination, styles.bothSide) 
+  const paginationClassName = (previousPage)
+    ? classNames(styles.pagination, styles.bothSide)
     : classNames(styles.pagination, styles.end)
 
   return (
     <div className={paginationClassName}>
-      { previousPage && 
+      { previousPage &&
         <div className={styles.paginationLink}>
           <BlogListLink pagenumber={previousPage}>上一頁</BlogListLink>
-        </div> 
+        </div>
       }
-      { nextPage && 
+      { nextPage &&
           <div className={styles.paginationLink}>
-              <BlogListLink pagenumber={nextPage}>下一頁</BlogListLink>
+            <BlogListLink pagenumber={nextPage}>下一頁</BlogListLink>
           </div>
       }
     </div>

@@ -1,9 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
 import TagLabel from "./tagLabel"
-
-const _ = require("lodash")
 
 const TagList = props => {
   if (!props.tags) {
