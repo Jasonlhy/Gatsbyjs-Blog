@@ -38,9 +38,9 @@ export default function TagPage ({ pageContext, data, location }) {
     <Layout>
       <SEO title="Tags" keywords={[tag]}></SEO>
       <h1 className="page-title" style={{
-        marginBottom: "0.5rem"
-      }}><TagLabel tag={tag} /> 文章</h1>
-      <p>總數: {tagField.totalCount}</p>
+        marginBottom: "5px"
+      }}><TagLabel tag={tag} /></h1>
+      <p><strong>標籤總數</strong>: {tagField.totalCount}</p>
 
       <OuterContainer className="blog-list">
         {posts.map(({ node }) => {

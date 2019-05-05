@@ -45,7 +45,7 @@ class BlogItem extends React.Component {
   }
 
   componentDidUpdate = () => {
-    this.scrollIntoView()
+    this.scrollToFocus()
   }
 
   render = () => {

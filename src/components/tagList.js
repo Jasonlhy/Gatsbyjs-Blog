@@ -8,9 +8,7 @@ const TagList = props => {
   }
 
   return (
-    <div style={{
-      fontSize: "80%"
-    }}>
+    <div>
       {props.tags.map(tag => {
         return (
           <div style={{

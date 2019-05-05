@@ -8,6 +8,7 @@ export default function (props) {
   const tagStyle = {
     paddingLeft: "5px",
     paddingRight: "5px",
+    borderRadius: "5px",
     backgroundColor: "#757de8",
     color: "white"
   }

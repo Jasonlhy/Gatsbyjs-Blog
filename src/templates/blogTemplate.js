@@ -40,7 +40,7 @@ export default function Template ({
         <Container className="blog-heading-container">
           <section className="blog-heading">
             <h1 className="page-title" style={{
-              marginBottom: "0.3rem"
+              marginBottom: "0"
             }}>{frontmatter.title}</h1>
             <time style={{ display: "block" }}>{frontmatter.date}</time>
             <TagList tags={frontmatter.tags} />
