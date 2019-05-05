@@ -29,8 +29,14 @@ class BlogItem extends React.Component {
 			const focusBlogItem = ReactDOM.findDOMNode(this)
 
 			// Request browser to scroll as soon as possible
+      var requestAnimationFrame = window.requestAnimationFrame 
+        || window.mozRequestAnimationFrame 
+        || window.webkitRequestAnimationFrame 
+        || window.msRequestAnimationFrame;
 			setTimeout(function(){
-				focusBlogItem.scrollIntoView();
+        requestAnimationFrame(function(){
+          focusBlogItem.scrollIntoView();
+        })
 			}, 0);
 		}
 	}
