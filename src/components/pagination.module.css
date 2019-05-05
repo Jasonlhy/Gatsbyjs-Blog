@@ -1,9 +1,16 @@
 .pagination {
   display: flex;
-  justify-content: space-between;
   margin-left: -1.0875rem;
   margin-right: -1.0875rem;
   margin-bottom: 1.7rem;
+}
+
+.end {
+  justify-content: flex-end;
+}
+
+.both-side {
+  justify-content: space-between;
 }
 
 .pagination-link {
