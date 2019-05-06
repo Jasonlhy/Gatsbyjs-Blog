@@ -9,10 +9,8 @@ import TagLabel from "../components/tagLabel"
 
 // Stateless JSX component with props of data injected by graphQL
 export default function TagPage ({ pageContext, data, location }) {
-  console.log("data: ", data)
   const { tag } = pageContext
   const { group } = data.allMarkdownRemark
-  console.log("group: ", group)
   const tagField = group.filter(g => g.fieldValue === tag)[0]
   const posts = data.allMarkdownRemark.edges
   const focusSlug = location && location.state && location.state.slug

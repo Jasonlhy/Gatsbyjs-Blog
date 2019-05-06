@@ -21,7 +21,7 @@ class BlogItem extends React.Component {
     this.state = {}
   }
 
-  scrollToFocus()=> {
+  scrollToFocus () {
     const { isFocus } = this.props
 
     if (isFocus) {
