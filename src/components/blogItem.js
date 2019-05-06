@@ -21,7 +21,7 @@ class BlogItem extends React.Component {
     this.state = {}
   }
 
-  scrollToFocus = () => {
+  scrollToFocus()=> {
     const { isFocus } = this.props
 
     if (isFocus) {
@@ -40,15 +40,15 @@ class BlogItem extends React.Component {
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount () {
     this.scrollToFocus()
   }
 
-  componentDidUpdate = () => {
+  componentDidUpdate () {
     this.scrollToFocus()
   }
 
-  render = () => {
+  render () {
     const { slug, excerpt, tags, date, title, navigateHandler, isFocus } = this.props
     const blogItemClasses = (isFocus) ? classNames(styles.blogItem, styles.blogItemFocus) : styles.blogItem
 

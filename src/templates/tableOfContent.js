@@ -13,42 +13,10 @@ class TableOfContent extends React.Component {
     this.onWindowScroll = null
   }
 
-  // componentDidMount && componentWillUnmount is methods in ES6 class
-  // But method is syntatic sugar to this.function in function prototype
-  // Use arrow function to reference this.onWindowScroll to avoid declare another variable for reference of the caller function
-  componentDidMount = () => {
+  componentDidMount () {
     // Delay the polyfill step
     // https://github.com/gatsbyjs/gatsby/issues/309
     smoothscroll.polyfill()
-
-    // let desktopToc = document.querySelector("#desktopToc")
-    // let desktopFixed = desktopToc && desktopToc.querySelector("#desktopTopFixed")
-    // let offsetTop = desktopToc && desktopToc.offsetTop
-
-    // if (desktopToc && desktopFixed) {
-    //   this.onWindowScroll = function () {
-    //     console.log("window.scrollY", window.scrollY)
-    //     console.log("offsetTop", offsetTop)
-
-    //     // TODO: Will have some delay
-    //     // https://stackoverflow.com/questions/5209814/can-i-position-an-element-fixed-relative-to-parent
-    //     if (window.scrollY > offsetTop) {
-    //       desktopFixed.style.transform = `translate(0, -${offsetTop}px)`
-    //     } else {
-    //       desktopFixed.style.transform = ""
-    //     }
-    //   }
-
-    //   window.addEventListener("scroll", this.onWindowScroll)
-    // } else {
-    //   console.log("error")
-    // }
-  }
-
-  componentWillUnmount = () => {
-    // if (this.onWindowScroll) {
-    //   window.removeEventListener("scroll", this.onWindowScroll)
-    // }
   }
 
   _closeMenu = () => {
