@@ -1,6 +1,6 @@
 ---
-path: '/blog/JavaScript-function-and-this'
-title: JavaScript function 和 this
+path: '/blog/JavaScript-function-note'
+title: JavaScript function 筆記
 date: 2019-05-07
 update: 2019-05-07
 description: 記錄一些 JavaScript function 用法和注意地方
@@ -28,7 +28,7 @@ Student.prototype.studyAt = function(){
 }
 ```
 
-**ES6** class 表達
+ES6 class 表達：
 
 ```JavaScript
 class Student {
@@ -47,7 +47,7 @@ class Student {
 }
 ```
 
-在以下例子中，執行 `jason.hello()` 時的 object context 是 jason，當中的 `this` 指向 jason 這個 object
+在以下例子中，執行 `jason.hello()` 時的 object 是 jason，當中 `this` 指向 jason 這個 object
 
 ```JavaScript
 var jason = new Student()
@@ -57,7 +57,9 @@ jason.hello() // => Hello, I am Jason
 
 ## this 問題
 
-如你所見，一般 OOP 使用情況中 `this` 會找到合適的 object，存取當中的 property。問題出自當 function 以 callback 執行時，`this` 會 resolve 到不同的 object。
+如你所見，一般使用情況中 `this` 會找到合適的 object，存取當中的 property。問題出自當 function 以 callback 執行時，`this` 會指向另一個 object。
+
+以下例子中, 當 hello 以 callback 執行時, `this` 會指向 global 而不是 jason ，因此 `this.name` 是 undefined。
 
 ```JavaScript
 jason.testObject = function() {
@@ -70,8 +72,6 @@ function executeCallback(hello){
 executeCallback(jason.hello)  // => Hello, I am undefined
 executeCallback(jason.testObject) // Object context: global 
 ```
-
-以上例子中, 當 hello 以 callback 執行時, `this` 不是指向 jason，`this` 會指向 global，因此 `this.anme` 找不同
 
 ## 解決 this 問題
 
@@ -102,7 +102,7 @@ class Student {
 
 ### Arrow function
 
-利用 arrow function，function 會自動 `bind` 的 object context 為 this
+利用 arrow function，function 會自動 `bind` 的 object
 
 ```js
 class Student {
@@ -118,9 +118,9 @@ class Student {
 }
 ```
 
-## 和 React 關係
+## React 和 this
 
-因此 JSX 的關係，function 多數以 callback 形式執行，`handleClick` 以 callback 執行，執行時會 error。解決方法類似
+由於 JSX 關係，function 多數以 callback 執行。以下 `handleClick` 以 callback 執行，執行時會 error，因為 this 會指向 gloabl。解決方法如上。
 
 ```jsx
 import React from "react";
