@@ -37,6 +37,9 @@ GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
   ".blog-toc": {
     width: "100%"
   },
+  "code, kbd, pre, samp": {
+    fontFamily: "source-code-pro, monospace"
+  }
   // https://helpx.adobe.com/fonts/using/font-events.html#Stylingfallbackfontsusingfontevents
   // ".wf-loading h1, .wf-loading p": {
   // visibility: "hidden"

@@ -6,7 +6,11 @@ function Footer () {
     <footer style={{
       textAlign: "center"
     }}>
+    <div style={{
+      marginBottom: "1.7rem"
+    }}>
       <TagCloud />
+      </div>
       <div>
         © {new Date().getFullYear()}, Built with
         {` `}
