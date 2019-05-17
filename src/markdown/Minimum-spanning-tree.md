@@ -14,12 +14,12 @@ Minimum spanning tree is defined as given graph(G) which a set of vertexes and e
 There are two classic algorithms which are designed with greedy algorithm: Prim Algorithm and Kruskal Algorithm.
 
 ## Generice MST
-<pre class="sample">
+```
 A = {} // subset of some minimum spanning tree (V, E)
 while A is not a minimum spanning tree
     find edge(u, v) to that is safe to A
     A = A union (u, v)
-</pre>
+```
 
 ## Safe Edge
 Safe edge is a edge that is safe to added into A which out destorying the invarient property that A is subet of some minimum spanning tree. In other words, when you add a edge into A which causes A cannot form MST in the future, the edge is not safe.
@@ -36,14 +36,14 @@ Then, edge (u,v) is safe for A.
 This algorithm is based on shortest path algorithm. It builds a set of A in the process and select the light edge connecting A to others.
 
 **Simple version**
-<pre class="sample">
+```
   A = {}
   S = {r} // r is the random node you want to start with
   Q = V - {r}
   while Q is not empty
       Find the minimum edge(u, v) so that u in A and v in Q
       Add (u, v) in A, add v in S, and delete v from Q
-</pre>
+```
 
 **Priortiy queue version**
 The min-priority queue is implemented with binary heap.
@@ -52,7 +52,7 @@ Note:
 Heap-Order: for every node v other than the root,
 key(v) >= key(parent(v))
 
-<pre class="sample">
+```
     Store all V in priority queue Q
     for each u in Q
         key[u] = infinity
@@ -66,7 +66,7 @@ key(v) >= key(parent(v))
             if (v belongs to Q && key[v] > w(u,v) ) 
                 key[v] = w(u, v)
                 parent[v] = u
-</pre>
+```
 
 ## Running time analysis
 While loop executes V times
@@ -80,9 +80,10 @@ The for loop (each v in adj[u]): total executes 2E times
 Overall running time: (V log V + E log V) = E log V // E always > V
 
 # Kruskal Algorithm
+
 Add the edges according to the increasing weight, as long as the operation will not violate the minimum tree property. It uses a disjoint set to keep track the grouping of vertexes, as long as the edge(u, v) where u and v are not in the same group, the edge is safe to be added.
 
-<pre class="sample">
+```
   A = {} // tree under construction
   Sort the edges of E by weights by increasing order
   for each v in G
@@ -92,7 +93,7 @@ Add the edges according to the increasing weight, as long as the operation will 
         A union (u, v)
         UNION(u, v) // they are the same group now
   return A
-</pre>
+```
 
 ## Running time analysis
 1. sort edges: E log E
@@ -107,10 +108,12 @@ Combine 2 & 3 we ge V+E log V
 Overall Running time: E log E
 
 
-# Disjoint Set Implemented by array
+## Disjoint Set Implemented by array
+
 Every child remember its parent index
 The parent remeber its size (-ve)
-{% codeblock %}
+
+```cpp
 int Find(int element){
 	if (nodes[element] < 0)
 		return element;
@@ -137,36 +140,34 @@ int Union(int element1, int element2){
 
 	return 1;
 }
+```
 
-
-{% endcodeblock %}
-
-
-# Differene between Prim algorihtm and Kruskal algorithm
+## Differene between Prim algorihtm and Kruskal algorithm
 Prim requires a connected graph, Kruskal can work on unconnected group in which many MST can be formed.
 Every step in prim is a partial solution. 
 
 ## Application of MST
 MST algorihtm can be also used to build spanning tree based on each side
-{% codeblock %}
+```cpp
 for (int i=0; i<m; i++){
-			// based on each side, try to build a spanning tree with bigger side
-			// compare their slimness
-			for (int j=1; j<=n; j++){
-				nodes[j] = -1;
-			}
+    // based on each side, try to build a spanning tree with bigger side
+    // compare their slimness
+    for (int j=1; j<=n; j++){
+        nodes[j] = -1;
+    }
 
-			Edge b = edges[i];
-			Union(b.u, b.v);
-			
-			int largest = b.c;
-			int smallest = b.c;
-			for (int j=i+1; j<m; j++){
-				Edge c = edges[j];
+    Edge b = edges[i];
+    Union(b.u, b.v);
+
+    int largest = b.c;
+    int smallest = b.c;
+    for (int j=i+1; j<m; j++){
+        Edge c = edges[j];
         Union(c.u, c.v);
-			}
+    }
 }
-{% endcodeblock %}
+```
+
 k - cluster with mini distance between point = MST - k most expensive edges.
 
 

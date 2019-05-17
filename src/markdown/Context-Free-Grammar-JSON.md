@@ -13,7 +13,7 @@ tags:
 # JSON 和 Context-free Grammar 的關係
 Copy from [JSON.org](http://www.json.org)
 
-<pre>
+```
 object
   {}
   { members }
@@ -36,7 +36,7 @@ value
   true
   false
   null
-</pre>
+```
 
 JSON 可以由 Context-free Grammar 所做成。當中的 rule 都是 non-ambiguous，內裡的 leftmost derivation, 都是 deterministic (只有一個方法)。而且可以先做 rule1 再做 rule2。因此他是 LL(1) parser, 可以用 predictive parsing，用 recursive decent method.
 
