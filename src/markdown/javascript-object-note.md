@@ -2,7 +2,7 @@
 path: '/blog/JavaScript Object 筆記'
 title: JavaScript Object 筆記
 date: 2016-01-27 07:20:42
-update: 2019-05-05
+update: 2019-05-17
 description: 記錄一些 javascript object 用法和注意地方
 categories: Programming
 tags: 
@@ -13,7 +13,7 @@ tags:
 
 JavaScript 的 object 是 key-value pair。 `Key` 有時會被稱為 property, member, 而`Value` 可以是 integer, true, false, function 等等。最簡單構 Object 的方法是用 object literal, 但 Object 之間獨立。如要定義一堆有關聯的 Object ，請利用 [Prototype](#prototype)
 
-
+### Object Literal
 
 **√ Object literal**
 
@@ -31,8 +31,7 @@ var object = { nick_name : "jason" }     // console.log(object.nick_name) -> jas
 var object = { my name : "jason" } // key 如有空格要''var object = { nick-name :"jason"} // key 如有 - 要''
 ```
 
-
-## 存取 Object Property 
+### 存取 Property 
 
 利用 `.` 作分隔可以存取 object property, 提取未定義的 property 會回傳 undefined value
 
@@ -63,7 +62,7 @@ object.nickname = "tresa";
 object.nickname; // "tresa"
 ```
 
-## 檢查 Object Type
+### 檢查 Type
 
 使用 `typeof` 檢查時, Javascript 的 Object 都是 "object"
 
@@ -72,7 +71,7 @@ var object = { name : "jason" };
 typeof object; // "object"
 ```
 
-## 檢查 Value
+### 檢查 Value
 
 可以利用 typeof 去避免 ReferenceError: Can't find variable: list
 注意: 所有 variable 即使定義了, 沒有 acess 前 value 都是 undefined
@@ -94,9 +93,10 @@ var object = { name : "jason" };
 typeof object.age === 'undefined' // true
 ```
 
-## 檢查 Empty Object
+### 檢查 Empty
 
 利用 `for ... in ...` 檢定有沒有 property name, 有則 return true
+
 ```js
 var emptyObject = {};
 var student = { name : "jason", job : "student" };
@@ -112,6 +112,12 @@ function isEmptyObject(testObject){
 
 isEmptyObject(emptyObject); // false
 isEmptyObject(student); // true
+```
+
+或利用 es5 中的 `Objects.keys`
+
+```js
+Objects.keys({}).length === 0 // => true
 ```
 
 ## Array

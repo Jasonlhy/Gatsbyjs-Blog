@@ -35,8 +35,7 @@ export default function Template ({
 
   const header = (
     <>
-      <SEO title={frontmatter.title} keywords={[`programming`, `blog`, `life`]} />
-      
+      <SEO title={frontmatter.title} keywords={frontmatter.tags || []} />
     </>
   )
   const article = (
@@ -47,10 +46,13 @@ export default function Template ({
             <Container className="blog-heading-container">
               <section className="blog-heading">
                 <h1 className="page-title" style={{
-                  marginBottom: "0"
+                  marginBottom: 0
                 }}>{frontmatter.title}</h1>
-              <time style={{ display: "block" }}>{frontmatter.date}</time>
               <TagList tags={frontmatter.tags} />
+              <div style={{ fontSize: "80%" }}>
+                <time style={{ marginRight: "1rem" }}>建立: {frontmatter.date}</time>
+                {frontmatter.update && <time>更新: {frontmatter.update}</time>}
+              </div>
 
               {fromBlogs && (
                 <BlogListLink
@@ -91,6 +93,7 @@ export const pageQuery = graphql`
       tableOfContents
       frontmatter {
         date(formatString: "YYYY-MM-DD")
+        update(formatString: "YYYY-MM-DD")
         path
         title
         tags

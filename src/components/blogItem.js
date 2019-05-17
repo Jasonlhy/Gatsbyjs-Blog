@@ -49,7 +49,16 @@ class BlogItem extends React.Component {
   }
 
   render () {
-    const { slug, excerpt, tags, date, title, navigateHandler, isFocus } = this.props
+    const { 
+      slug,
+      excerpt,
+      tags,
+      date,
+      update,
+      title,
+      navigateHandler,
+      isFocus
+    } = this.props
     const blogItemClasses = (isFocus) ? classNames(styles.blogItem, styles.blogItemFocus) : styles.blogItem
 
     return (
@@ -67,8 +76,11 @@ class BlogItem extends React.Component {
               }}>
 
               <h2 itemProp="name">{title}</h2>
-              <time itemProp="datePublished">{date}</time>
               <TagList tags={tags} />
+              <div style={{ fontSize: "80%" }}>
+                <time style={{ marginRight: "1rem" }}>建立: {date}</time>
+                {update && <time>更新: {update}</time>}
+              </div>
             </div>
 
             <p className={styles.exceptContainer}
@@ -85,6 +97,7 @@ BlogItem.propTypes = {
   slug: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
+  update: PropTypes.string,
   title: PropTypes.string.isRequired,
   navigateHandler: PropTypes.func,
   isFocus: PropTypes.bool.isRequired

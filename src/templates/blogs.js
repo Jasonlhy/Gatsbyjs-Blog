@@ -79,7 +79,7 @@ class BlogListPage extends React.Component {
 
         <OuterContainer className="blog-list">
           {posts.map(({ node }) => {
-            const { title, date, tags } = node.frontmatter
+            const { title, date, update, tags } = node.frontmatter
             const excerpt = node.excerpt
             const slug = node.fields.slug
             const isFocus = (focusSlug === slug)
@@ -89,6 +89,7 @@ class BlogListPage extends React.Component {
                 slug={slug}
                 excerpt={excerpt}
                 date={date}
+                update={update}
                 tags={tags}
                 title={title}
                 navigateHandler={this.navigateToArticle}
@@ -122,6 +123,7 @@ export const pageQuery = graphql`
             frontmatter {
               title
               date(formatString: "YYYY-MM-DD")
+              update(formatString: "YYYY-MM-DD")
               path
               tags
             }

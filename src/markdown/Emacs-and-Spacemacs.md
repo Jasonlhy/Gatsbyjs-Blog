@@ -13,7 +13,7 @@ tags:
 
 ## 安裝 emacs
 
-spacemacs 是安裝在 `.emacs.d` 的設定檔案, 由於 spacemacs 是 emacs 的 [設定 file](https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html), 要先安裝 emacs。
+sPacemacs 是安裝在 `.emacs.d` 的設定檔案, 由於 spacemacs 是 emacs 的 [設定 file](https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html), 要先安裝 emacs。
 
 > When Emacs is started, it normally tries to load a Lisp program from an initialization file, or init file for short. This file, if it exists, specifies how to initialize Emacs for you. Emacs looks for your init file using the filenames ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el; you can choose to use any one of these three names (see Find Init). Here, ~/ stands for your home directory.
 
@@ -23,13 +23,15 @@ spacemacs 是安裝在 `.emacs.d` 的設定檔案, 由於 spacemacs 是 emacs �
 
 ## 安裝 Spacemacs
 
-**[EMACS_DIRECTORY]** 在不同系統有不同位置
-
-- Mac 是 `~`
-- Windows 是 `$HOME\AppData\Roaming`, 例如 : `C:\Users\jason\AppData\Roaming`
-
-1. `git clone https://github.com/syl20bnr/spacemacs` **[EMACS_DIRECTORY]**.emacs.d
+1. `git clone https://github.com/syl20bnr/spacemacs [EMACS_DIRECTORY].emacs.d`
 2. 執行剛才安裝的 emacs
+
+[EMACS_DIRECTORY] 在不同系統有不同位置<br>
+
+| 系統   | 位置                  | 例子                           |
+|--------|-----------------------|--------------------------------|
+| Mac    | ~/.emacs.d            | */Users/jason/.emacs.d*          |
+| Window | $HOME\AppData\Roaming | *C:\Users\jason\AppData\Roaming\.emacs.d* |
 
 ## Org Mode
 
