@@ -34,37 +34,3 @@ pre[class*="language-"]:after {
   border-left: 0.3em solid #979797;
   padding-left: 0.4em;
 }
-
-.blog-toc {
-  font-weight: lighter;
-  line-height: 2;
-  font-weight: normal;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  word-break: break-all;
-}
-
-.blog-toc li {
-  margin-top: 0;
-  margin-bottom: 0px;
-}
-
-.blog-toc li p {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.blog-toc li a {
-  text-decoration: none;
-  /*color: rgb(86, 109, 251);*/
-}
-
-.blog-toc nav > div > ul {
-  margin-left: 0;
-}
-
-.blog-toc ul {
-  margin-top: 0;
-  margin-bottom: 1px;
-  list-style-type: none;
-}

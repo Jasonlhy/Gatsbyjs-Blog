@@ -1,0 +1,120 @@
+.toc {
+  font-weight: lighter;
+  line-height: 2;
+  font-weight: normal;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  word-break: break-all;
+}
+
+.toc li {
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+
+.toc li p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.toc li a {
+  text-decoration: none;
+  /*color: rgb(86, 109, 251);*/
+}
+
+.toc nav > div > ul {
+  margin-left: 0;
+}
+
+.toc ul {
+  margin-top: 0;
+  margin-bottom: 1px;
+  list-style-type: none;
+}
+
+/* TOC desktop */
+.toc-desktop {
+  position: sticky;
+  top: 0px;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+}
+
+/* TOC on phone */
+.toc-phone {
+  background-color: #f6f8fa;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1.0875rem;
+  line-height: 1.75;
+  font-size: 150%;
+  z-index: 2;
+  max-height: 100vh;
+  transition: all 0.5s ease;
+}
+
+.toc-phone[data-menu="open"] {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Use pointer-event to pass though the mouse click event */
+.toc-phone[data-menu="close"] {
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(0, 40px);
+}
+
+.toc-phone .center {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  overflow-y: auto;
+}
+
+/* Floating Menu */
+.floating-menu {
+  display: block;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #d81b60;
+  position: fixed;
+  bottom: 44px;
+  right: 1.0875rem;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0px 2px 5px #666;
+  transition: box-shadow 2s cubic-bezier(0.19, 1, 0.22, 1), transform 0.5s ease-out;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-menu .sign {
+  border-radius: 50%;
+  color: white;
+  padding: 0;
+  margin: 0;
+  line-height: 55px;
+  font-size: 38px;
+  font-weight: 300;
+  display: inline-block;
+  height: 70%;
+}
+
+.floating-menu:hover {
+  box-shadow: 0px 4px 10px #666;
+}
+
+.floating-menu[data-menu="open"] {
+  transform: scale(1.1, 1.1) translate3d(0, 0, 0) rotate(45deg);
+}
