@@ -3,7 +3,6 @@ import BlogListLink from "../components/blogListLink"
 import PropTypes from "prop-types"
 
 import styles from "./pagination.module.css"
-
 import classNames from "classnames"
 
 const Pagination = function (props) {
@@ -17,13 +16,11 @@ const Pagination = function (props) {
       { previousPage &&
         <div className={styles.paginationLink}>
           <BlogListLink pagenumber={previousPage}>上一頁</BlogListLink>
-        </div>
-      }
+        </div> }
       { nextPage &&
           <div className={styles.paginationLink}>
             <BlogListLink pagenumber={nextPage}>下一頁</BlogListLink>
-          </div>
-      }
+          </div> }
     </div>
   )
 }

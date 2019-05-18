@@ -1,31 +1,26 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React, { useEffect, useState } from "react"
+import PropTypes, { func } from "prop-types"
 import { Container } from "../components/containers"
 
 import smoothscroll from "smoothscroll-polyfill"
 import addIcon from "../icons/add.svg"
 
-class TableOfContent extends React.Component {
-  constructor (props) {
-    super(props)
-    // only work for small screen
-    this.state = { isOpen: false }
-    this.onWindowScroll = null
-  }
+const TableOfContent = function (props) {
+  const [isOpen, setIsOpen] = useState(false)
 
-  componentDidMount () {
+  // Like component did mount and component did unmount
+  useEffect(function () {
     // Delay the polyfill step
     // https://github.com/gatsbyjs/gatsby/issues/309
     smoothscroll.polyfill()
+  })
+
+  const _closeMenu = function () {
+    setIsOpen(false)
   }
 
-  _closeMenu = () => {
-    this.setState({ isOpen: false })
-  }
-
-  _toggleMenu = () => {
-    const { isOpen } = this.state
-    this.setState({ isOpen: !isOpen })
+  const handleToggleMenu = function () {
+    setIsOpen(!isOpen)
   }
 
   /**
@@ -34,7 +29,7 @@ class TableOfContent extends React.Component {
    * @param {*} event - OnClick event which targets <a> element
    * @memberof TableOfContent
    */
-  _scrollToHeading (event) {
+  const _scrollToHeading = function (event) {
     // need to use /g flag to replaceAll...
     const target = event.target
     const headingAnchor = target.href
@@ -56,66 +51,64 @@ class TableOfContent extends React.Component {
   }
 
   // Little hack for <a> event bubbling
-  handleTocClickDesktop = event => {
+  const handleTocClickDesktop = function(event) {
     const target = event.target
     if (target.tagName === "A") {
-      this._scrollToHeading(event)
+      _scrollToHeading(event)
     }
   }
 
   // Little hack for <a> event bubbling
-  handleTocClickMobile = event => {
+  const handleTocClickMobile = function(event) {
     const target = event.target
     if (target.tagName === "A") {
-      this._scrollToHeading(event)
-      this._closeMenu()
+      _scrollToHeading(event)
+      _closeMenu()
     }
   }
 
-  render () {
-    const { isOpen } = this.state
-    const menuState = (isOpen) ? "open" : "close"
-    const tocContent = (
-      <nav>
-        <div style={{
-          "background": "#d81b60",
-          "margin": "-1.0875rem",
-          "padding": "1.0875rem",
-          "marginBottom": "1.0875rem"
-        }}>
-          <h3 style={{
-            "color": "white",
-            "marginBottom": 0
-          }}>在此文章</h3>
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: this.props.toc }} />
-      </nav>
-    )
+  const menuState = (isOpen) ? "open" : "close"
 
-    // TODO: No idea how to build TOC from raw HTML to JSX element
-    // Workaround: Use a button to close
-    return (
-      <>
-        <Container id="desktopToc"
-          className="blog-toc blog-toc-desktop"
-          onClick={this.handleTocClickDesktop}>
+  const tocContent = (
+    <nav>
+      <div style={{
+        "background": "#d81b60",
+        "margin": "-1.0875rem",
+        "padding": "1.0875rem",
+        "marginBottom": "1.0875rem"
+      }}>
+        <h3 style={{
+          "color": "white",
+          "marginBottom": 0
+        }}>在此文章</h3>
+      </div>
+      <div dangerouslySetInnerHTML={{ __html: props.toc }} />
+    </nav>
+  )
+
+  // TODO: No idea how to build TOC from raw HTML to JSX element
+  // Workaround: Use a button to close
+  return (
+    <>
+      <Container id="desktopToc"
+        className="blog-toc blog-toc-desktop"
+        onClick={handleTocClickDesktop}>
+        {tocContent}
+      </Container>
+
+      <Container className="blog-toc blog-toc-phone"
+        data-menu={menuState}
+        onClick={handleTocClickMobile}>
+        <div className="blog-toc-center">
           {tocContent}
-        </Container>
-
-        <Container className="blog-toc blog-toc-phone"
-          data-menu={menuState}
-          onClick={this.handleTocClickMobile}>
-          <div className="blog-toc-center">
-            {tocContent}
-          </div>
-        </Container>
-
-        <div className="floating-menu" data-menu={menuState} onClick={this._toggleMenu}>
-          <img className="sign" src={addIcon} />
         </div>
-      </>
-    )
-  }
+      </Container>
+
+      <div className="floating-menu" data-menu={menuState} onClick={handleToggleMenu}>
+        <img className="sign" src={addIcon} />
+      </div>
+    </>
+  )
 }
 
 TableOfContent.propTypes = {
