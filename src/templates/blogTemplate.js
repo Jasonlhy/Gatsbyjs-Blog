@@ -12,7 +12,7 @@ import {
   OuterContainer,
   ShadowContainer
 } from "../components/containers"
-import TableOfContent from "./tableOfContent"
+import TableOfContent from "./components/tableOfContents"
 
 // Blog Template
 export default function Template ({

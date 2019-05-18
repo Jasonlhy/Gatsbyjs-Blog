@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react"
 import PropTypes, { func } from "prop-types"
-import { Container } from "../components/containers"
+import { Container } from "./containers"
 
 import smoothscroll from "smoothscroll-polyfill"
 import addIcon from "../icons/add.svg"
