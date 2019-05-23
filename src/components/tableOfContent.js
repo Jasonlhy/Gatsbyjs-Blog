@@ -13,12 +13,12 @@ const TableOfContent = function (props) {
   const [isFloatingMenuOpen, setIsFloatingMenuOpen] = useState(false)
   const displayType = useMedia(
     // Media queries
-    ['(min-width: 550px)'],
+    ["(min-width: 550px)"],
     // Column counts (relates to above media queries by array index)
     ["Desktop"],
     // Default column count
     "Mobile"
-  );
+  )
   // console.log("displayType: " + displayType);
 
   // Like component did mount and component did unmount

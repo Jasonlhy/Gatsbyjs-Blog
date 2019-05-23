@@ -6,10 +6,10 @@ function Footer () {
     <footer style={{
       textAlign: "center"
     }}>
-    <div style={{
-      marginBottom: "1.7rem"
-    }}>
-      <TagCloud />
+      <div style={{
+        marginBottom: "1.7rem"
+      }}>
+        <TagCloud />
       </div>
       <div>
         © {new Date().getFullYear()}, Built with
@@ -19,7 +19,7 @@ function Footer () {
       <div>
         Hosted on <a href="https://aws.amazon.com/amplify/console">Amplify</a>
       </div>
-      </footer>
+    </footer>
   )
 }
 

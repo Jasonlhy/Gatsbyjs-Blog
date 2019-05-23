@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import ReactDOM from "react-dom"
 import classNames from "classnames"
 
@@ -49,7 +50,7 @@ class BlogItem extends React.Component {
   }
 
   render () {
-    const { 
+    const {
       slug,
       excerpt,
       tags,
@@ -62,32 +63,37 @@ class BlogItem extends React.Component {
     const blogItemClasses = (isFocus) ? classNames(styles.blogItem, styles.blogItemFocus) : styles.blogItem
 
     return (
-      <div key={slug}
+      <div
         className={styles.blogItemLink}
         to={slug}
         data-slug={slug}
         onClick={navigateHandler}>
 
-        <ShadowContainer className={blogItemClasses}>
-          <article>
-            <div className={styles.blogItemInfo}
-              style={{
-                marginBottom: "1.0875rem"
-              }}>
+        <Link to={slug} style={{
+          "color": "inherit",
+          "display": "block"
+        }}>
+          <ShadowContainer className={blogItemClasses}>
+            <article>
+              <div className={styles.blogItemInfo}
+                style={{
+                  marginBottom: "1.0875rem"
+                }}>
 
-              <h2 itemProp="name">{title}</h2>
-              <TagList tags={tags} />
-              <div style={{ fontSize: "80%" }}>
-                <time style={{ marginRight: "1rem" }}>建立: {date}</time>
-                {update && <time>更新: {update}</time>}
+                <h2 itemProp="name">{title}</h2>
+                <TagList tags={tags} isClickable={false}/>
+                <div style={{ fontSize: "80%" }}>
+                  <time style={{ marginRight: "1rem" }}>建立: {date}</time>
+                  {update && <time>更新: {update}</time>}
+                </div>
               </div>
-            </div>
 
-            <p className={styles.exceptContainer}
-              itemProp="description"
-              dangerouslySetInnerHTML={{ __html: excerpt }} />
-          </article>
-        </ShadowContainer>
+              <p className={styles.exceptContainer}
+                itemProp="description"
+                dangerouslySetInnerHTML={{ __html: excerpt }} />
+            </article>
+          </ShadowContainer>
+        </Link>
       </div>
     )
   }

@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogItem from "../components/blogItem"
 import { OuterContainer } from "../components/containers"
-import TagLabel from "../components/tagLabel"
 
 // Stateless JSX component with props of data injected by graphQL
 export default function TagPage ({ pageContext, data, location }) {
@@ -32,9 +31,9 @@ export default function TagPage ({ pageContext, data, location }) {
     )
   }
 
-    //<h1 className="page-title" style={{
-      //marginBottom: "5px"
-    //}}><TagLabel tag={tag} /></h1>
+  // <h1 className="page-title" style={{
+  // marginBottom: "5px"
+  // }}><TagLabel tag={tag} /></h1>
   return (
     <Layout>
       <SEO title="Tags" keywords={[tag]}></SEO>
@@ -52,6 +51,7 @@ export default function TagPage ({ pageContext, data, location }) {
 
           return (
             <BlogItem
+              key={slug}
               slug={slug}
               excerpt={excerpt}
               date={date}

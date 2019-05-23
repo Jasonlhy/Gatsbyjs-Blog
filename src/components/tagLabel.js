@@ -17,7 +17,10 @@ export default function (props) {
     )
   } else {
     return (
-      <span key={tag} className={styles.label}>
+      <span key={tag} className={styles.label} style={{
+        // hard code first
+        "color": "#757de8"
+      }}>
         {tag}{count && ` (${count})`}
       </span>
     )

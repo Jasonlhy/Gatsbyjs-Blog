@@ -23,13 +23,17 @@ const TagCloud = () => (
     `}
     render={data => {
       const { group } = data.allMarkdownRemark
+
       return (
         <div className={styles.container}>
           <h3 className={styles.heading}>標籤雲</h3>
           {group.map(g => {
+            const { fieldValue: tagLabel, totalCount: tagCount } = g
+
             return (
-              <div className={styles.labelContainer}>
-                <TagLabel tag={g.fieldValue} isClickable={true} count={g.totalCount} />
+              <div key={tagLabel}
+                className={styles.labelContainer}>
+                <TagLabel tag={tagLabel} isClickable={true} count={tagCount} />
               </div>
             )
           })}

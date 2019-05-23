@@ -38,6 +38,7 @@ export default function Template ({
       <SEO title={frontmatter.title} keywords={frontmatter.tags || []} />
     </>
   )
+
   const article = (
     <div className="blog-post-content-container">
       <OuterContainer>
@@ -48,29 +49,29 @@ export default function Template ({
                 <h1 className="page-title" style={{
                   marginBottom: 0
                 }}>{frontmatter.title}</h1>
-              <TagList tags={frontmatter.tags} />
-              <div style={{ fontSize: "80%" }}>
-                <time style={{ marginRight: "1rem" }}>建立: {frontmatter.date}</time>
-                {frontmatter.update && <time>更新: {frontmatter.update}</time>}
-              </div>
+                <TagList tags={frontmatter.tags} />
+                <div style={{ fontSize: "80%" }}>
+                  <time style={{ marginRight: "1rem" }}>建立: {frontmatter.date}</time>
+                  {frontmatter.update && <time>更新: {frontmatter.update}</time>}
+                </div>
 
-              {fromBlogs && (
-                <BlogListLink
-                  pagenumber={pagenumber}
-                  state={{
-                    pageX: location.state.pageX,
-                    pageY: location.state.pageY,
-                    slug: slug,
-                  }}>返回文章列表
-                </BlogListLink>
-              )}
-            </section>
-          </Container>
-        </OuterContainer>
-        <article className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </ShadowContainer>
+                {fromBlogs && (
+                  <BlogListLink
+                    pagenumber={pagenumber}
+                    state={{
+                      pageX: location.state.pageX,
+                      pageY: location.state.pageY,
+                      slug: slug,
+                    }}>返回文章列表
+                  </BlogListLink>
+                )}
+              </section>
+            </Container>
+          </OuterContainer>
+          <article className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </ShadowContainer>
       </OuterContainer>
     </div>
   )

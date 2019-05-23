@@ -7,15 +7,18 @@ const TagList = props => {
     return (<></>)
   }
 
+  const isClickable = props.isClickable !== false
+
   return (
     <div>
       {props.tags.map(tag => {
         return (
-          <div style={{
-            display: "inline-block",
-            marginRight: "5px",
-          }}>
-            <TagLabel tag={tag} isClickable={true} />
+          <div key={tag}
+            style={{
+              display: "inline-block",
+              marginRight: "5px",
+            }}>
+            <TagLabel tag={tag} isClickable={isClickable} />
           </div>
         )
       })}
@@ -24,7 +27,8 @@ const TagList = props => {
 }
 
 TagList.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.string)
+  tags: PropTypes.arrayOf(PropTypes.string),
+  isClickable: PropTypes.bool
 }
 
 export default TagList
