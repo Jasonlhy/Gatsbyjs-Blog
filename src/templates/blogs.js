@@ -27,12 +27,18 @@ class BlogListPage extends React.Component {
    */
   getWindowScrolOffset () {
     let supportPageOffset = window.pageXOffset !== undefined
-    let isCSS1Compat = ((document.compatMode || "") === "CSS1Compat")
+    let isCSS1Compat = (document.compatMode || "") === "CSS1Compat"
 
-    let x = supportPageOffset ? window.pageXOffset : isCSS1Compat 
-      ? document.documentElement.scrollLeft : document.body.scrollLeft
-    let y = supportPageOffset ? window.pageYOffset : isCSS1Compat 
-      ? document.documentElement.scrollTop : document.body.scrollTop
+    let x = supportPageOffset
+      ? window.pageXOffset
+      : isCSS1Compat
+        ? document.documentElement.scrollLeft
+        : document.body.scrollLeft
+    let y = supportPageOffset
+      ? window.pageYOffset
+      : isCSS1Compat
+        ? document.documentElement.scrollTop
+        : document.body.scrollTop
 
     return { x, y }
   }
@@ -50,17 +56,14 @@ class BlogListPage extends React.Component {
     const { pageContext } = this.props
     const { currentPage } = pageContext
 
-    navigate(
-      slug,
-      {
-        state: {
-          fromBlogs: true,
-          pagenumber: currentPage,
-          pageY: y,
-          pageX: x
-        }
-      }
-    )
+    navigate(slug, {
+      state: {
+        fromBlogs: true,
+        pagenumber: currentPage,
+        pageY: y,
+        pageX: x,
+      },
+    })
   }
 
   render () {
@@ -71,8 +74,8 @@ class BlogListPage extends React.Component {
 
     // Pagination
     // blogs/1 is not generated
-    const previousPage = (currentPage === 1) ? undefined : (currentPage - 1)
-    const nextPage = (currentPage === numPages) ? undefined : (currentPage + 1)
+    const previousPage = currentPage === 1 ? undefined : currentPage - 1
+    const nextPage = currentPage === numPages ? undefined : currentPage + 1
 
     return (
       <Layout>
@@ -84,7 +87,7 @@ class BlogListPage extends React.Component {
             const { title, date, update, tags } = node.frontmatter
             const excerpt = node.excerpt
             const slug = node.fields.slug
-            const isFocus = (focusSlug === slug)
+            const isFocus = focusSlug === slug
 
             return (
               <BlogItem
@@ -102,9 +105,7 @@ class BlogListPage extends React.Component {
           })}
         </OuterContainer>
 
-        <Pagination
-          previousPage={previousPage}
-          nextPage={nextPage} />
+        <Pagination previousPage={previousPage} nextPage={nextPage} />
       </Layout>
     )
   }
@@ -112,26 +113,22 @@ class BlogListPage extends React.Component {
 
 export const pageQuery = graphql`
   query($limit: Int!, $skip: Int!) {
-    allMarkdownRemark(
-      sort: {order: DESC, fields: [frontmatter___date]},
-      limit: $limit,
-      skip: $skip
-    ) {
-        edges {
-          node {
-            fields {
-              slug
-            },
-            excerpt(format: HTML, pruneLength:150)
-            frontmatter {
-              title
-              date(formatString: "YYYY-MM-DD")
-              update(formatString: "YYYY-MM-DD")
-              path
-              tags
-            }
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: $limit, skip: $skip) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          excerpt(format: HTML, pruneLength: 150)
+          frontmatter {
+            title
+            date(formatString: "YYYY-MM-DD")
+            update(formatString: "YYYY-MM-DD")
+            path
+            tags
           }
         }
+      }
     }
   }
 `

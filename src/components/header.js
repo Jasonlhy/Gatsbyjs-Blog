@@ -12,45 +12,51 @@ const headerStyle = {
   maxWidth: 960,
   paddingLeft: `1.0875rem`,
   paddingTop: `0.6rem`,
-  paddingBottom: `0.6rem`
+  paddingBottom: `0.6rem`,
 }
 
 const centerHeaderStyle = Object.assign(Object.assign({}, headerStyle), {
-  margin: "0 auto"
+  margin: "0 auto",
 })
 
 const Header = ({ siteTitle, isFullPageLayout }) => (
   <header
     style={{
       background: `#3f51b5`,
-      marginBottom: `1.08875rem`
+      marginBottom: `1.08875rem`,
     }}
   >
     <div
-      className={ isFullPageLayout ? "headerSmallScreenPadding" : ""}
+      className={isFullPageLayout ? "headerSmallScreenPadding" : ""}
       style={isFullPageLayout ? headerStyle : centerHeaderStyle}
     >
-      <img key={"website-logo"} src={logo} style={{
-        marginLeft: "-0.4rem",
-        height: "50px",
-        width: "52px",
-        marginBottom: 0,
-      }}/>
-      <h1 style={{
-        display: "inline",
-        margin: 0,
-        padding: "0.4rem",
-        color: "#DBDBDB",
-        fontFamily: "liberation-sans",
-        fontWeight: 700,
-        fontStyle: "normal"
-      }}>
+      <img
+        key={"website-logo"}
+        src={logo}
+        style={{
+          marginLeft: "-0.4rem",
+          height: "50px",
+          width: "52px",
+          marginBottom: 0,
+        }}
+      />
+      <h1
+        style={{
+          display: "inline",
+          margin: 0,
+          padding: "0.4rem",
+          color: "#DBDBDB",
+          fontFamily: "liberation-sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+        }}
+      >
         <Link
           to="/"
           style={{
             color: `white`,
             textDecoration: `none`,
-            backgroundColor: "inherit"
+            backgroundColor: "inherit",
           }}
         >
           {siteTitle}
@@ -62,7 +68,7 @@ const Header = ({ siteTitle, isFullPageLayout }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  isFullPageLayout: PropTypes.bool
+  isFullPageLayout: PropTypes.bool,
 }
 
 Header.defaultProps = {

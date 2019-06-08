@@ -7,11 +7,7 @@ import TagList from "../components/tagList"
 import "./blogTemplate.css"
 import BlogListLink from "../components/blogListLink"
 
-import {
-  Container,
-  OuterContainer,
-  ShadowContainer
-} from "../components/containers"
+import { Container, OuterContainer, ShadowContainer } from "../components/containers"
 import TableOfContent from "../components/tableOfContent"
 
 // Blog Template
@@ -46,9 +42,14 @@ export default function Template ({
           <OuterContainer>
             <Container className="blog-heading-container">
               <section className="blog-heading">
-                <h1 className="page-title" style={{
-                  marginBottom: 0
-                }}>{frontmatter.title}</h1>
+                <h1
+                  className="page-title"
+                  style={{
+                    marginBottom: 0,
+                  }}
+                >
+                  {frontmatter.title}
+                </h1>
                 <TagList tags={frontmatter.tags} />
                 <div style={{ fontSize: "80%" }}>
                   <time style={{ marginRight: "1rem" }}>建立: {frontmatter.date}</time>
@@ -62,26 +63,21 @@ export default function Template ({
                       pageX: location.state.pageX,
                       pageY: location.state.pageY,
                       slug: slug,
-                    }}>返回文章列表
+                    }}
+                  >
+                    返回文章列表
                   </BlogListLink>
                 )}
               </section>
             </Container>
           </OuterContainer>
-          <article className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <article className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
         </ShadowContainer>
       </OuterContainer>
     </div>
   )
 
-  return (
-    <BlogLayout
-      header={header}
-      left={article}
-      right={toc} />
-  )
+  return <BlogLayout header={header} left={article} right={toc} />
 }
 
 export const pageQuery = graphql`

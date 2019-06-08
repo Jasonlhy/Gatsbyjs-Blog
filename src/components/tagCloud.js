@@ -31,16 +31,14 @@ const TagCloud = () => (
             const { fieldValue: tagLabel, totalCount: tagCount } = g
 
             return (
-              <div key={tagLabel}
-                className={styles.labelContainer}>
+              <div key={tagLabel} className={styles.labelContainer}>
                 <TagLabel tag={tagLabel} isClickable={true} count={tagCount} />
               </div>
             )
           })}
         </div>
       )
-    }
-    }
+    }}
   />
 )
 

@@ -115,7 +115,7 @@ class Search extends Component {
                       cursor: "pointer",
                     }}
                   >
-                  Book ISBN
+                    Book ISBN
                   </th>
                   <th
                     style={{
@@ -127,7 +127,7 @@ class Search extends Component {
                       cursor: "pointer",
                     }}
                   >
-                  Book Title
+                    Book Title
                   </th>
                   <th
                     style={{
@@ -139,7 +139,7 @@ class Search extends Component {
                       cursor: "pointer",
                     }}
                   >
-                  Book Author
+                    Book Author
                   </th>
                 </tr>
               </thead>

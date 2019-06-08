@@ -4,7 +4,7 @@ import TagLabel from "./tagLabel"
 
 const TagList = props => {
   if (!props.tags) {
-    return (<></>)
+    return <></>
   }
 
   const isClickable = props.isClickable !== false
@@ -13,11 +13,13 @@ const TagList = props => {
     <div>
       {props.tags.map(tag => {
         return (
-          <div key={tag}
+          <div
+            key={tag}
             style={{
               display: "inline-block",
               marginRight: "5px",
-            }}>
+            }}
+          >
             <TagLabel tag={tag} isClickable={isClickable} />
           </div>
         )
@@ -28,7 +30,7 @@ const TagList = props => {
 
 TagList.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
-  isClickable: PropTypes.bool
+  isClickable: PropTypes.bool,
 }
 
 export default TagList

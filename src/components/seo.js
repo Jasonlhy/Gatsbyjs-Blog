@@ -59,8 +59,7 @@ function SEO ({ description, lang, meta, keywords, title }) {
                 }
               };
               s.parentNode.insertBefore(tk, s)
-            })(document);`
-          }
+            })(document);`}
         </script>
       </Helmet>
       <Helmet

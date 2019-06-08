@@ -11,17 +11,23 @@ export default function (props) {
     return (
       <span key={tag}>
         <Link to={`/tags/${_.kebabCase(tag)}/`} className={styles.label}>
-          {tag}{count && ` (${count})`}
+          {tag}
+          {count && ` (${count})`}
         </Link>
       </span>
     )
   } else {
     return (
-      <span key={tag} className={styles.label} style={{
-        // hard code first
-        "color": "#757de8"
-      }}>
-        {tag}{count && ` (${count})`}
+      <span
+        key={tag}
+        className={styles.label}
+        style={{
+          // hard code first
+          color: "#757de8",
+        }}
+      >
+        {tag}
+        {count && ` (${count})`}
       </span>
     )
   }

@@ -1,9 +1,21 @@
 import Typography from "typography"
 import GrandView from "typography-theme-grand-view"
 
-const fontFamily = ["Open Sans", "source-han-sans-traditional", "BlinkMacSystemFont", "-apple-system",
-  "system-ui", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-  "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"]
+const fontFamily = [
+  "Open Sans",
+  "source-han-sans-traditional",
+  "BlinkMacSystemFont",
+  "-apple-system",
+  "system-ui",
+  "Roboto",
+  "Oxygen",
+  "Ubuntu",
+  "Cantarell",
+  "Fira Sans",
+  "Droid Sans",
+  "Helvetica Neue",
+  "sans-serif",
+]
 
 GrandView.headerFontFamily = fontFamily
 GrandView.bodyFontFamily = fontFamily
@@ -16,27 +28,27 @@ GrandView.bodyColor = "#555555"
 // GrandView.backgroundColor = "#f5f5f6"
 // GrandView.bodyColor = "#f5f5f6"
 GrandView.overrideThemeStyles = ({ rhythm }, options) => ({
-  "body": {
-    "background": "#f5f5f6"
+  body: {
+    background: "#f5f5f6",
   },
-  "a": {
+  a: {
     color: "#757de8",
     textDecoration: "none",
   },
   ".page-title": {
-    fontWeight: 900
+    fontWeight: 900,
   },
   /* So difficult to customize link color */
   "a:hover": {
     backgroundColor: "#757de8",
-    color: "white"
+    color: "white",
   },
   "h1, h2, h3, h4, h5, h6": {
-    marginTop: 0
+    marginTop: 0,
   },
   "code, kbd, pre, samp": {
-    fontFamily: "source-code-pro, monospace"
-  }
+    fontFamily: "source-code-pro, monospace",
+  },
   // https://helpx.adobe.com/fonts/using/font-events.html#Stylingfallbackfontsusingfontevents
   // ".wf-loading h1, .wf-loading p": {
   // visibility: "hidden"

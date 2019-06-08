@@ -8,7 +8,7 @@
   padding: 0px 2.175rem 1.45rem;
 }
 
-@media (max-width: 586px){
+@media (max-width: 586px) {
   .layoutSmallScreenPadding {
     padding: 0px 1.0875rem 1.45rem;
   }
@@ -21,7 +21,7 @@
   }
 }
 
-pre[class*="language-"]>code {
+pre[class*="language-"] > code {
   border-left: none;
   box-shadow: none;
 }

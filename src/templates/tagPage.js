@@ -21,14 +21,11 @@ export default function TagPage ({ pageContext, data, location }) {
     const anchorElement = event.currentTarget
     const slug = anchorElement.dataset.slug // href will be resolved in full URL
 
-    navigate(
-      slug,
-      {
-        state: {
-          fromBlogs: false
-        }
-      }
-    )
+    navigate(slug, {
+      state: {
+        fromBlogs: false,
+      },
+    })
   }
 
   // <h1 className="page-title" style={{
@@ -36,18 +33,25 @@ export default function TagPage ({ pageContext, data, location }) {
   // }}><TagLabel tag={tag} /></h1>
   return (
     <Layout>
-      <SEO title="Tags" keywords={[tag]}></SEO>
-      <h1 className="page-title" style={{
-        marginBottom: "5px"
-      }}>{tag}</h1>
-      <p><strong>標籤總數</strong>: {tagField.totalCount}</p>
+      <SEO title="Tags" keywords={[tag]} />
+      <h1
+        className="page-title"
+        style={{
+          marginBottom: "5px",
+        }}
+      >
+        {tag}
+      </h1>
+      <p>
+        <strong>標籤總數</strong>: {tagField.totalCount}
+      </p>
 
       <OuterContainer className="blog-list">
         {posts.map(({ node }) => {
           const { title, date, tags } = node.frontmatter
           const excerpt = node.excerpt
           const slug = node.fields.slug
-          const isFocus = (focusSlug === slug)
+          const isFocus = focusSlug === slug
 
           return (
             <BlogItem
@@ -70,33 +74,27 @@ export default function TagPage ({ pageContext, data, location }) {
 export const pageQuery = graphql`
   query($tag: String!) {
     allMarkdownRemark(
-      sort: {order: DESC, fields: [frontmatter___date]},
-      filter: {
-        frontmatter: {
-          tags: {
-            in: [$tag]
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          excerpt(format: HTML, pruneLength: 150)
+          frontmatter {
+            title
+            date(formatString: "YYYY-MM-DD")
+            path
+            tags
           }
         }
       }
-    ) {
-        edges {
-          node {
-            fields {
-              slug
-            },
-            excerpt(format: HTML, pruneLength:150)
-            frontmatter {
-              title
-              date(formatString: "YYYY-MM-DD")
-              path
-              tags
-            }
-          }
-        }
-        group(field: frontmatter___tags) {
-          fieldValue
-          totalCount
-        }
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
     }
   }
 `

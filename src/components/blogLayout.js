@@ -37,24 +37,19 @@ const Layout = ({ header, left, right }) => {
       `}
       render={data => (
         <>
-          <Header
-            siteTitle={data.site.siteMetadata.title}
-            isFullPageLayout={true}
-          />
+          <Header siteTitle={data.site.siteMetadata.title} isFullPageLayout={true} />
           <div className="layoutSmallScreenPadding">
             <div className="layout-header">{header}</div>
 
             <div style={{ display: "flex", marginBottom: "1rem" }}>
-              <main style={{ minWidth: "250px", flex: "1 0 250px" }}>
-                {left}
-              </main>
+              <main style={{ minWidth: "250px", flex: "1 0 250px" }}>{left}</main>
 
               {displayType === "Desktop" ? (
                 <div
                   style={{
                     flex: "0 0 250px",
                     marginLeft: "1.0875rem",
-                    boxShadow: "rgba(0, 0, 0, 0.15) 1px 0px 5px",
+                    boxShadow: "rgba(0, 0, 0, 0.15) 0px 0px 2px",
                     marginRight: "-1.0875rem",
                     backgroundColor: "#f6f8fa",
                   }}

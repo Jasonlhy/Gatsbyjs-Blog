@@ -78,49 +78,53 @@ const TableOfContent = function (props) {
     }
   }
 
-  const menuState = useMemo(() => (isFloatingMenuOpen) ? "open" : "close", [isFloatingMenuOpen])
+  const menuState = useMemo(() => (isFloatingMenuOpen ? "open" : "close"), [isFloatingMenuOpen])
 
   const tocContent = (
     <nav>
-      <div style={{
-        "background": "#d81b60",
-        "margin": "-1.0875rem",
-        "padding": "1.0875rem",
-        "marginBottom": "1.0875rem"
-      }}>
-        <h3 style={{
-          "color": "white",
-          "marginBottom": 0
-        }}>在此文章</h3>
+      <div
+        style={{
+          background: "#d81b60",
+          margin: "-1.0875rem",
+          padding: "1.0875rem",
+          marginBottom: "1.0875rem",
+        }}
+      >
+        <h3
+          style={{
+            color: "white",
+            marginBottom: 0,
+          }}
+        >
+          在此文章
+        </h3>
       </div>
       <div dangerouslySetInnerHTML={{ __html: props.toc }} />
     </nav>
   )
 
   // TODO: No idea how to build TOC from raw HTML to JSX element
-  const toc = ((displayType) === "Desktop")
-    ? <Container className={classNames(styles.toc, styles.tocDesktop)}
-      onClick={handleTocClickDesktop}>
-      {tocContent}
-    </Container>
-    : <>
-      <Container className={classNames(styles.toc, styles.tocPhone)}
-        data-menu={menuState}
-        onClick={handleTocClickMobile}>
-        <div className={styles.center}>
-          {tocContent}
-        </div>
+  const toc =
+    displayType === "Desktop" ? (
+      <Container className={classNames(styles.toc, styles.tocDesktop)} onClick={handleTocClickDesktop}>
+        {tocContent}
       </Container>
-      <div className={styles.floatingMenu} data-menu={menuState} onClick={handleToggleMenu}>
-        <img className={styles.sign} src={addIcon} />
-      </div>
-    </>
+    ) : (
+      <>
+        <Container
+          className={classNames(styles.toc, styles.tocPhone)}
+          data-menu={menuState}
+          onClick={handleTocClickMobile}
+        >
+          <div className={styles.center}>{tocContent}</div>
+        </Container>
+        <div className={styles.floatingMenu} data-menu={menuState} onClick={handleToggleMenu}>
+          <img className={styles.sign} src={addIcon} />
+        </div>
+      </>
+    )
 
-  return (
-    <>
-      {toc}
-    </>
-  )
+  return <>{toc}</>
 }
 
 TableOfContent.propTypes = {

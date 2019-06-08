@@ -3,12 +3,16 @@ import TagCloud from "./tagCloud"
 
 function Footer () {
   return (
-    <footer style={{
-      textAlign: "center"
-    }}>
-      <div style={{
-        marginBottom: "1.7rem"
-      }}>
+    <footer
+      style={{
+        textAlign: "center",
+      }}
+    >
+      <div
+        style={{
+          marginBottom: "1.7rem",
+        }}
+      >
         <TagCloud />
       </div>
       <div>

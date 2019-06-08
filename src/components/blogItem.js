@@ -29,7 +29,8 @@ class BlogItem extends React.Component {
       const focusBlogItem = ReactDOM.findDOMNode(this)
 
       // Request browser to scroll as soon as possible
-      let requestAnimationFrame = window.requestAnimationFrame ||
+      let requestAnimationFrame =
+        window.requestAnimationFrame ||
         window.mozRequestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
         window.msRequestAnimationFrame
@@ -50,47 +51,39 @@ class BlogItem extends React.Component {
   }
 
   render () {
-    const {
-      slug,
-      excerpt,
-      tags,
-      date,
-      update,
-      title,
-      navigateHandler,
-      isFocus
-    } = this.props
-    const blogItemClasses = (isFocus) ? classNames(styles.blogItem, styles.blogItemFocus) : styles.blogItem
+    const { slug, excerpt, tags, date, update, title, navigateHandler, isFocus } = this.props
+    const blogItemClasses = isFocus ? classNames(styles.blogItem, styles.blogItemFocus) : styles.blogItem
 
     return (
-      <div
-        className={styles.blogItemLink}
-        to={slug}
-        data-slug={slug}
-        onClick={navigateHandler}>
-
-        <Link to={slug} style={{
-          "color": "inherit",
-          "display": "block"
-        }}>
+      <div className={styles.blogItemLink} to={slug} data-slug={slug} onClick={navigateHandler}>
+        <Link
+          to={slug}
+          style={{
+            color: "inherit",
+            display: "block",
+          }}
+        >
           <ShadowContainer className={blogItemClasses}>
             <article>
-              <div className={styles.blogItemInfo}
+              <div
+                className={styles.blogItemInfo}
                 style={{
-                  marginBottom: "1.0875rem"
-                }}>
-
+                  marginBottom: "1.0875rem",
+                }}
+              >
                 <h2 itemProp="name">{title}</h2>
-                <TagList tags={tags} isClickable={false}/>
+                <TagList tags={tags} isClickable={false} />
                 <div style={{ fontSize: "80%" }}>
                   <time style={{ marginRight: "1rem" }}>建立: {date}</time>
                   {update && <time>更新: {update}</time>}
                 </div>
               </div>
 
-              <p className={styles.exceptContainer}
+              <p
+                className={styles.exceptContainer}
                 itemProp="description"
-                dangerouslySetInnerHTML={{ __html: excerpt }} />
+                dangerouslySetInnerHTML={{ __html: excerpt }}
+              />
             </article>
           </ShadowContainer>
         </Link>
@@ -106,7 +99,7 @@ BlogItem.propTypes = {
   update: PropTypes.string,
   title: PropTypes.string.isRequired,
   navigateHandler: PropTypes.func,
-  isFocus: PropTypes.bool.isRequired
+  isFocus: PropTypes.bool.isRequired,
 }
 
 export default BlogItem
