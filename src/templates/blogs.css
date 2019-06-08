@@ -2,10 +2,11 @@
   margin-bottom: 1.7rem;
 }
 
-code[class*=language-], pre[class*=language-] {
+code[class*="language-"],
+pre[class*="language-"] {
   font-family: source-code-pro, monospace;
 }
 
-pre[class*=language-] {
-  padding: 0 !important; 
+pre[class*="language-"] {
+  padding: 0 !important;
 }

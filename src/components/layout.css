@@ -21,6 +21,11 @@
   }
 }
 
+pre[class*="language-"]>code {
+  border-left: none;
+  box-shadow: none;
+}
+
 /*
 Comment first for issue:
 https://github.com/gatsbyjs/gatsby/issues/8560
