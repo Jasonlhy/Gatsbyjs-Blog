@@ -31,6 +31,7 @@ module.exports = {
         name: "markdown-pages",
       },
     },
+    `gatsby-plugin-sharp`,
     // Transform markdown to GraphQL
     {
       resolve: `gatsby-transformer-remark`,
@@ -74,6 +75,13 @@ module.exports = {
               // code used in markdown i.e. single backtick code like `this`.
               noInlineHighlight: false,
               copy: true
+            },
+          },
+          // Images in Markdown
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 970,
             },
           },
         ],
