@@ -8,7 +8,7 @@ import BlogListLink from "../components/blogListLink"
 const IndexPage = () => (
   <Layout>
     <SEO title="Left For J" keywords={[`gatsby`, `application`, `react`]} />
-    <strong>資料還在整理中...</strong><br/>
+    <strong>資料還在整理中</strong><br/>
     <BlogListLink pagenumber={1}>文章列表</BlogListLink>
 
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
