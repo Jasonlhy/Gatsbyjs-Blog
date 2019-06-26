@@ -26,6 +26,10 @@ pre[class*="language-"] > code {
   box-shadow: none;
 }
 
+a.gatsby-resp-image-link:hover {
+  background-color: white;
+}
+
 /*
 Comment first for issue:
 https://github.com/gatsbyjs/gatsby/issues/8560
