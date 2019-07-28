@@ -1,20 +1,44 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import Axios from "axios"
+import Img from "react-image"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
-import BlogListLink from "../components/blogListLink"
+import { List as ListLoader } from "react-content-loader"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Left For J" keywords={[`gatsby`, `application`, `react`]} />
-    <strong>資料還在整理中</strong><br/>
-    <BlogListLink pagenumber={1}>文章列表</BlogListLink>
+const IndexPage = function({ location }) {
+  const [dogImageUrl, setDogImageUrl] = useState("")
 
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-  </Layout>
-)
+  const fetechDogImage = async () => {
+    const result = await Axios("https://dog.ceo/api/breeds/image/random")
+    const { message } = result.data
+    // console.log(result)
+    setDogImageUrl(message)
+  }
+
+  // why hv location?: https://stackoverflow.com/questions/56120929/gatsby-context-update-causes-infinite-render-loop
+  useEffect(
+    function() {
+      fetechDogImage()
+    },
+    [location]
+  )
+
+  return (
+    <Layout>
+      <SEO title="Left For J" keywords={[`gatsby`, `application`, `react`]} />
+      <p>
+        Powered by <a href="https://dog.ceo/dog-api/">Dog API</a>
+      </p>
+      <div style={{ maxWidth: "100%", marginBottom: `1.45rem` }}>
+        {dogImageUrl ? (
+          <Img src={dogImageUrl} loader={<ListLoader />} />
+        ) : (
+          <ListLoader />
+        )}
+      </div>
+    </Layout>
+  )
+}
 
 export default IndexPage

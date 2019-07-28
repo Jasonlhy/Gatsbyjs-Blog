@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 
 import logo from "../icons/logo_transparent.png"
+import BlogListLink from "../components/blogListLink"
 
 const headerStyle = {
   // TODO: Hard code first
@@ -62,6 +63,18 @@ const Header = ({ siteTitle, isFullPageLayout }) => (
           {siteTitle}
         </Link>
       </h1>
+      
+      <BlogListLink
+        pagenumber={1}
+        style={{
+          marginLeft: `.5rem`,
+          color: `white`,
+          textDecoration: `none`,
+          backgroundColor: "inherit",
+        }}
+      >
+        文章列表
+      </BlogListLink>
     </div>
   </header>
 )
