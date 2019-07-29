@@ -14,14 +14,17 @@ import Footer from "./footer.js"
 import useMedia from "../hooks/use-media"
 import "./layout.css"
 
-const Layout = ({ header, left, right }) => {
+const BlogLayout = ({ header, left, right }) => {
+  // TODO: fix back page issue
+  const deviceType = ((typeof window !== "undefined") && window.matchMedia("(min-width: 550px)")) || "Mobile"
+
   const displayType = useMedia(
     // Media queries
     ["(min-width: 550px)"],
     // Column counts (relates to above media queries by array index)
     ["Desktop"],
     // Default column count
-    "Mobile"
+    deviceType
   )
 
   return (
@@ -37,7 +40,7 @@ const Layout = ({ header, left, right }) => {
       `}
       render={data => (
         <>
-          <Header siteTitle={data.site.siteMetadata.title} isFullPageLayout={true} />
+          <Header siteTitle={data.site.siteMetadata.title} isFullPageLayout={true} highlightTab="blogs" />
           <div className="layoutSmallScreenPadding">
             <div className="layout-header">{header}</div>
 
@@ -69,10 +72,10 @@ const Layout = ({ header, left, right }) => {
   )
 }
 
-Layout.propTypes = {
+BlogLayout.propTypes = {
   header: PropTypes.node.isRequired,
   left: PropTypes.node,
   right: PropTypes.node,
 }
 
-export default Layout
+export default BlogLayout

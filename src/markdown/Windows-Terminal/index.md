@@ -1,18 +1,17 @@
 ---
-path: '/blog/Tool/WindowsTerminal'
+path: "/blog/Tool/WindowsTerminal"
 title: Windows Terminal
 date: 2019-06-23
 description:
 categories: Tool
 tags:
-- Windows
-- OS
+  - Windows
+  - OS
 ---
 
 ## cmd 和 Powershell
 
 Windows 一向不是對命令行友好的系統, cmd 和 Powershell 都不好用, 而且對非英語系支持極差。cmd 和 Powershell 的 UI 都是共用 windows console, 它會根據當地的地區 code page 顥示字體, 由程式調用 Windows Console 的 API 決定顥示效果, 而且當中的 source code 已經有 [三十年歷史](https://www.youtube.com/watch?v=KMudkRcwjCw), 想改變 UI 體驗比較困難。
-
 
 非英語系支持極差:
 

@@ -9,6 +9,11 @@ import classNames from "classnames"
 
 import styles from "./tableOfContent.module.css"
 
+/**
+ * Table of Content of the article
+ * 
+ * @param {*} props
+ */
 const TableOfContent = function (props) {
   const [isFloatingMenuOpen, setIsFloatingMenuOpen] = useState(false)
   const displayType = useMedia(

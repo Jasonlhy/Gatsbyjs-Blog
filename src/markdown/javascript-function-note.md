@@ -1,13 +1,13 @@
 ---
-path: '/blog/JavaScript-function-note'
+path: "/blog/JavaScript-function-note"
 title: JavaScript function 筆記
 date: 2019-05-07
-update: 2019-05-24
+update: 2019-07-30
 description: 記錄一些 JavaScript function 用法和注意地方
 categories: Programming
-tags: 
-- JavaScript
-- React
+tags:
+  - JavaScript
+  - React
 ---
 
 ## function 和 object
@@ -19,14 +19,14 @@ tags:
 ```js
 /// map function is somethings like that
 //  For real implementation, refer to: https://www.ecma-international.org/ecma-262/9.0/index.html#sec-array.prototype.map
-Array.prototype.map = function(){
-    console.log("this: ", this);
-    var result = [];
-    for (var i = 0; i < this.length; i++){
-        result.push(this[i]);
-    }
+Array.prototype.map = function() {
+  console.log("this: ", this)
+  var result = []
+  for (var i = 0; i < this.length; i++) {
+    result.push(this[i])
+  }
 
-    return result;
+  return result
 }
 
 // <select>
@@ -34,9 +34,9 @@ Array.prototype.map = function(){
 //   <option value="valueB">optionB</option>
 // </select>
 
-var select = document.createElement("select");
-var optionA = select.options.add(new Option("optionA", "valueA"));
-var optionB = select.options.add(new Option("optionB", "valueB"));
+var select = document.createElement("select")
+var optionA = select.options.add(new Option("optionA", "valueA"))
+var optionB = select.options.add(new Option("optionB", "valueB"))
 
 // HTMLOptionsCollection(2) [option, option, selectedIndex: 0]
 // 0: option
@@ -69,7 +69,7 @@ Student.prototype.studyAt = function(){
 }
 ```
 
-ES6 class 表達：
+相對應的 ES6 class 表達：
 
 ```JavaScript
 class Student {
@@ -77,7 +77,7 @@ class Student {
     this.school = "Awesome school"
     this.name = name
   }
-  
+
   hello(){
     console.log("Hello, I am " + this.name);
   }
@@ -100,7 +100,7 @@ jason.hello() // => Hello, I am Jason
 
 如你所見，一般使用情況中 `this` 會找到合適的 object，存取當中的 property。問題出自當 function 以 callback 執行時，`this` 會指向另一個 object。
 
-以下例子中, 當 hello 以 callback 執行時, `this` 會指向 global 而不是 jason，因此 `this.name` 是 undefined。
+以下例子中, 當 hello 以 callback 執行時, `this` 會指向 Window (Node.Js 下是 global), 而不是 jason，因此 `this.name` 是 undefined。
 
 ```JavaScript
 jason.testObject = function() {
@@ -110,8 +110,8 @@ function executeCallback(hello){
   hello();
 }
 
-executeCallback(jason.hello)  // => Hello, I am undefined
-executeCallback(jason.testObject) // Object context: undefined 
+executeCallback(jason.hello)  // => Cannot read property 'name' of undefined
+executeCallback(jason.testObject) // Object context: Window
 ```
 
 在 strict mode 中 `this` 會指向 undefined
@@ -119,15 +119,15 @@ executeCallback(jason.testObject) // Object context: undefined
 ```js
 jason.testObject = function() {
   // ++++ "use strict";
-  "use strict";
+  "use strict"
   console.log("Object context: ", this)
 }
-function executeCallback(hello){
-  hello();
+function executeCallback(hello) {
+  hello()
 }
 
-executeCallback(jason.hello)  // => Hello, I am undefined
-executeCallback(jason.testObject) // Object context: global
+executeCallback(jason.hello) // => Cannot read property 'name' of undefined
+executeCallback(jason.testObject) // Object context: undefined
 ```
 
 React 的工程師也 [經常被 this 的問題困援]([https://reactjs.org/docs/hooks-intro.html])。
@@ -138,16 +138,16 @@ React 的工程師也 [經常被 this 的問題困援]([https://reactjs.org/docs
 
 明確地設定 function 的 `this` 找那個 object, 利用 `bind` 或 arrow function
 
-### _this
+### \_this
 
 在 constructor function 中, 新增一個獨立 variable `_this`, 記錄當前的 object, 作日後參照用途。缺點是參照 `_this` 的 function 不能被定義在 prototype
 
 ```js
 function Student() {
-  var _this = this;
-  
+  var _this = this
+
   this.objectHello = function() {
-    console.log("Hello, I study at " + _this.school);
+    console.log("Hello, I study at " + _this.school)
   }
 }
 ```
@@ -158,7 +158,7 @@ function Student() {
 
 **PS:** ES5, IE9 之後
 
-運行時 `bind`： 
+運行時 `bind`：
 
 ```js
 // ---- executeCallback(jason.hello)
@@ -194,7 +194,7 @@ class Student {
   // ---- hello()
   // ++++ hello = () => {
   hello = () => {
-    console.log("Hello, I am " + this.name);
+    console.log("Hello, I am " + this.name)
   }
 }
 ```
@@ -205,31 +205,29 @@ class Student {
 
 ```js
 function Student() {
-
-  this.registerClick = function(){
-    $("#btn").click(function(){
-        alert("Hello, " + this.name); // => Hello, undefined
-    });
+  this.registerClick = function() {
+    $("#btn").click(function() {
+      alert("Hello, " + this.name) // => Hello, undefined
+    })
   }
 }
 ```
 
-解決方法: _this 和 arrow function
+解決方法: \_this 和 arrow function
 
-_this 的解法:
+\_this 的解法:
 
 ```js
 function Student() {
-
-  this.registerClick = function(){
+  this.registerClick = function() {
     // ++++ var _this = this;
-    var _this = this; // rembered by closure
+    var _this = this // rembered by closure
 
-    $("#btn").click(function(){
-        // ---- alert("Hello, " + this.name);
-        // ++++ alert("Hello, " + _this.name);
-        alert("Hello, " + _this.name); // => Hello, jason
-    });
+    $("#btn").click(function() {
+      // ---- alert("Hello, " + this.name);
+      // ++++ alert("Hello, " + _this.name);
+      alert("Hello, " + _this.name) // => Hello, jason
+    })
   }
 }
 ```
@@ -238,31 +236,28 @@ arrow function 的解法:
 
 ```js
 function Student() {
-
-  this.registerClick = function(){
-
+  this.registerClick = function() {
     // ---- $("#btn").click(function(){
     // ++++ $("#btn").click(() => {
     $("#btn").click(() => {
-        alert("Hello, " + _this.name); // => Hello, jason
-    });
+      alert("Hello, " + _this.name) // => Hello, jason
+    })
   }
 }
 ```
-
 
 ## React
 
 由於 JSX 關係，function 多數以 callback 執行。以下 `handleClick` 以 callback 執行，執行時會 error，因為 this 會指向 undefined。
 
 ```jsx
-import React from "react";
-import ReactDOM from "react-dom";
+import React from "react"
+import ReactDOM from "react-dom"
 
-import "./styles.css";
+import "./styles.css"
 
 class App extends React.Component {
-  constructor (props){
+  constructor(props) {
     super(props)
     this.state = { count: 1 }
   }
@@ -271,7 +266,7 @@ class App extends React.Component {
     let { count } = this.state // undefined is not an object (evaluating 'this.state')
     count += 1
     this.setState({
-      state: count
+      state: count,
     })
   }
 
@@ -283,15 +278,16 @@ class App extends React.Component {
         State: {this.state.count}
         <button onClick={this.handleClick}>Click me</button>
       </div>
-    );
+    )
   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const rootElement = document.getElementById("root")
+ReactDOM.render(<App />, rootElement)
 ```
 
 解決方有
+
 - 用 constructor bind, 但很麻煩, 每加一個 handler function 便要 bind 一次 ...
 - 用 arrow function, 但要設定 babel 做 stage-2 才 支持 arrow function
 - 用 hook
@@ -324,13 +320,12 @@ handleClick = (){
 <button onClick={this.handleClick}>Click me</button>
 ```
 
-
 ### Hook
 
 Hook 這個方案比較特別, 它只支持 functional component。理念是將 state 從 component 中分離, state 經由 function 獲得。因此你不再依賴於 component, 不需要 `this`, 所以 button onClick 是 `handleClick` 而不是 `this.handleClick`
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
 const App = function(props) {
   const [count, setCount] = useState(1)
@@ -347,11 +342,11 @@ const App = function(props) {
       State: {this.state.count}
       <button onClick={handleClick}>Click me</button>
     </div>
-  );
+  )
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const rootElement = document.getElementById("root")
+ReactDOM.render(<App />, rootElement)
 ```
 
-這個是一個優雅的解決方法, 不但將 `this` 問題解決, 令 React Component 更像一個 pure function。而且獲得 state 的 function 還可以在不同 component reuse。詳見 [youtube](https://www.youtube.com/watch?v=dpw9EHDh2bM): 
+這個是一個優雅的解決方法, 不但將 `this` 問題解決, 令 React Component 更像一個 pure function。而且獲得 state 的 function 還可以在不同 component reuse。詳見 [youtube](https://www.youtube.com/watch?v=dpw9EHDh2bM):
