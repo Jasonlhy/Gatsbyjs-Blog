@@ -16,7 +16,10 @@ import "./layout.css"
 
 const BlogLayout = ({ header, left, right }) => {
   // TODO: fix back page issue
-  const deviceType = ((typeof window !== "undefined") && window.matchMedia("(min-width: 550px)")) || "Mobile"
+  const deviceType =
+    (typeof window !== "undefined" &&
+      window.matchMedia("(min-width: 550px)")) ||
+    "Mobile"
 
   const displayType = useMedia(
     // Media queries
@@ -40,12 +43,18 @@ const BlogLayout = ({ header, left, right }) => {
       `}
       render={data => (
         <>
-          <Header siteTitle={data.site.siteMetadata.title} isFullPageLayout={true} highlightTab="blogs" />
+          <Header
+            siteTitle={data.site.siteMetadata.title}
+            isFullPageLayout={true}
+            highlightTab="blogs"
+          />
           <div className="layoutSmallScreenPadding">
             <div className="layout-header">{header}</div>
 
             <div style={{ display: "flex", marginBottom: "1rem" }}>
-              <main style={{ minWidth: "250px", flex: "1 0 250px" }}>{left}</main>
+              <main style={{ minWidth: "250px", flex: "1 0 250px" }}>
+                {left}
+              </main>
 
               {displayType === "Desktop" ? (
                 <div

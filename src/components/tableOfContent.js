@@ -11,10 +11,10 @@ import styles from "./tableOfContent.module.css"
 
 /**
  * Table of Content of the article
- * 
+ *
  * @param {*} props
  */
-const TableOfContent = function (props) {
+const TableOfContent = function(props) {
   const [isFloatingMenuOpen, setIsFloatingMenuOpen] = useState(false)
   const displayType = useMedia(
     // Media queries
@@ -27,17 +27,17 @@ const TableOfContent = function (props) {
   // console.log("displayType: " + displayType);
 
   // Like component did mount and component did unmount
-  useEffect(function () {
+  useEffect(function() {
     // Delay the polyfill step
     // https://github.com/gatsbyjs/gatsby/issues/309
     smoothscroll.polyfill()
   })
 
-  const _closeMenu = function () {
+  const _closeMenu = function() {
     setIsFloatingMenuOpen(false)
   }
 
-  const handleToggleMenu = function () {
+  const handleToggleMenu = function() {
     setIsFloatingMenuOpen(!isFloatingMenuOpen)
   }
 
@@ -47,7 +47,7 @@ const TableOfContent = function (props) {
    * @param {*} event - OnClick event which targets <a> element
    * @memberof TableOfContent
    */
-  const _scrollToHeading = function (event) {
+  const _scrollToHeading = function(event) {
     // need to use /g flag to replaceAll...
     const target = event.target
     const headingAnchor = target.href
@@ -61,13 +61,16 @@ const TableOfContent = function (props) {
         heading.scrollIntoView({ behavior: "smooth" })
         event.preventDefault()
       } else {
-        console.error("Can't find heading with Id selector: ", headingIdSelector)
+        console.error(
+          "Can't find heading with Id selector: ",
+          headingIdSelector
+        )
       }
     }
   }
 
   // Little hack for <a> event bubbling
-  const handleTocClickDesktop = function (event) {
+  const handleTocClickDesktop = function(event) {
     const target = event.target
     if (target.tagName === "A") {
       _scrollToHeading(event)
@@ -75,7 +78,7 @@ const TableOfContent = function (props) {
   }
 
   // Little hack for <a> event bubbling
-  const handleTocClickMobile = function (event) {
+  const handleTocClickMobile = function(event) {
     const target = event.target
     if (target.tagName === "A") {
       _scrollToHeading(event)
@@ -83,7 +86,9 @@ const TableOfContent = function (props) {
     }
   }
 
-  const menuState = useMemo(() => (isFloatingMenuOpen ? "open" : "close"), [isFloatingMenuOpen])
+  const menuState = useMemo(() => (isFloatingMenuOpen ? "open" : "close"), [
+    isFloatingMenuOpen,
+  ])
 
   const tocContent = (
     <nav>
@@ -111,7 +116,10 @@ const TableOfContent = function (props) {
   // TODO: No idea how to build TOC from raw HTML to JSX element
   const toc =
     displayType === "Desktop" ? (
-      <Container className={classNames(styles.toc, styles.tocDesktop)} onClick={handleTocClickDesktop}>
+      <Container
+        className={classNames(styles.toc, styles.tocDesktop)}
+        onClick={handleTocClickDesktop}
+      >
         {tocContent}
       </Container>
     ) : (
@@ -123,7 +131,11 @@ const TableOfContent = function (props) {
         >
           <div className={styles.center}>{tocContent}</div>
         </Container>
-        <div className={styles.floatingMenu} data-menu={menuState} onClick={handleToggleMenu}>
+        <div
+          className={styles.floatingMenu}
+          data-menu={menuState}
+          onClick={handleToggleMenu}
+        >
           <img className={styles.sign} src={addIcon} />
         </div>
       </>

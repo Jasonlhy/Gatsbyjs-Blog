@@ -23,8 +23,15 @@ const centerHeaderStyle = Object.assign(Object.assign({}, headerStyle), {
 /**
  * Header of all Layouts
  */
-const Header = function ({ siteTitle, isFullPageLayout, highlightTab }) {
-  const isBlogs = (typeof window !== "undefined") && window.location.pathname.includes("blogs") || highlightTab === "blogs"
+const Header = function({ siteTitle, isFullPageLayout, highlightTab }) {
+  const isBlogPage =
+    (typeof window !== "undefined" &&
+      window.location.pathname.includes("blogs")) ||
+    highlightTab === "blogs"
+  const isReferencePage =
+    (typeof window !== "undefined" &&
+      window.location.pathname.includes("reference")) ||
+    highlightTab === "reference"
 
   return (
     <header
@@ -72,7 +79,7 @@ const Header = function ({ siteTitle, isFullPageLayout, highlightTab }) {
 
         <span
           style={{
-            backgroundColor: isBlogs ? "#344294" : "inherit",
+            backgroundColor: isBlogPage ? "#344294" : "inherit",
             marginLeft: `.5rem`,
             paddingLeft: ".5rem",
             paddingRight: ".5rem",
@@ -88,6 +95,27 @@ const Header = function ({ siteTitle, isFullPageLayout, highlightTab }) {
           >
             文章列表
           </BlogListLink>
+        </span>
+
+        {/* TODO extract a HOC */}
+        <span
+          style={{
+            backgroundColor: isReferencePage ? "#344294" : "inherit",
+            marginLeft: `.5rem`,
+            paddingLeft: ".5rem",
+            paddingRight: ".5rem",
+          }}
+        >
+          <Link
+            to="/reference"
+            style={{
+              color: `white`,
+              textDecoration: `none`,
+              backgroundColor: "inherit",
+            }}
+          >
+            連結
+          </Link>
         </span>
       </div>
     </header>

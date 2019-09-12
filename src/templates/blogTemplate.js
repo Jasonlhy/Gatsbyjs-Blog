@@ -7,11 +7,15 @@ import TagList from "../components/tagList"
 import "./blogTemplate.css"
 import BlogListLink from "../components/blogListLink"
 
-import { Container, OuterContainer, ShadowContainer } from "../components/containers"
+import {
+  Container,
+  OuterContainer,
+  ShadowContainer,
+} from "../components/containers"
 import TableOfContent from "../components/tableOfContent"
 
 // Blog Template
-export default function Template ({
+export default function Template({
   location, // this prop will be injected by router
   data, // this prop will be injected by the GraphQL query below.
 }) {
@@ -52,8 +56,12 @@ export default function Template ({
                 </h1>
                 <TagList tags={frontmatter.tags} />
                 <div style={{ fontSize: "80%" }}>
-                  <time style={{ marginRight: "1rem" }}>建立: {frontmatter.date}</time>
-                  {frontmatter.update && <time>更新: {frontmatter.update}</time>}
+                  <time style={{ marginRight: "1rem" }}>
+                    建立: {frontmatter.date}
+                  </time>
+                  {frontmatter.update && (
+                    <time>更新: {frontmatter.update}</time>
+                  )}
                 </div>
 
                 {fromBlogs && (
@@ -71,7 +79,10 @@ export default function Template ({
               </section>
             </Container>
           </OuterContainer>
-          <article className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
+          <article
+            className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </ShadowContainer>
       </OuterContainer>
     </div>

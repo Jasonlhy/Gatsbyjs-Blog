@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import styles from "./pagination.module.css"
 import classNames from "classnames"
 
-const Pagination = function (props) {
+const Pagination = function(props) {
   const { previousPage, nextPage } = props
   const paginationClassName = previousPage
     ? classNames(styles.pagination, styles.bothSide)

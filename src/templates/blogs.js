@@ -17,7 +17,7 @@ class BlogListPage extends React.Component {
    * @param {*} props
    *
    */
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
   }
@@ -25,20 +25,20 @@ class BlogListPage extends React.Component {
   /**
    * Get the window scroll offset
    */
-  getWindowScrolOffset () {
+  getWindowScrolOffset() {
     let supportPageOffset = window.pageXOffset !== undefined
     let isCSS1Compat = (document.compatMode || "") === "CSS1Compat"
 
     let x = supportPageOffset
       ? window.pageXOffset
       : isCSS1Compat
-        ? document.documentElement.scrollLeft
-        : document.body.scrollLeft
+      ? document.documentElement.scrollLeft
+      : document.body.scrollLeft
     let y = supportPageOffset
       ? window.pageYOffset
       : isCSS1Compat
-        ? document.documentElement.scrollTop
-        : document.body.scrollTop
+      ? document.documentElement.scrollTop
+      : document.body.scrollTop
 
     return { x, y }
   }
@@ -66,7 +66,7 @@ class BlogListPage extends React.Component {
     })
   }
 
-  render () {
+  render() {
     const { data, pageContext, location } = this.props
     const { currentPage, numPages } = pageContext
     const posts = data.allMarkdownRemark.edges
@@ -113,7 +113,11 @@ class BlogListPage extends React.Component {
 
 export const pageQuery = graphql`
   query($limit: Int!, $skip: Int!) {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: $limit, skip: $skip) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
           fields {

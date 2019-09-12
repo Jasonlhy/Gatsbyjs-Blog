@@ -4,7 +4,7 @@ import _ from "lodash"
 
 import styles from "./tagLabel.module.css"
 
-export default function (props) {
+export default function(props) {
   const { tag, isClickable, count } = props
 
   if (isClickable) {

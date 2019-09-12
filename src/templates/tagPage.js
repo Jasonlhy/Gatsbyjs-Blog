@@ -7,7 +7,7 @@ import BlogItem from "../components/blogItem"
 import { OuterContainer } from "../components/containers"
 
 // Stateless JSX component with props of data injected by graphQL
-export default function TagPage ({ pageContext, data, location }) {
+export default function TagPage({ pageContext, data, location }) {
   const { tag } = pageContext
   const { group } = data.allMarkdownRemark
   const tagField = group.filter(g => g.fieldValue === tag)[0]

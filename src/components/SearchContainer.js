@@ -14,7 +14,7 @@ class Search extends Component {
   /**
    * React lifecycle method to fetch the data
    */
-  async componentDidMount () {
+  async componentDidMount() {
     Axios.get("https://bvaughn.github.io/js-search/books.json")
       .then(result => {
         const bookData = result.data
@@ -72,7 +72,7 @@ class Search extends Component {
     e.preventDefault()
   }
 
-  render () {
+  render() {
     const { bookList, searchResults, searchQuery } = this.state
     const queryResults = searchQuery === "" ? bookList : searchResults
     return (

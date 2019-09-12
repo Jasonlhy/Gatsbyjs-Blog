@@ -17,12 +17,12 @@ class BlogItem extends React.Component {
    * @param {*} props
    *
    */
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
   }
 
-  scrollToFocus () {
+  scrollToFocus() {
     const { isFocus } = this.props
 
     if (isFocus) {
@@ -34,28 +34,44 @@ class BlogItem extends React.Component {
         window.mozRequestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
         window.msRequestAnimationFrame
-      setTimeout(function () {
-        requestAnimationFrame(function () {
+      setTimeout(function() {
+        requestAnimationFrame(function() {
           focusBlogItem.scrollIntoView()
         })
       }, 0)
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.scrollToFocus()
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     this.scrollToFocus()
   }
 
-  render () {
-    const { slug, excerpt, tags, date, update, title, navigateHandler, isFocus } = this.props
-    const blogItemClasses = isFocus ? classNames(styles.blogItem, styles.blogItemFocus) : styles.blogItem
+  render() {
+    const {
+      slug,
+      excerpt,
+      tags,
+      date,
+      update,
+      title,
+      navigateHandler,
+      isFocus,
+    } = this.props
+    const blogItemClasses = isFocus
+      ? classNames(styles.blogItem, styles.blogItemFocus)
+      : styles.blogItem
 
     return (
-      <div className={styles.blogItemLink} to={slug} data-slug={slug} onClick={navigateHandler}>
+      <div
+        className={styles.blogItemLink}
+        to={slug}
+        data-slug={slug}
+        onClick={navigateHandler}
+      >
         <Link
           to={slug}
           style={{
