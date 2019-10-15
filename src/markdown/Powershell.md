@@ -11,9 +11,15 @@ tags:
 
 ## Powershell
 
-最近都在用 Windows 下的 Powershell，功能上還不錯，也能利用 pipeline 串連不同程式。但不同於 unix shell input 和 output 以 text 為基礎，Powershell 的 input 和 output 都是 object，在這裡整理一下用法。
+最近都在用 Windows 下的 Powershell，功能上還不錯，也能利用 pipeline 串連不同程式。但不同於 unix shell input 和 output 以 text 為基礎，Powershell 的 input 和 output 都是 CLR object，在這裡整理一下用法。
 
-## Environment
+## Environment and Variable
+
+Add path into executable path:
+
+```powershell
+PS /Users/jason/my-gatsby-site> $Env:Path+="C:\docfx"
+```
 
 ### Get-Command
 
@@ -28,6 +34,10 @@ Application     node                                               0.0.0.0    /u
 ```
 
 ## Unix style alias
+
+- Get-ChildItem: ls
+- Get-Content: cat
+- Get-Help: man
 
 ## 例子
 
@@ -64,10 +74,32 @@ Import-Csv god.csv | Out-GridView
 
 - `Get-Service | Get-Member -MemberType Property`: 檢視 pipeline 中的 object 的 property
 
-```
+```powershell
 Get-ChildItem *.txt | Get-Member
 
 TypeName: System.IO.FileInfo
+```
+
+或者
+
+```powershell
+$(Get-ChildItem *.txt).GetType()
+```
+
+Get-Date | Select-Object -ExpandProperty DayOfWeek
+
+
+## Powershell Core
+
+Mac 和 Linux 上可以使用 Powershell Core
+
+
+## Trick
+
+使用 cmd commmand
+
+```powershell
+cmd --% /c rmdir /s "xxxxxdirectory"
 ```
 
 ## 參考
