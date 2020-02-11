@@ -26,7 +26,7 @@ const IndexPage = function({ location }) {
 
   return (
     <Layout>
-      <SEO title="Left For J" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="Life For J" keywords={[`gatsby`, `application`, `react`]} />
       <p>
         Powered by <a href="https://dog.ceo/dog-api/">Dog API</a>
       </p>

@@ -5,7 +5,7 @@ const containerStyle = {
   // boxShadow: "0 5px 30px rgba(0,0,0,0.15)",
   background: "#FFFFFF",
   // border: "1px solid black",
-  padding: "1.0875rem" // Hard code first, align with the header
+  padding: "1.0875rem", // Hard code first, align with the header
 }
 
 /**
@@ -14,13 +14,11 @@ const containerStyle = {
  * Pass the props directly to div container
  */
 const ShadowContainer = props => {
-  return (
-    <div style={containerStyle} {...props}/>
-  )
+  return <div style={containerStyle} {...props} />
 }
 
 ShadowContainer.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default ShadowContainer
