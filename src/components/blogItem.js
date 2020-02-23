@@ -17,12 +17,12 @@ class BlogItem extends React.Component {
    * @param {*} props
    *
    */
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {}
   }
 
-  scrollToFocus() {
+  scrollToFocus () {
     const { isFocus } = this.props
 
     if (isFocus) {
@@ -34,23 +34,23 @@ class BlogItem extends React.Component {
         window.mozRequestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
         window.msRequestAnimationFrame
-      setTimeout(function() {
-        requestAnimationFrame(function() {
+      setTimeout(function () {
+        requestAnimationFrame(function () {
           focusBlogItem.scrollIntoView()
         })
       }, 0)
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.scrollToFocus()
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     this.scrollToFocus()
   }
 
-  render() {
+  render () {
     const {
       slug,
       excerpt,

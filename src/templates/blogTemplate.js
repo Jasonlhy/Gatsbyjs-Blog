@@ -10,12 +10,12 @@ import BlogListLink from "../components/blogListLink"
 import {
   Container,
   OuterContainer,
-  ShadowContainer,
+  ShadowContainer
 } from "../components/containers"
 import TableOfContent from "../components/tableOfContent"
 
 // Blog Template
-export default function Template({
+export default function Template ({
   location, // this prop will be injected by router
   data, // this prop will be injected by the GraphQL query below.
 }) {
@@ -33,11 +33,7 @@ export default function Template({
   // Layout Contnent
   const toc = <TableOfContent toc={tableOfContents} />
 
-  const header = (
-    <>
-      <SEO title={frontmatter.title} keywords={frontmatter.tags || []} />
-    </>
-  )
+  const header = <SEO title={frontmatter.title} keywords={frontmatter.tags || []} />
 
   const article = (
     <div className="blog-post-content-container">

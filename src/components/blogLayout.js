@@ -14,6 +14,11 @@ import Footer from "./footer.js"
 import useMedia from "../hooks/use-media"
 import "./layout.css"
 
+/**
+ * The layout designed for blog, with header left and right component
+ *
+ * @param {*} param0
+ */
 const BlogLayout = ({ header, left, right }) => {
   // TODO: fix back page issue
   const deviceType =
@@ -56,8 +61,8 @@ const BlogLayout = ({ header, left, right }) => {
                 {left}
               </main>
 
-              {displayType === "Desktop" ? (
-                <div
+              {displayType === "Desktop"
+                ? <div
                   style={{
                     flex: "0 0 250px",
                     marginLeft: "1.0875rem",
@@ -68,9 +73,7 @@ const BlogLayout = ({ header, left, right }) => {
                 >
                   {right}
                 </div>
-              ) : (
-                right
-              )}
+                : right}
             </div>
 
             <Footer />

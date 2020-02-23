@@ -1,7 +1,7 @@
 import React from "react"
 import TagCloud from "./tagCloud"
 
-function Footer() {
+function Footer () {
   return (
     <footer
       style={{

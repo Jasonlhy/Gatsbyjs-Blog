@@ -23,15 +23,21 @@ const centerHeaderStyle = Object.assign(Object.assign({}, headerStyle), {
 /**
  * Header of all Layouts
  */
-const Header = function({ siteTitle, isFullPageLayout, highlightTab }) {
+const Header = function ({ siteTitle, isFullPageLayout, highlightTab }) {
   const isBlogPage =
     (typeof window !== "undefined" &&
       window.location.pathname.includes("blogs")) ||
     highlightTab === "blogs"
+
   const isReferencePage =
     (typeof window !== "undefined" &&
       window.location.pathname.includes("reference")) ||
     highlightTab === "reference"
+
+  const isJobPage =
+    (typeof window !== "undefined" &&
+      window.location.pathname.includes("job")) ||
+    highlightTab === "job"
 
   return (
     <header
@@ -115,6 +121,26 @@ const Header = function({ siteTitle, isFullPageLayout, highlightTab }) {
             }}
           >
             連結
+          </Link>
+        </span>
+
+        <span
+          style={{
+            backgroundColor: isJobPage ? "#344294" : "inherit",
+            marginLeft: `.5rem`,
+            paddingLeft: ".5rem",
+            paddingRight: ".5rem",
+          }}
+        >
+          <Link
+            to="/job"
+            style={{
+              color: `white`,
+              textDecoration: `none`,
+              backgroundColor: "inherit",
+            }}
+          >
+            Job
           </Link>
         </span>
       </div>

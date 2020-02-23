@@ -6,19 +6,18 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { List as ListLoader } from "react-content-loader"
 
-const IndexPage = function({ location }) {
+const IndexPage = function ({ location }) {
   const [dogImageUrl, setDogImageUrl] = useState("")
 
   const fetechDogImage = async () => {
     const result = await Axios("https://dog.ceo/api/breeds/image/random")
     const { message } = result.data
-    // console.log(result)
     setDogImageUrl(message)
   }
 
   // why hv location?: https://stackoverflow.com/questions/56120929/gatsby-context-update-causes-infinite-render-loop
   useEffect(
-    function() {
+    function () {
       fetechDogImage()
     },
     [location]

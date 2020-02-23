@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const ReferencePage = function({ location }) {
+const ReferencePage = function ({ location }) {
   return (
     <Layout>
       <SEO title="Left For J" keywords={[`gatsby`, `application`, `react`]} />

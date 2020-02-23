@@ -14,7 +14,7 @@ import styles from "./tableOfContent.module.css"
  *
  * @param {*} props
  */
-const TableOfContent = function(props) {
+const TableOfContent = function (props) {
   const [isFloatingMenuOpen, setIsFloatingMenuOpen] = useState(false)
   const displayType = useMedia(
     // Media queries
@@ -27,17 +27,17 @@ const TableOfContent = function(props) {
   // console.log("displayType: " + displayType);
 
   // Like component did mount and component did unmount
-  useEffect(function() {
+  useEffect(function () {
     // Delay the polyfill step
     // https://github.com/gatsbyjs/gatsby/issues/309
     smoothscroll.polyfill()
   })
 
-  const _closeMenu = function() {
+  const _closeMenu = function () {
     setIsFloatingMenuOpen(false)
   }
 
-  const handleToggleMenu = function() {
+  const handleToggleMenu = function () {
     setIsFloatingMenuOpen(!isFloatingMenuOpen)
   }
 
@@ -47,7 +47,7 @@ const TableOfContent = function(props) {
    * @param {*} event - OnClick event which targets <a> element
    * @memberof TableOfContent
    */
-  const _scrollToHeading = function(event) {
+  const _scrollToHeading = function (event) {
     // need to use /g flag to replaceAll...
     const target = event.target
     const headingAnchor = target.href
@@ -70,7 +70,7 @@ const TableOfContent = function(props) {
   }
 
   // Little hack for <a> event bubbling
-  const handleTocClickDesktop = function(event) {
+  const handleTocClickDesktop = function (event) {
     const target = event.target
     if (target.tagName === "A") {
       _scrollToHeading(event)
@@ -78,7 +78,7 @@ const TableOfContent = function(props) {
   }
 
   // Little hack for <a> event bubbling
-  const handleTocClickMobile = function(event) {
+  const handleTocClickMobile = function (event) {
     const target = event.target
     if (target.tagName === "A") {
       _scrollToHeading(event)
