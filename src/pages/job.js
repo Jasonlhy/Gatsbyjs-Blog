@@ -21,7 +21,7 @@ import SEO from "../components/seo"
 
 const ReferencePage = function ({ location }) {
   const [jobs, setJobs] = useState([])
-  const [category, setCategory] = useState("Design")
+  const [category, setCategory] = useState("")
   const [keyword, setKeyword] = useState("")
   const [code, setCode] = useState("")
   const [message, setMessage] = useState("")
@@ -95,10 +95,14 @@ const ReferencePage = function ({ location }) {
       <div>
         <h1 className="page-title">Job</h1>
         <div style={{ marginBottom: `.5rem` }}>
-          <select style={{ marginRight: `.5rem` }}>
-            {categoryOption.map(c => <option
+          <select style={{ marginRight: `.5rem` }}
+            onChange={event => setCategory(event.target.value)}
+          >
+            {categoryOption.map(c => 
+            <option
               key={c}
-              onChange={event => setCategory(event.target.value)}>{c}
+            >
+              {c}
             </option>)
             }
           </select>
