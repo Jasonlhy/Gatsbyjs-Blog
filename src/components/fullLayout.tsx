@@ -10,13 +10,13 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import Footer from "./footer.js"
+import Footer from "./footer"
 import "./layout.css"
 
-const Layout = ({ children, location }) => (
+const FullLayout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
+      query SiteTitleFullQuery {
         site {
           siteMetadata {
             title
@@ -26,14 +26,15 @@ const Layout = ({ children, location }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} location={location} />
+        <Header siteTitle={data.site.siteMetadata.title} location={location} isFullPageLayout={true} />
         <div
           className="layoutSmallScreenPadding"
           style={{
             margin: `0 auto`,
-            maxWidth: 960,
+            maxWidth: `100%`,
             padding: `0px 1.0875rem 1.45rem`,
             paddingTop: 0,
+            overflow: "scroll",
           }}
         >
           <main>{children}</main>
@@ -44,8 +45,8 @@ const Layout = ({ children, location }) => (
   />
 )
 
-Layout.propTypes = {
+FullLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default FullLayout
