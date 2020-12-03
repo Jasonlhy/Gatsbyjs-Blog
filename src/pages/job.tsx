@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Axios from "axios"
 import FullLayout from "../components/fullLayout"
 import SEO from "../components/seo"
@@ -156,8 +156,7 @@ const ReferencePage = function ({ location }) {
         </div>
         }
       </div>
-
-    </FullLayout >
+    </FullLayout>
   )
 }
 
