@@ -2,7 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import TagLabel from "./tagLabel"
 
-import styles from "./tagCloud.module.css"
+import * as styles from "./tagCloud.module.css"
 
 const TagCloud = () => (
   <StaticQuery

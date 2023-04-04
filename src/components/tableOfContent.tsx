@@ -2,12 +2,12 @@ import React, { useEffect, useState, useMemo } from "react"
 import PropTypes, { func } from "prop-types"
 import { Container } from "./containers"
 
-import smoothscroll from "smoothscroll-polyfill"
+//import smoothscroll from "smoothscroll-polyfill"
 import addIcon from "../icons/add.svg"
 import useMedia from "../hooks/use-media"
 import classNames from "classnames"
 
-import styles from "./tableOfContent.module.css"
+import * as styles from "./tableOfContent.module.css"
 
 /**
  * Table of Content of the article
@@ -30,7 +30,7 @@ const TableOfContent = function (props) {
   useEffect(function () {
     // Delay the polyfill step
     // https://github.com/gatsbyjs/gatsby/issues/309
-    smoothscroll.polyfill()
+    // smoothscroll.polyfill()
   })
 
   const _closeMenu = function () {

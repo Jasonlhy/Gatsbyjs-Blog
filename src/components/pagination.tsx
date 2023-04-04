@@ -2,7 +2,7 @@ import React from "react"
 import BlogListLink from "../components/blogListLink"
 import PropTypes from "prop-types"
 
-import styles from "./pagination.module.css"
+import * as styles from "./pagination.module.css"
 import classNames from "classnames"
 
 const Pagination = function (props) {

@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import _ from "lodash"
 
-import styles from "./tagLabel.module.css"
+import * as styles from "./tagLabel.module.css"
 
 export default function (props) {
   const { tag, isClickable, count } = props

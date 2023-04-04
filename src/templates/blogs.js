@@ -7,7 +7,7 @@ import BlogItem from "../components/blogItem"
 import Pagination from "../components/pagination"
 import { OuterContainer } from "../components/containers"
 
-import "./blogs.css"
+import * as styles from "./blogs.css"
 
 class BlogListPage extends React.Component {
   /**

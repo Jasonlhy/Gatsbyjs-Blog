@@ -7,7 +7,7 @@ import { ShadowContainer } from "../components/containers"
 import TagList from "../components/tagList"
 import PropTypes from "prop-types"
 
-import styles from "./blogItem.module.css"
+import * as styles from "./blogItem.module.css"
 
 class BlogItem extends React.Component {
   /**

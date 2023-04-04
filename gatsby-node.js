@@ -1,15 +1,21 @@
 /**
  * Implement Gatsby's Node APIs in this file.
  *
- * See: https://www.gatsbyjs.org/docs/node-apis/
+ * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
-
-// You can delete this file if you're not using it
 
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 const _ = require("lodash")
 
+/**
+ * Create blog pages dynamically from markdown files
+ * Each blog post will have its own page created from a template component
+ * 
+ * @param {*} graphql - Gatsby's graphql function
+ * @param {*} createPage - Gatsby's createPage function
+ * @returns 
+ */
 function createBlogPages (graphql, createPage) {
   return graphql(`
     {
@@ -55,7 +61,14 @@ function createBlogPages (graphql, createPage) {
     })
   })
 }
-
+/**
+ * Create tag pages and blog pages dynamically from markdown files.
+ * Each tag pages and each blog blog post will have their own page created from a template component
+ * 
+ * @param {*} graphql - Gatsby's graphql function
+ * @param {*} createPage - Gatsby's createPage function
+ * @returns 
+ */
 function createTagPages (graphql, createPage) {
   return graphql(`
     {
@@ -116,13 +129,26 @@ function createTagPages (graphql, createPage) {
   })
 }
 
-exports.createPages = ({ actions, graphql }) => {
+/**
+ * @type {import('gatsby').GatsbyNode['createPages']}
+ */
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
+  createPage({
+    path: "/using-dsg",
+    component: require.resolve("./src/templates/using-dsg.js"),
+    context: {},
+    defer: true,
+  })
 
-  // May use alias instead of two promise?
-  // https://spectrum.chat/gatsby-js/general/can-i-have-two-export-createpages-in-gatsby-node-js~1d166bc9-2273-4190-8ab1-253284a1a54d
-  const createPagePromises = [createBlogPages(graphql, createPage), createTagPages(graphql, createPage)]
-  return Promise.all(createPagePromises)
+  await createBlogPages(graphql, createPage);
+  await createTagPages(graphql, createPage);
+
+  // const createPagePromises = [
+  //   createBlogPages(graphql, createPage),
+  //   createTagPages(graphql, createPage)
+  // ];
+  // return Promise.all(createPagePromises)
 }
 
 // slug is need for the table of content
@@ -132,6 +158,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
+    // console.log("node type: ", node.internal.type);
+    // console.log("createNodeField: ", createNodeField);
+    // console.log("getNode: ", getNode);
+    // console.log("value: ", value);
+
     createNodeField({
       name: `slug`,
       node,

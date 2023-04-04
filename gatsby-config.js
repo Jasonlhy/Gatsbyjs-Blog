@@ -1,12 +1,21 @@
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
+ */
+
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
 module.exports = {
   siteMetadata: {
     title: `Life 4 J`,
     description: `Just some recodings`,
     author: `jasonlhy`,
+    siteUrl: `https://jasonlhy.com`,
   },
   plugins: [
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -14,17 +23,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    // Progress Bar
-    {
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        // Setting a color is optional.
-        color: `tomato`,
-        // Disable the loading spinner.
-        showSpinner: true,
-      },
-    },
-    // Use Markdown as source
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -32,8 +30,6 @@ module.exports = {
         name: "markdown-pages",
       },
     },
-    `gatsby-plugin-sharp`,
-    // Transform markdown to GraphQL
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -97,13 +93,13 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
-        theme_color: `#663399`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
+        // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    `gatsby-plugin-react-helmet`,
   ],
 }
